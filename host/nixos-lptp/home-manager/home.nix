@@ -15,6 +15,7 @@ let
     rofi = "rofi";
     tmux = "tmux";
     vim = "vim";
+    yazi = "yazi";
     zsh = "zsh";
   };
 in
