@@ -1,6 +1,7 @@
 export STARSHIP_CONFIG="/etc/starship-root.toml"
 export PATH="$HOME/.config/bin:$HOME/.local/share/bin:$HOME/.local/bin:$HOME/.config/zide/bin/:$PATH"
 eval "$(starship init zsh)"
+eval "$(ssh-agent -s)"
 #. "$HOME/.atuin/bin/env"
 #eval "$(atuin init zsh)"
 

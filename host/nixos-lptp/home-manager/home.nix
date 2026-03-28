@@ -15,7 +15,6 @@ let
     rofi = "rofi";
     tmux = "tmux";
     vim = "vim";
-    yazi = "yazi";
     zsh = "zsh";
   };
 in
@@ -37,6 +36,7 @@ in
   imports = [
     ./modules/btop.nix
     ./modules/xdg.nix
+    ./modules/yazi.nix
     ./modules/zsh.nix
     inputs.noctalia.homeModules.default
   ];
