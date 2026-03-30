@@ -1,5 +1,4 @@
 config/nvim
 config/qtile
 config/rofi
-host/*/hardware-configuration.nix
 
