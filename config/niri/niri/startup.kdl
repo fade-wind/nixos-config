@@ -1,4 +1,4 @@
-spawn-at-startup "dms" "run"
+spawn-at-startup "qs" "-c" "noctalia-shell"
 hotkey-overlay {
     skip-at-startup
 }

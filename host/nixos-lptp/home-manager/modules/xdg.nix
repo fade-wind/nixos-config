@@ -1,4 +1,5 @@
-{ config, ... }:
+{ config, pkgs, ... }:
+
 {
   xdg = {
     enable = true;
@@ -16,6 +17,32 @@
       settings = {
         default = [ "kitty.desktop" ];
       };
+    };
+    portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-termfilechooser
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-gnome
+      ];
+      config.common = {
+        default = [ "gtk" ];
+        "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+        "org.freedesktop.impl.portal.FileChooser" = [ "termfilechooser" ];
+      };
+    };
+
+    configFile."xdg-desktop-portal-termfilechooser/config" = {
+      force = true;
+      executable = true; 
+      text = ''
+        [filechooser]
+        cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
+        default_dir=$HOME/Downloads
+        open_mode=suggested
+        save_mode=last
+      '';
     };
   };
 }

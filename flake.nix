@@ -1,5 +1,5 @@
 {
-  description = "NixOS Laptop on Lenovo T580";
+  description = "NixOS with Niri WM, Noctalia-Shell, and custom CachyOS kernel";
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 

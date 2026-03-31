@@ -141,6 +141,8 @@
       videoDrivers = [ "modesetting" ];
     };
 
+    dbus.enable=true;
+
     gnome = {
       gnome-keyring.enable = true;
     };
@@ -278,6 +280,7 @@
      unzip
 
      podman-compose
+     brave
 
      cockpit
      cockpit-podman
