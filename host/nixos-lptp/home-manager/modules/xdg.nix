@@ -40,6 +40,8 @@
         [filechooser]
         cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
         default_dir=$HOME/Downloads
+        env=TERMCMD='kitty --title filechooser'
+        env=PATH="$PATH:/run/current-system/sw/bin"
         open_mode=suggested
         save_mode=last
       '';
