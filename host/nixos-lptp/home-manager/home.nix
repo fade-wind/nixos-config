@@ -15,7 +15,6 @@ let
     rofi = "rofi";
     tmux = "tmux";
     vim = "vim";
-    yazi = "yazi";
     zsh = "zsh";
   };
 in
@@ -79,13 +78,19 @@ in
 
     # Apps
     kitty
+    qutebrowser
+    wl-clipboard
 
     # Terminal
     btop
     eza
     fastfetch
+    ffmpeg
     fzf
+    imagemagick
+    jp
     matugen
+    poppler
     ripgrep
     starship
     yazi
