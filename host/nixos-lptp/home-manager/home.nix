@@ -12,6 +12,7 @@ let
     niri = "niri";
     nvim = "nvim";
     qtile = "qtile";
+    qutebrowser = "qutebrowser";
     rofi = "rofi";
     tmux = "tmux";
     vim = "vim";
@@ -22,15 +23,6 @@ in
 {
   home.username = "zpeppler";
   home.homeDirectory = "/home/zpeppler";
-  programs.git = {
-    enable = true;
-    settings = {
-      user = {
-        name = "ZPeppler";
-        email = "peppler.zachary@gmail.com";
-      };
-    };
-  };
   home.stateVersion = "26.05";
 
   imports = [
@@ -40,33 +32,6 @@ in
     ./modules/zsh.nix
     inputs.noctalia.homeModules.default
   ];
-
-  programs.bash = {
-    enable = true;
-    shellAliases = {
-      lla = "ls -la";
-      ll = "ls -l";
-      nrs = "sudo nixos-rebuild switch --flake $HOME/nixos-dotfiles#nixos-lptp";
-    };
-    initExtra = ''
-      export PS1="\[\e[38;5;75m\]\u@\h \[\e[38;5;113m\]\w \[\e[38;5;189m\]\$ \[\e[0m\]"
-      export STARSHIP_CONFIG="/etc/starship-root.toml"
-    '';
-  };
-
-  programs.vim = {
-    enable = true;
-    extraConfig = ''
-      source ~/.config/vim/vimrc
-    '';
-  };
-
-  xdg.configFile = builtins.mapAttrs
-    (name: subpath: {
-      source = create_symlink "${dotfiles}/${subpath}";
-      recursive = true;
-    })
-    configs;
   
   home.packages = with pkgs; [
     neovim
@@ -98,6 +63,50 @@ in
 
     dconf
   ];
+
+  home.sessionVariables = {
+    BROWSER = "qutebrowser";
+    EDITOR = "vim";
+    VISUAL = "vim";
+  };
+
+  programs = {
+    bash = {
+      enable = true;
+      shellAliases = {
+        lla = "ls -la";
+        ll = "ls -l";
+        nrs = "sudo nixos-rebuild switch --flake $HOME/nixos-dotfiles#nixos-lptp";
+      };
+      initExtra = ''
+        export PS1="\[\e[38;5;75m\]\u@\h \[\e[38;5;113m\]\w \[\e[38;5;189m\]\$ \[\e[0m\]"
+        export STARSHIP_CONFIG="/etc/starship-root.toml"
+      '';
+    };
+    git = {
+      enable = true;
+      settings = {
+        user = {
+          name = "ZPeppler";
+          email = "peppler.zachary@gmail.com";
+        };
+      };
+    };
+
+    vim = {
+      enable = true;
+      extraConfig = ''
+        source ~/.config/vim/vimrc
+      '';
+    };
+  };
+
+  xdg.configFile = builtins.mapAttrs
+    (name: subpath: {
+      source = create_symlink "${dotfiles}/${subpath}";
+      recursive = true;
+    })
+    configs;
 
   dconf = {
     enable = true;
