@@ -198,9 +198,12 @@
     polkit.enable = true;
     rtkit.enable = true;
 
-    sudo.extraConfig = ''
-      Defaults pwfeedback
-    '';
+    sudo = {
+      wheelNeedsPassword = false; 
+      extraConfig = ''
+        Defaults pwfeedback
+      '';
+    };
   };
 
   systemd.user.services.polkit-gnome-authentication-agent-1 = {

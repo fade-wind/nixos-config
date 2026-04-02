@@ -3,7 +3,7 @@ export PATH="$HOME/.config/bin:$HOME/.local/share/bin:$HOME/.local/bin:$HOME/.co
 eval "$(starship init zsh)"
 eval "$(ssh-agent -s)"
 #. "$HOME/.atuin/bin/env"
-#eval "$(atuin init zsh)"
+eval "$(atuin init zsh)"
 
 
 (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES

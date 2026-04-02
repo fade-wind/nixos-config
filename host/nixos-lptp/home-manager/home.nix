@@ -71,6 +71,7 @@ in
   };
 
   programs = {
+    atuin.enable = true;
     bash = {
       enable = true;
       shellAliases = {

@@ -9,4 +9,4 @@ settings:
   content.javascript.clipboard:
     https://github.com: access-paste
   tabs.position:
-    global: left
+    global: top
