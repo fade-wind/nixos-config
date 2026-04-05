@@ -30,4 +30,17 @@ layout {
 
     struts {
     }
+  
+    background-color "transparent"
+}
+
+layer-rule {
+  match namespace="^noctalia-wallpaper*"
+  place-within-backdrop true
+}
+
+overview {
+  workspace-shadow {
+    off
+  }
 }

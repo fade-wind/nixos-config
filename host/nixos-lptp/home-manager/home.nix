@@ -4,16 +4,15 @@ let
   dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
+    assets = "assets";
     atuin = "atuin";
-    fuzzel = "fuzzel";
     eza = "eza";
     fzf = "fzf";
     kitty = "kitty";
     niri = "niri";
+    noctalia = "noctalia";
     nvim = "nvim";
-    qtile = "qtile";
     qutebrowser = "qutebrowser";
-    rofi = "rofi";
     tmux = "tmux";
     vim = "vim";
     zsh = "zsh";
@@ -27,6 +26,7 @@ in
 
   imports = [
     ./modules/btop.nix
+    ./modules/foot.nix
     ./modules/xdg.nix
     ./modules/yazi.nix
     ./modules/zsh.nix

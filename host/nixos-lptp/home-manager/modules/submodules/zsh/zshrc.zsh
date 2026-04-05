@@ -6,3 +6,6 @@
 
 # Custom functions
 [ -f "$HOME/.config/zsh/functions.zsh" ] && source "$HOME/.config/zsh/functions.zsh"
+
+# foot terminal functions
+[ -f "$HOME/.config/zsh/foot.zsh" ] && source "$HOME/.config/zsh/foot.zsh"
