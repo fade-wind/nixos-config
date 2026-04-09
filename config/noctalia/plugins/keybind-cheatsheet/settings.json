@@ -1,31 +1,11 @@
 {
   "cheatsheetData": [
     {
-      "title": "Applications",
+      "title": "Noctalia",
       "binds": [
         {
           "keys": "Super + Shift + Slash",
-          "desc": "Open Noctalia Keybind Cheatsheet"
-        },
-        {
-          "keys": "Super + T",
-          "desc": "Open a Terminal: foot"
-        },
-        {
-          "keys": "Super + Y",
-          "desc": "Open Yazi"
-        },
-        {
-          "keys": "Super + N",
-          "desc": "Open Neovide"
-        },
-        {
-          "keys": "Super + B",
-          "desc": "Open Qutebrowser"
-        },
-        {
-          "keys": "Super + Shift + B",
-          "desc": "Open Brave Browser"
+          "desc": "Open Keybind Cheatsheet"
         },
         {
           "keys": "Super + Space",
@@ -44,20 +24,53 @@
           "desc": "Lock the Screen"
         },
         {
-          "keys": "Vol Up",
-          "desc": "Run: noctalia-shell"
-        },
-        {
           "keys": "Vol Down",
-          "desc": "Run: noctalia-shell"
+          "desc": "Volume Down"
         },
         {
           "keys": "Mute",
-          "desc": "Run: noctalia-shell"
+          "desc": "Mute"
         },
         {
           "keys": "Mic Mute",
-          "desc": "Run: noctalia-shell"
+          "desc": "Mute Microphone"
+        },
+        {
+          "keys": "Bright Up",
+          "desc": "Brightness Up"
+        },
+        {
+          "keys": "Bright Down",
+          "desc": "Brightness Down"
+        }
+      ]
+    },
+    {
+      "title": "Applications",
+      "binds": [
+        {
+          "keys": "Super + T",
+          "desc": "Open a Terminal: foot"
+        },
+        {
+          "keys": "Super + Y",
+          "desc": "Open Yazi"
+        },
+        {
+          "keys": "Super + N",
+          "desc": "Open Neovide"
+        },
+        {
+          "keys": "Super + E",
+          "desc": "Open Emacs"
+        },
+        {
+          "keys": "Super + B",
+          "desc": "Open Qutebrowser"
+        },
+        {
+          "keys": "Super + Shift + B",
+          "desc": "Open Brave Browser"
         },
         {
           "keys": "Play",
@@ -74,14 +87,6 @@
         {
           "keys": "Next",
           "desc": "Run: playerctl next"
-        },
-        {
-          "keys": "Bright Up",
-          "desc": "Run: noctalia-shell"
-        },
-        {
-          "keys": "Bright Down",
-          "desc": "Run: noctalia-shell"
         },
         {
           "keys": "Super + Shift + R",

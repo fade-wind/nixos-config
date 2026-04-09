@@ -137,7 +137,6 @@
       enable = true;
       autoRepeatDelay = 200;
       autoRepeatInterval = 35;
-      windowManager.qtile.enable = true;
       videoDrivers = [ "modesetting" ];
     };
 
@@ -161,13 +160,7 @@
       };
     };
 
-    displayManager = {
-      ly = {
-        enable = true;
-        x11Support = true;
-      };
-    };
-
+    greetd.enable = true;
     libinput.enable = true;
     printing.enable = true;
     udisks2.enable = true;
@@ -180,6 +173,7 @@
     power-profiles-daemon.enable = false;
     tuned.enable = true;
     upower.enable = true;
+    seatd.enable = true;
 
     pipewire = {
       enable = true;
@@ -231,8 +225,29 @@
   programs = {
     niri.enable = true;
     zsh.enable = true;
-    firefox.enable = true;
+    
+    regreet = {
+      enable = true;
+      settings = {
+        GTK = {
+          application_prefer_dark_theme = true;
+          cursor_theme_name = "Bibata-Modern-Ice";
+        };
+        background = {
+          path = "/etc/regreet/Amaurot_Wallpaper.jpg";
+          fit = "Cover";
+        };
+      };
+      cursorTheme = {
+        name = "Bibata-Modern-Ice";
+        package = pkgs.bibata-cursors;
+      };
+      font.name = "JetBrainsMono Nerd Font";
+      font.size = 16;
+    };
   };
+
+  environment.etc."regreet/Amaurot_Wallpaper.jpg".source = ../../config/assets/wallpapers/Amaurot_Wallpaper.jpg;
 
   # ---------------------------------------------
   # Users
@@ -267,6 +282,8 @@
      curl
      zip
      unzip
+     coreutils
+     clang
 
      podman-compose
      brave
@@ -281,6 +298,7 @@
      gnome-disk-utility
      xwayland-satellite
      qt6Packages.qt6ct
+     app2unit
 
      efibootmgr
      gnome-keyring
@@ -305,7 +323,8 @@
   # ---------------------------------------------
 
   fonts.packages = with pkgs; [
-   nerd-fonts.jetbrains-mono
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.symbols-only 
   ];
 
   # ---------------------------------------------

@@ -91,9 +91,11 @@ debug {
   honor-xdg-activation-with-invalid-serial
 }
 
+include "./niri/cursor.kdl"
+include "./niri/environment.kdl"
 include "./niri/keybinds.kdl"
 include "./niri/layout.kdl"
 include "./niri/output.kdl"
 include "./niri/startup.kdl"
 include "./niri/windowrules.kdl"
-include "./niri/cursor.kdl"
+

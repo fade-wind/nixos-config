@@ -28,6 +28,7 @@ in
     ./modules/btop.nix
     ./modules/foot.nix
     ./modules/xdg.nix
+    ./modules/vesktop.nix
     ./modules/yazi.nix
     ./modules/zsh.nix
     inputs.noctalia.homeModules.default
@@ -84,6 +85,10 @@ in
         export STARSHIP_CONFIG="/etc/starship-root.toml"
       '';
     };
+
+    emacs = {
+      enable = true;
+    };
     git = {
       enable = true;
       settings = {
@@ -100,6 +105,11 @@ in
         source ~/.config/vim/vimrc
       '';
     };
+  };
+
+  services.emacs = {
+    enable = true;
+    startWithUserSession = true;
   };
 
   xdg.configFile = builtins.mapAttrs
