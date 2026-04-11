@@ -2,8 +2,8 @@
   programs.btop = {
     enable = true;
     settings = {
-      color_theme = "tokyo-storm";
-      theme_background = true;
+      color_theme = "noctalia";
+      theme_background = false;
     };
     extraConfig = ''
       truecolor = True

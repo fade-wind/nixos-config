@@ -1,4 +1,1 @@
-config/nvim
-config/qtile
-config/rofi
-
+*.swp

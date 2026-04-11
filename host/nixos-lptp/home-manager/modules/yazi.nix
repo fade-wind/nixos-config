@@ -3,7 +3,7 @@
   programs.yazi = {
     enable = true;
     plugins = {
-      inherit (pkgs.yaziPlugins) chmod git full-border githead yatline yatline-githead mount;
+      inherit (pkgs.yaziPlugins) chmod git full-border githead mount;
     };
     initLua = ./submodules/yazi/init.lua;
     keymap = lib.importTOML ./submodules/yazi/keymap.toml;

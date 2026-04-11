@@ -10,8 +10,8 @@
         monitors =  [];
         showOutline = false;
         showCapsule = true;
-        capsuleOpacity = 1;
-        capsuleColorKey = "none";
+        capsuleOpacity = .30;
+        capsuleColorKey = "secondary";
         widgetSpacing = 6;
         contentPadding = 2;
         fontScale = 1;
@@ -32,7 +32,7 @@
           left = [
             {
               id = "Launcher";
-              colorizeSystemIcon = "primary";
+              colorizeSystemIcon = "secondary";
               customIconPath = "";
               icon = "rocket";
               enableColorization = false;
@@ -70,6 +70,9 @@
               textColor = "none";
               useFixedWidth = false;
             }
+            {
+              id = "plugin:ssh-sessions";
+            }
           ];
           center = [
             {
@@ -91,11 +94,14 @@
             {
               clockColor = "none";
               customFont = "";
-              formatHorizontal = "h:mm AP";
+              formatHorizontal = "h:mm AP - ddd, MMM dd";
               formatVertical = "h mm AP - dd MM";
               id = "Clock";
               tooltipFormat = "h:mm AP ddd, MMM dd";
               useCustomFont = false;
+            }
+            {
+              id = "plugin:usb-drive-manager";
             }
           ];
           right = [
@@ -122,7 +128,7 @@
               showDiskUsageAsPercent = false;
               showGpuTemp = false;
               showLoadAverage = false;
-              showMemoryAsPercent = false;
+              showMemoryAsPercent = true;
               showMemoryUsage = true;
               showNetworkStats = true;
               showSwapUsage = false;
@@ -131,7 +137,7 @@
               usePadding = false;
             }
             {
-              hideWhenZero = false;
+              hideWhenZero = true;
               hideWhenZeroUnread = false;
               iconColor = "none";
               id = "NotificationHistory";
@@ -347,7 +353,7 @@
         ignoreMouseInput = false;
         screenshotAnnotationTool = "";
         overviewLayer = false;
-        density = "default";
+        density = "comfortable";
       };
       controlCenter = {
         position = "top_right";
@@ -778,8 +784,36 @@
             enabled = true;
             sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
+        file-search = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
+        ssh-sessions = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
+        usb-drive-manager = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
       };
       version = 2;
+    };
+    pluginSettings = {
+      ssh-sessions = {
+        terminalCommand = "footclient -e";
+        pollInterval = 10;
+        showInactiveHosts = true;
+      };
+      usb-drive-manager = {
+        autoMount = true;
+        fileBrowser = "yazi";
+        terminalCommand = "foot";
+        showNotifications = true;
+        hideWhenEmpty = true;
+        showBadge = true;
+        iconColor = "none";
+      };
     };
   };
 }
