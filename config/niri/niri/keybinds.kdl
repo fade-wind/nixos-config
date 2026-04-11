@@ -161,6 +161,6 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 
     Mod+Shift+R hotkey-overlay-title="Reload Config" {
-        spawn "sh" "-c" "noctalia-shell kill && QT_QPA_PLATFORMTHEME=qt6ct noctalia-shell -d";
+        spawn "sh" "-c" "systemctl --user restart noctalia-shell.service";
     }
 }

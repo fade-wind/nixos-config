@@ -284,6 +284,7 @@
      unzip
      coreutils
      clang
+     cmake
 
      podman-compose
      brave
@@ -316,6 +317,8 @@
      fzf
      imagemagick
      bat
+     jq
+     yq
   ];
 
   # ---------------------------------------------

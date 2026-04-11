@@ -10,7 +10,6 @@ let
     fzf = "fzf";
     kitty = "kitty";
     niri = "niri";
-    noctalia = "noctalia";
     nvim = "nvim";
     qutebrowser = "qutebrowser";
     tmux = "tmux";
@@ -27,8 +26,9 @@ in
   imports = [
     ./modules/btop.nix
     ./modules/foot.nix
-    ./modules/xdg.nix
+    ./modules/noctalia.nix
     ./modules/vesktop.nix
+    ./modules/xdg.nix
     ./modules/yazi.nix
     ./modules/zsh.nix
     inputs.noctalia.homeModules.default
