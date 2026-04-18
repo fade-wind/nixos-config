@@ -279,6 +279,8 @@
      git
      alacritty
      gcc
+     gnumake
+     libtool
      curl
      zip
      unzip
@@ -306,7 +308,6 @@
      xdg-terminal-exec
 
      tmux
-     neovim
      wl-clipboard
      lua5_1
      luarocks
@@ -319,6 +320,7 @@
      bat
      jq
      yq
+     nodejs
   ];
 
   # ---------------------------------------------

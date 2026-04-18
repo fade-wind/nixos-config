@@ -4,9 +4,9 @@
     settings = {
       main = {
         include = "~/.config/foot/themes/noctalia";
-        font = "JetBrainsMono Nerd Font:size=8.5";
+        font = "JetBrainsMono Nerd Font:pixelsize=16";
         dpi-aware = "yes";
-        pad = "2x2";
+        pad = "4x4x0x0";
       };
     
       colors-dark = {

@@ -10,7 +10,7 @@
         monitors =  [];
         showOutline = false;
         showCapsule = true;
-        capsuleOpacity = .30;
+        capsuleOpacity = 0.30;
         capsuleColorKey = "secondary";
         widgetSpacing = 6;
         contentPadding = 2;
@@ -190,7 +190,7 @@
         screenOverrides = [];
       };
       general = {
-        avatarImage = "/home/zpeppler/.face";
+        avatarImage = "/home/zpeppler/.config/assets/profile-pic/blu.jpg";
         dimmerOpacity = 0.2;
         showScreenCorners = false;
         forceBlackScreenCorners = false;
@@ -636,6 +636,10 @@
           {
             enabled = true;
             id = "btop";
+          }
+          {
+            enabled = true;
+            id = "kitty";
           }
           {
             enabled = true;

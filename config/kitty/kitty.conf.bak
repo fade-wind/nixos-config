@@ -29,6 +29,7 @@ hide_window_decorations yes
 #window_padding_width 2
 # window_padding_height 2
 
+
 # Initial window size (Alacritty equivalent)
 initial_window_width 1920
 initial_window_height 1080
@@ -67,7 +68,7 @@ map page_down scroll_page_down
 map shift+home scroll_home
 map shift+end scroll_end
 
-# BEGIN_KITTY_THEME
-# Noctalia
-include current-theme.conf
-# END_KITTY_THEME
+# ======================
+# Colors
+# ======================
+include tokyonight_storm.conf

@@ -10,7 +10,6 @@ let
     fzf = "fzf";
     kitty = "kitty";
     niri = "niri";
-    nvim = "nvim";
     qutebrowser = "qutebrowser";
     tmux = "tmux";
     vim = "vim";
@@ -26,6 +25,8 @@ in
   imports = [
     ./modules/btop.nix
     ./modules/foot.nix
+    ./modules/kanshi.nix
+    ./modules/nixvim.nix
     ./modules/noctalia.nix
     ./modules/vesktop.nix
     ./modules/xdg.nix
@@ -35,12 +36,10 @@ in
   ];
   
   home.packages = with pkgs; [
-    neovim
     nil
     nixpkgs-fmt
     nodejs
     gcc
-    rofi
 
     # Apps
     kitty
@@ -104,6 +103,10 @@ in
       extraConfig = ''
         source ~/.config/vim/vimrc
       '';
+    };
+
+    vscode = {
+      enable = true;
     };
   };
 

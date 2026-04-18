@@ -17,6 +17,7 @@
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     nur.url = "github:nix-community/NUR";
     distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
+    nixvim.url = "github:nix-community/nixvim";
   };
 
   outputs = inputs@{ self, nixpkgs, ... }: 
