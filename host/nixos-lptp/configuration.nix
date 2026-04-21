@@ -274,56 +274,56 @@
   # ---------------------------------------------
 
   environment.systemPackages = with pkgs; [
-     vim
-     wget
-     git
-     alacritty
-     gcc
-     gnumake
-     libtool
-     curl
-     zip
-     unzip
-     coreutils
-     clang
-     cmake
+    vim
+    wget
+    git
+    alacritty
+    gcc
+    gnumake
+    libtool
+    curl
+    zip
+    unzip
+    coreutils
+    clang
+    cmake
 
-     podman-compose
-     brave
+    podman-compose
+    brave
 
-     cockpit
-     cockpit-podman
-     cockpit-machines
-     virt-viewer
+    cockpit
+    cockpit-podman
+    cockpit-machines
+    virt-viewer
 
-     bibata-cursors
-     polkit_gnome
-     gnome-disk-utility
-     xwayland-satellite
-     qt6Packages.qt6ct
-     app2unit
+    bibata-cursors
+    polkit_gnome
+    gnome-disk-utility
+    xwayland-satellite
+    qt6Packages.qt6ct
+    app2unit
 
-     efibootmgr
-     gnome-keyring
-     xdg-terminal-exec
+    efibootmgr
+    gnome-keyring
+    xdg-terminal-exec
 
-     kubectl
-     tmux
-     sesh
-     television
-     wl-clipboard
-     lua5_1
-     luarocks
-     tree-sitter
-     unzip
-     fd
-     ripgrep
-     fzf
-     imagemagick
-     bat
-     jq
-     yq
-     nodejs
+    kubectl
+    tmux
+    sesh
+    television
+    wl-clipboard
+    lua5_1
+    luarocks
+    tree-sitter
+    unzip
+    fd
+    ripgrep
+    fzf
+    imagemagick
+    bat
+    jq
+    yq
+    nodejs
   ];
 
   # ---------------------------------------------
