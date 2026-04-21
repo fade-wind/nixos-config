@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -37,9 +37,13 @@
           presets = "helix";
         };
       };
+      renderer-markdown.enable = true;
       vim-sleuth.enable = true;
       web-devicons.enable = true;
       fzf-lua = {
+        enable = true;
+      };
+      treesitter = {
         enable = true;
       };
     };

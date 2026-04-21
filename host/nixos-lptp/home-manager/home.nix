@@ -11,6 +11,8 @@ let
     kitty = "kitty";
     niri = "niri";
     qutebrowser = "qutebrowser";
+    sesh = "sesh";
+    television = "television";
     tmux = "tmux";
     vim = "vim";
     zsh = "zsh";

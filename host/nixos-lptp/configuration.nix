@@ -307,7 +307,10 @@
      gnome-keyring
      xdg-terminal-exec
 
+     kubectl
      tmux
+     sesh
+     television
      wl-clipboard
      lua5_1
      luarocks

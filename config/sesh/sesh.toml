@@ -1,0 +1,31 @@
+#:schema https://github.com/joshmedeski/sesh/raw/main/sesh.schema.json
+blacklist = ["scratch"]
+
+cache = false
+
+[default_session]
+startup_command = "eza --all --git --icons --color=always {}"
+
+[[session]]
+name = "tmux-conf"
+path = "~/.config/tmux"
+startup_command = "nvim tmux.conf"
+preview_command = "bat --color=always ~/.config/tmux/tmux.conf"
+
+[[session]]
+name = "nixvim-conf"
+path = "~/nixos-dotfiles/host/nixos-lptp/home-manager/modules/"
+startup_command = "nvim nixvim.nix"
+preview_command = "bat --color=always ~/nixos-dotfiles/host/nixos-lptp/home-manager/modules/nixvim.nix"
+
+[[session]]
+name = "configuration-nix"
+path = "~/nixos-dotfiles/host/nixos-lptp/"
+startup_command = "nvim configuration.nix"
+preview_command = "bat --color=always ~/nixos-dotfiles/host/nixos-lptp/configuration.nix"
+
+[[session]]
+name = "hells-rebels"
+path = "~/Documents/ttrpg-notes/hells_rebels"
+startup_command = "nvim hells-rebels-journal.md hells-rebels-notes.md hells-rebels-market.md"
+preview_command = "bat --color=always ~/Documents/ttrpg-notes/hell_rebels/hells-rebels-journal.md"
