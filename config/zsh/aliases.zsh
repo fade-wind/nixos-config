@@ -13,10 +13,6 @@ alias vi='/usr/bin/vim'
 #alias lso='/usr/bin/ls'
 #alias cdo='/usr/bin/cd'
 
-
 # FZF
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
-
-# Updated NIXOS config
-alias nrs="sudo nixos-rebuild switch --flake $HOME/nixos-dotfiles#nixos-lptp"
 

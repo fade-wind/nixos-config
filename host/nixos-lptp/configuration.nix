@@ -4,7 +4,7 @@
 {
   imports =[ 
     ./hardware-configuration.nix
-    ./root-modules/starship-root.nix
+    ../../common-modules/root-modules/starship-root.nix
     inputs.noctalia.nixosModules.default
     inputs.nur.modules.nixos.default
     inputs.nixos-plymouth.nixosModules.default

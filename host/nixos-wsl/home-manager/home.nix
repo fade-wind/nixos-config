@@ -1,17 +1,13 @@
-{ config, pkgs, inputs, ... }: 
+{ config, pkgs, ... }:
 
 let
   dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
-    assets = "assets";
     atuin = "atuin";
     eza = "eza";
     fzf = "fzf";
-    kitty = "kitty";
-    niri = "niri";
-    qutebrowser = "qutebrowser";
-    sesh = "sesh-home";
+    sesh =  "sesh-work";
     television = "television";
     tmux = "tmux";
     vim = "vim";
@@ -25,27 +21,19 @@ in
   home.stateVersion = "26.05";
 
   imports = [
-    ./modules/foot.nix
-    ./modules/kanshi.nix
-    ./modules/noctalia.nix
-    ./modules/vesktop.nix
-    ./modules/xdg.nix
     ./modules/zsh.nix
     ../../../common-modules/btop.nix
     ../../../common-modules/nixvim.nix
     ../../../common-modules/yazi.nix
-    inputs.noctalia.homeModules.default
   ];
-  
+
   home.packages = with pkgs; [
     nil
     nixpkgs-fmt
     nodejs
     gcc
+    uv
 
-    # Apps
-    kitty
-    qutebrowser
     wl-clipboard
 
     # Terminal
@@ -67,11 +55,10 @@ in
   ];
 
   home.sessionVariables = {
-    BROWSER = "qutebrowser";
     EDITOR = "vim";
     VISUAL = "vim";
   };
-
+  
   programs = {
     atuin.enable = true;
     bash = {
@@ -79,25 +66,26 @@ in
       shellAliases = {
         lla = "ls -la";
         ll = "ls -l";
-        nrs = "sudo nixos-rebuild switch --flake $HOME/nixos-dotfiles#nixos-lptp";
+        nrs = "sudo nixos-rebuild switch --flake $HOME/nixos-dotfiles#nixos-wsl";
       };
       initExtra = ''
-        export PS1="\[\e[38;5;75m\]\u@\h \[\e[38;5;113m\]\w \[\e[38;5;189m\]\$ \[\e[0m\]"
         export STARSHIP_CONFIG="/etc/starship-root.toml"
+        eval "$(starship init bash)"
       '';
     };
 
-    emacs = {
-      enable = true;
-    };
     git = {
       enable = true;
-      settings = {
-        user = {
-          name = "ZPeppler";
-          email = "peppler.zachary@gmail.com";
-        };
-      };
+      includes = [
+        {
+          condition = "gitdir:~/git-work/";
+          path = "~/.gitconfig-work";
+        }
+        {
+          condition = "gitdir:~/nixos-dotfiles/";
+          path = "~/.gitconfig-nixos";
+        }
+      ];
     };
 
     vim = {
@@ -106,16 +94,8 @@ in
         source ~/.config/vim/vimrc
       '';
     };
-
-    vscode = {
-      enable = true;
-    };
   };
 
-  services.emacs = {
-    enable = true;
-    startWithUserSession = true;
-  };
 
   xdg.configFile = builtins.mapAttrs
     (name: subpath: {
@@ -123,8 +103,8 @@ in
       recursive = true;
     })
     configs;
-
-  dconf = {
+    
+    dconf = {
     enable = true;
     settings = {
       "org/gnome/desktop/interface" = {

@@ -11,4 +11,4 @@
 [ -f "$HOME/.config/zsh/foot.zsh" ] && source "$HOME/.config/zsh/foot.zsh"
 
 # Updated NIXOS config
-alias nrs="sudo nixos-rebuild switch --flake $HOME/nixos-dotfiles#nixos-lptp"
+alias nrs="sudo nixos-rebuild switch --flake $HOME/nixos-dotfiles#nixos-wsl"

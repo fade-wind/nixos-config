@@ -13,6 +13,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-ld = {
+      url = "github:Mic92/nix-ld";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixos-plymouth.url = "github:BeatLink/nixos-plymouth";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     nur.url = "github:nix-community/NUR";
@@ -20,7 +26,7 @@
     nixvim.url = "github:nix-community/nixvim";
   };
 
-  outputs = inputs@{ self, nixpkgs, ... }: 
+  outputs = inputs@{ self, nixpkgs, nixos-wsl, ... }: 
   let
     system = "x86_64-linux";
   in
@@ -32,7 +38,20 @@
         ./host/nixos-lptp/configuration.nix
         inputs.home-manager.nixosModules.home-manager
       ];
-
+    };
+    nixosConfigurations.nixos-wsl = nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = { inherit inputs system; };
+      modules = [
+        ./host/nixos-wsl/configuration.nix
+        inputs.nix-ld.nixosModules.nix-ld
+        inputs.home-manager.nixosModules.home-manager
+        nixos-wsl.nixosModules.default {
+          system.stateVersion = "26.05";
+          wsl.enable = true;
+        }
+        { programs.nix-ld.dev.enable = true; }
+      ];
     };
   };
 }

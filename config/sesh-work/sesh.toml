@@ -1,0 +1,26 @@
+#:schema https://github.com/joshmedeski/sesh/raw/main/sesh.schema.json
+blacklist = ["scratch"]
+
+cache = false
+
+[default_session]
+startup_command = "eza --all --git --icons --color=always {}"
+
+[[session]]
+name = "tmux-conf"
+path = "~/.config/tmux"
+startup_command = "nvim tmux.conf"
+preview_command = "bat --color=always ~/.config/tmux/tmux.conf"
+
+[[session]]
+name = "nixvim-conf"
+path = "~/nixos-dotfiles/host/common-modules/"
+startup_command = "nvim nixvim.nix"
+preview_command = "bat --color=always ~/nixos-dotfiles/host/common-modules/nixvim.nix"
+
+[[session]]
+name = "configuration-nix"
+path = "~/nixos-dotfiles/host/nixos-wsl/"
+startup_command = "nvim configuration.nix"
+preview_command = "bat --color=always ~/nixos-dotfiles/host/nixos-wsl/configuration.nix"
+
