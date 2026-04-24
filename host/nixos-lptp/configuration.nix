@@ -30,6 +30,7 @@
     config.allowUnfree = true;
     overlays = [
       inputs.nix-cachyos-kernel.overlays.pinned
+      inputs.nirimod.overlays.default
     ];
   };
 
@@ -287,6 +288,8 @@
     coreutils
     clang
     cmake
+    nirimod
+    uv
 
     podman-compose
     brave

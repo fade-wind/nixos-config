@@ -18,6 +18,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nirimod.url = "github:srinivasr/nirimod";
+
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixos-plymouth.url = "github:BeatLink/nixos-plymouth";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
@@ -26,7 +28,7 @@
     nixvim.url = "github:nix-community/nixvim";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixos-wsl, ... }: 
+  outputs = inputs@{ self, nixpkgs, nixos-wsl, nirimod, ... }: 
   let
     system = "x86_64-linux";
   in
@@ -36,7 +38,9 @@
       specialArgs = { inherit inputs system; };
       modules = [
         ./host/nixos-lptp/configuration.nix
+        inputs.nix-ld.nixosModules.nix-ld
         inputs.home-manager.nixosModules.home-manager
+        { programs.nix-ld.dev.enable = true; }
       ];
     };
     nixosConfigurations.nixos-wsl = nixpkgs.lib.nixosSystem {
