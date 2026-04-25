@@ -48,6 +48,7 @@ in
     kitty
     qutebrowser
     wl-clipboard
+    neovide
 
     # Terminal
     btop

@@ -225,7 +225,6 @@
   # ---------------------------------------------
 
   programs = {
-    mango.enable = true;
     niri.enable = true;
     zsh.enable = true;
     
