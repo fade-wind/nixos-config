@@ -9,6 +9,7 @@ let
     eza = "eza";
     fzf = "fzf";
     kitty = "kitty";
+    mango = "mango";
     niri = "niri";
     qutebrowser = "qutebrowser";
     sesh = "sesh-home";
@@ -62,14 +63,23 @@ in
     starship
     yazi
     zoxide
+    lazygit
 
     dconf
+    libxcb
+    libxcb-wm
   ];
 
   home.sessionVariables = {
     BROWSER = "qutebrowser";
     EDITOR = "vim";
     VISUAL = "vim";
+  };
+
+  home.pointerCursor = {
+    name = "Bibata-Modern-Ice";
+    size = 24;
+    package = pkgs.bibata-cursors;
   };
 
   programs = {
