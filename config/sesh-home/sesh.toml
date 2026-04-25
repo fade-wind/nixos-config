@@ -14,9 +14,9 @@ preview_command = "bat --color=always ~/.config/tmux/tmux.conf"
 
 [[session]]
 name = "nixvim-conf"
-path = "~/nixos-dotfiles/host/nixos-lptp/home-manager/modules/"
+path = "~/nixos-dotfiles/common-modules/"
 startup_command = "nvim nixvim.nix"
-preview_command = "bat --color=always ~/nixos-dotfiles/host/nixos-lptp/home-manager/modules/nixvim.nix"
+preview_command = "bat --color=always ~/nixos-dotfiles/common-modules/nixvim.nix"
 
 [[session]]
 name = "configuration-nix"

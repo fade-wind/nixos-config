@@ -36,15 +36,6 @@
     }
     {
       mode = "n";
-      key = "x";
-      action = "_x";
-      options = {
-        silent = true;
-        noremap = true;
-      };
-    }
-    {
-      mode = "n";
       key = "<Tab>";
       action = ":bnext<CR>";
       options = {

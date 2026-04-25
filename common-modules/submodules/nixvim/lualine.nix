@@ -45,6 +45,7 @@ in {
         icons_enabled = true;
         always_divide_middle = true;
         global_status = true;
+        disabled_filetypes = [ "neo-tree" ];
       };
       sections = {
         lualine_a = [ 

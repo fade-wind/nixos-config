@@ -12,3 +12,4 @@
 
 # Updated NIXOS config
 alias nrs="sudo nixos-rebuild switch --flake $HOME/nixos-dotfiles#nixos-lptp"
+alias nrb="sudo nixos-rebuild boot --flake $HOME/nixos-dotfiles#nixos-lptp"

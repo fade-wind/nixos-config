@@ -73,6 +73,9 @@
             {
               id = "plugin:ssh-sessions";
             }
+            {
+              id = "plugin:kubectl-ctx";
+            }
           ];
           center = [
             {
@@ -113,6 +116,9 @@
               hidePassive = false;
               id = "Tray";
               pinned = [];
+            }
+            {
+              id = "plugin:clipboard";
             }
             {
               compactMode = true;
@@ -677,7 +683,7 @@
         colorGeneration = "";
       };
       plugins = {
-        autoUpdate = false;
+        autoUpdate = true;
         notifyUpdates = true;
       };
       idle = {
@@ -793,6 +799,14 @@
             sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
         ssh-sessions = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
+        kubectl-ctx= {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
+        clipboard= {
             enabled = true;
             sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
