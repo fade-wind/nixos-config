@@ -73,8 +73,8 @@ in
 
   home.sessionVariables = {
     BROWSER = "qutebrowser";
-    EDITOR = "vim";
-    VISUAL = "vim";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
   };
 
   home.pointerCursor = {
