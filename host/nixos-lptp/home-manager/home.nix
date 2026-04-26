@@ -49,6 +49,7 @@ in
     qutebrowser
     wl-clipboard
     neovide
+    nirimod
 
     # Terminal
     btop

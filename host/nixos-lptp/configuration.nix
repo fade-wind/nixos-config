@@ -30,7 +30,6 @@
   nixpkgs = {
     config.allowUnfree = true;
     overlays = [
-      inputs.nix-cachyos-kernel.overlays.pinned
       inputs.nirimod.overlays.default
     ];
   };
@@ -56,31 +55,6 @@
     plymouth = {
       enable = true;
     };
-
-    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-lts;
-    consoleLogLevel = 3;
-    initrd = {
-      verbose = false;
-      kernelModules = [
-        "i915"
-      ];
-    };
-
-    kernelParams = [
-      "quiet"
-      "splash"
-      "boot.shell_on_fail"
-      "udev.log_priority=3"
-      "rd.systemd.show_status=auto"
-      "video=eDP-1:1920x1080@60"
-      "loglevel=3"
-      "rd.udev.log_level=3"
-
-      "i915.enable_guc=3"
-      "i915.force_probe=46a3"
-      "i915.enable_fbc=1"
-      "i915.enable_psr=2"
-    ];
 
     loader = {
       grub = rec {

@@ -25,7 +25,6 @@
 
     distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
     nirimod.url = "github:srinivasr/nirimod";
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     nixos-plymouth.url = "github:BeatLink/nixos-plymouth";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixvim.url = "github:nix-community/nixvim";
