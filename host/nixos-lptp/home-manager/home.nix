@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }: 
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 let
   dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
@@ -9,8 +14,10 @@ let
     eza = "eza";
     fzf = "fzf";
     kitty = "kitty";
+    lazygit = "lazygit";
     mango = "mango";
     niri = "niri";
+    nvim = "nvim";
     qutebrowser = "qutebrowser";
     sesh = "sesh-home";
     television = "television";
@@ -27,22 +34,22 @@ in
 
   imports = [
     ./modules/foot.nix
-    ./modules/kanshi.nix
     ./modules/noctalia.nix
     ./modules/vesktop.nix
     ./modules/xdg.nix
     ./modules/zsh.nix
     ../../../common-modules/btop.nix
-    ../../../common-modules/nixvim.nix
+    #    ../../../common-modules/nixvim.nix
     ../../../common-modules/yazi.nix
     inputs.noctalia.homeModules.default
   ];
-  
+
   home.packages = with pkgs; [
-    nil
-    nixpkgs-fmt
     nodejs
     gcc
+    uv
+    cargo
+    marksman
 
     # Apps
     kitty
@@ -66,14 +73,17 @@ in
     yazi
     zoxide
     lazygit
+    neovim
 
     dconf
-    libxcb
-    libxcb-wm
+    papirus-icon-theme
+    qt6Packages.qt6ct
   ];
 
   home.sessionVariables = {
     BROWSER = "qutebrowser";
+    QTA_QPA_PLATFORMTHEME = "qt6ct";
+    QT_ICON_THEME = "Papirus";
     EDITOR = "nvim";
     VISUAL = "nvim";
   };
@@ -129,12 +139,10 @@ in
     startWithUserSession = true;
   };
 
-  xdg.configFile = builtins.mapAttrs
-    (name: subpath: {
-      source = create_symlink "${dotfiles}/${subpath}";
-      recursive = true;
-    })
-    configs;
+  xdg.configFile = builtins.mapAttrs (name: subpath: {
+    source = create_symlink "${dotfiles}/${subpath}";
+    recursive = true;
+  }) configs;
 
   dconf = {
     enable = true;
@@ -144,4 +152,13 @@ in
       };
     };
   };
+
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Papirus";
+      package = pkgs.papirus-icon-theme;
+    };
+  };
+
 }

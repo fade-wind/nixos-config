@@ -142,9 +142,6 @@
     udisks2.enable = true;
     gvfs.enable = true;
     openssh.enable = true;
-    noctalia-shell = {
-      enable = true;
-    };
 
     power-profiles-daemon.enable = false;
     tuned.enable = true;

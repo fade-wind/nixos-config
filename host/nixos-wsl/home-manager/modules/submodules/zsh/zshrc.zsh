@@ -12,3 +12,5 @@
 
 # Updated NIXOS config
 alias nrs="sudo nixos-rebuild switch --flake $HOME/nixos-dotfiles#nixos-wsl"
+alias nrb="sudo nixos-rebuild boot --flake $HOME/nixos-dotfiles#nixos-wsl"
+source $HOME/.venv/bin/activate

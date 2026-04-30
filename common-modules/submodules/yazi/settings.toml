@@ -16,6 +16,9 @@ scrolloff      = 5
 mouse_events   = [ "click", "scroll" ]
 title_format   = "Yazi: {cwd}"
 
+[layout]
+min_width = 100
+
 [preview]
 wrap            = "no"
 tab_size        = 2
@@ -30,7 +33,7 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
 edit = [
-	{ run = 'vim "$@"', desc = "Neovim", block = true, for = "unix" },
+	{ run = 'nvim "$@"', desc = "Neovim", block = true, for = "unix" },
 	{ run = 'code %*',    orphan = true, desc = "code",           for = "windows" },
 	{ run = 'code -w %*', block = true,  desc = "code (block)",   for = "windows" },
 ]

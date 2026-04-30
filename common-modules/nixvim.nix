@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -8,49 +13,57 @@
   programs.nixvim = {
     enable = true;
     # defaultEditor = true;
-    
+
     imports = [
-      ./submodules/nixvim/bufferline.nix
-      ./submodules/nixvim/indent-blankline.nix
-      ./submodules/nixvim/keymaps.nix
-      ./submodules/nixvim/lazygit.nix
-      ./submodules/nixvim/lualine.nix
-      ./submodules/nixvim/noice.nix
-      ./submodules/nixvim/settings.nix
-      ./submodules/nixvim/yazi.nix
+      ./submodules/nixvim/config/auto_cmds.nix
+      ./submodules/nixvim/config/keymaps.nix
+      ./submodules/nixvim/config/settings.nix
+      ./submodules/nixvim/plugins/editor/indent-blankline.nix
+      ./submodules/nixvim/plugins/editor/noice.nix
+      ./submodules/nixvim/plugins/editor/which-key.nix
+      ./submodules/nixvim/plugins/ui/bufferline.nix
+      ./submodules/nixvim/plugins/ui/lualine.nix
+      ./submodules/nixvim/plugins/ui/yazi.nix
+      ./submodules/nixvim/plugins/lazygit.nix
+      ./submodules/nixvim/plugins/tree-sitter.nix
     ];
 
     plugins = {
       lsp = {
         enable = true;
         servers = {
-          nixd.enable = true;
+          nil_ls.enable = true;
         };
       };
-      
+
+      conform-nvim = {
+        enable = true;
+        settings = {
+          format_on_save = {
+            lsp_format = "fallback";
+            timeout_ms = 500;
+          };
+          formatters_by_ft = {
+            nix = [ "nixfmt" ];
+          };
+        };
+      };
+
       nui.enable = true;
 
       nvim-autopairs.enable = true;
-      which-key = {
-        enable = true;
-        settings = {
-          presets = "helix";
-        };
-      };
       renderer-markdown.enable = true;
       vim-sleuth.enable = true;
       web-devicons.enable = true;
       fzf-lua = {
         enable = true;
       };
-      treesitter = {
-        enable = true;
-      };
+      neoscoll.enable = true;
     };
 
     colorschemes.tokyonight = {
       enable = true;
-      settings = { 
+      settings = {
         style = "storm";
         transparent = false;
       };

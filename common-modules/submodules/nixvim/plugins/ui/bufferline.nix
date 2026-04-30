@@ -1,18 +1,16 @@
 {
   plugins.bufferline = {
     enable = true;
-    highlights = {
-      buffer_selected = {
-        bold = true;
+    settings = {
+      highlights = {
+        buffer_selected = {
+          bold = true;
+        };
       };
       options = {
         themable = true;
-        indicator = {
-          icon = "▋";
-          style = "icon"; 
-        };
         mode = "buffers";
-        separator_style = "thin";
+        separator_style = "slant";
 	      modified_icon = "●";
 	      buffer_close_icon = "󰅖";
       };

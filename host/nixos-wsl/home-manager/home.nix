@@ -7,6 +7,7 @@ let
     atuin = "atuin";
     eza = "eza";
     fzf = "fzf";
+    nvim = "nvim";
     sesh =  "sesh-work";
     television = "television";
     tmux = "tmux";
@@ -23,14 +24,12 @@ in
   imports = [
     ./modules/zsh.nix
     ../../../common-modules/btop.nix
-    ../../../common-modules/nixvim.nix
     ../../../common-modules/yazi.nix
   ];
 
   home.packages = with pkgs; [
-    nil
-    nixpkgs-fmt
     nodejs
+    cargo
     gcc
     uv
 
@@ -50,8 +49,12 @@ in
     starship
     yazi
     zoxide
+    neovim
+    lazygit
+    openshift
 
     dconf
+    cifs-utils
   ];
 
   home.sessionVariables = {
