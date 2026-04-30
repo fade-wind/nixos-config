@@ -68,6 +68,8 @@
       efi.canTouchEfiVariables = true;
     };
 
+    kernelPackages = pkgs.linuxPackages_latest;
+
     tmp = {
       useTmpfs = true;
       tmpfsSize = "4G";
