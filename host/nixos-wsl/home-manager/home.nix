@@ -79,6 +79,10 @@ in
 
     git = {
       enable = true;
+      package = pkgs.gitFull;
+      extraConfig = {
+        credential.helper = "libsecret";
+      };
       includes = [
         {
           condition = "gitdir:~/git-work/";
