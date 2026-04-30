@@ -82,8 +82,10 @@ in
 
   home.sessionVariables = {
     BROWSER = "qutebrowser";
+    QTA_QPA_PLATFORM= "wayland";
     QTA_QPA_PLATFORMTHEME = "qt6ct";
     QT_ICON_THEME = "Papirus";
+    GTK_USE_PORTAL = "1";
     EDITOR = "nvim";
     VISUAL = "nvim";
   };
@@ -156,9 +158,14 @@ in
   gtk = {
     enable = true;
     iconTheme = {
-      name = "Papirus";
+      name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "qt6ct";
   };
 
 }

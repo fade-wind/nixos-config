@@ -50,7 +50,6 @@ opt.shiftwidth = 2
 opt.softtabstop = 2
 opt.expandtab = true
 opt.autoindent = true
-opt.smartindent = true
 opt.breakindent = true
 opt.preserveindent = true
 opt.linebreak = true
@@ -160,7 +159,7 @@ keymap("v", "p", '"_dP', key_opts)
 -- Pack Add
 vim.pack.add({
 	{ src = "https://github.com/windwp/nvim-autopairs" },
-	{ src = "https://github.com/folke/tokyfolke/tokyonight.nvim" },
+	{ src = "https://github.com/folke/tokyonight.nvim" },
 	{ src = "https://github.com/mikavilpas/yazi.nvim" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
 	{ src = "https://github.com/ibhagwan/fzf-lua" },
