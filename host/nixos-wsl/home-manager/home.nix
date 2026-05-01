@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
+  dotfiles = "${config.home.homeDirectory}/Projects/nixos-dotfiles/config";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
     atuin = "atuin";
@@ -69,7 +69,7 @@ in
       shellAliases = {
         lla = "ls -la";
         ll = "ls -l";
-        nrs = "sudo nixos-rebuild switch --flake $HOME/nixos-dotfiles#nixos-wsl";
+        nrs = "sudo nixos-rebuild switch --flake $HOME/Projects/nixos-dotfiles#nixos-wsl";
       };
       initExtra = ''
         export STARSHIP_CONFIG="/etc/starship-root.toml"
@@ -85,11 +85,11 @@ in
       };
       includes = [
         {
-          condition = "gitdir:~/git-work/";
+          condition = "gitdir:~/Projects/";
           path = "~/.gitconfig-work";
         }
         {
-          condition = "gitdir:~/nixos-dotfiles/";
+          condition = "gitdir:~/Projects/nixos-dotfiles/";
           path = "~/.gitconfig-nixos";
         }
       ];

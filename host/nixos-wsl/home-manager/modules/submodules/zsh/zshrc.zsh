@@ -11,6 +11,6 @@
 [ -f "$HOME/.config/zsh/foot.zsh" ] && source "$HOME/.config/zsh/foot.zsh"
 
 # Updated NIXOS config
-alias nrs="sudo nixos-rebuild switch --flake $HOME/nixos-dotfiles#nixos-wsl"
-alias nrb="sudo nixos-rebuild boot --flake $HOME/nixos-dotfiles#nixos-wsl"
+alias nrs="sudo nixos-rebuild switch --flake $HOME/Projects/nixos-dotfiles#nixos-wsl"
+alias nrb="sudo nixos-rebuild boot --flake $HOME/Projects/nixos-dotfiles#nixos-wsl"
 source $HOME/.venv/bin/activate

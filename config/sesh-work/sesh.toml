@@ -12,12 +12,12 @@ path = "~/.config/tmux"
 startup_command = "nvim tmux.conf"
 preview_command = "bat --color=always ~/.config/tmux/tmux.conf"
 
-[[session]]
-name = "configuration-nix"
-path = "~/nixos-dotfiles/host/nixos-wsl/"
-startup_command = "nvim configuration.nix"
-preview_command = "bat --color=always ~/nixos-dotfiles/host/nixos-wsl/configuration.nix"
+# [[session]]
+# name = "configuration-nix"
+# path = "~/nixos-dotfiles/host/nixos-wsl/"
+# startup_command = "nvim configuration.nix"
+# preview_command = "bat --color=always ~/nixos-dotfiles/host/nixos-wsl/configuration.nix"
 
 [[wildcard]]
-pattern = "~/git-work/*"
+pattern = "~/Projects/*"
 startup_command = "nvim"
