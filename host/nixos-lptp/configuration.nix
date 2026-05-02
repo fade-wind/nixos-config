@@ -5,7 +5,6 @@
   imports =[ 
     ./hardware-configuration.nix
     ../../common-modules/root-modules/starship-root.nix
-    inputs.mangowm.nixosModules.mango
     inputs.nixos-plymouth.nixosModules.default
     inputs.noctalia.nixosModules.default
     inputs.nur.modules.nixos.default

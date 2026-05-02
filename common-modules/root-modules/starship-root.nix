@@ -45,7 +45,7 @@
     "Downloads" = " "
     "Music" = "󰝚 "
     "Pictures" = " "
-    "Developer" = "󰲋 "
+    "Projects" = "󰲋 "
     
     [git_branch]
     symbol = ""
