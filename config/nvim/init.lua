@@ -479,7 +479,7 @@ require("neo-tree").setup({
 	},
 })
 
-keymap("n", "<leader>e", "<CMD>Neotree filesystem toggle left<CR>", { desc = "Neo-tree toggle" })
+keymap( { "n", "t" }, "<leader>e", "<CMD>Neotree filesystem toggle left<CR>", { desc = "Neo-tree toggle" })
 
 vim.api.nvim_create_autocmd("BufEnter", {
 	group = vim.api.nvim_create_augroup("Neotree_start_directory", { clear = true }),

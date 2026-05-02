@@ -2,7 +2,7 @@
 
   programs.zsh = {
     enable = true;
-    dotDir = "${config.xdg.configHome}/.zshrc";
+    dotDir = "${config.xdg.configHome}/zshrc";
 
     plugins = [
       {
