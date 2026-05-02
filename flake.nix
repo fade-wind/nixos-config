@@ -8,11 +8,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    mangowm = {
-      url = "github:mangowm/mango";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-ld = {
       url = "github:Mic92/nix-ld";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,14 +20,13 @@
 
     distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
     monique.url = "github:ToRvaLDz/monique";
-    nirimod.url = "github:srinivasr/nirimod";
     nixos-plymouth.url = "github:BeatLink/nixos-plymouth";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixvim.url = "github:nix-community/nixvim";
     nur.url = "github:nix-community/NUR";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixos-wsl, nirimod, ... }: 
+  outputs = inputs@{ self, nixpkgs, nixos-wsl,  ... }: 
   let
     system = "x86_64-linux";
   in

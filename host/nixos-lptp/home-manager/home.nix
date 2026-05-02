@@ -56,7 +56,6 @@ in
     qutebrowser
     wl-clipboard
     neovide
-    nirimod
 
     # Terminal
     btop
@@ -120,8 +119,6 @@ in
         };
       };
     };
-
-    monique.enable = true;
 
     vim = {
       enable = true;

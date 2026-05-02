@@ -30,9 +30,6 @@
 
   nixpkgs = {
     config.allowUnfree = true;
-    overlays = [
-      inputs.nirimod.overlays.default
-    ];
   };
 
   nix = {
@@ -199,6 +196,7 @@
   # ---------------------------------------------
 
   programs = {
+    monique.enable = true;
     niri.enable = true;
     zsh.enable = true;
     
@@ -263,7 +261,6 @@
     coreutils
     clang
     cmake
-    nirimod
     uv
 
     podman-compose
