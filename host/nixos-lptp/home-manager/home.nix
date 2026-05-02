@@ -19,7 +19,7 @@ let
     niri = "niri";
     nvim = "nvim";
     qutebrowser = "qutebrowser";
-    sesh = "sesh-home";
+    sesh = "sesh";
     television = "television";
     tmux = "tmux";
     vim = "vim";
@@ -111,9 +111,6 @@ in
       '';
     };
 
-    emacs = {
-      enable = true;
-    };
     git = {
       enable = true;
       settings = {
@@ -123,6 +120,8 @@ in
         };
       };
     };
+
+    monique.enable = true;
 
     vim = {
       enable = true;
@@ -134,11 +133,6 @@ in
     vscode = {
       enable = true;
     };
-  };
-
-  services.emacs = {
-    enable = true;
-    startWithUserSession = true;
   };
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {

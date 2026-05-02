@@ -9,6 +9,7 @@
     inputs.nixos-plymouth.nixosModules.default
     inputs.noctalia.nixosModules.default
     inputs.nur.modules.nixos.default
+    inputs.monique.nixosModules.default
   ];
 
   # ---------------------------------------------

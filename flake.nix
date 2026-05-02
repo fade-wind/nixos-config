@@ -24,6 +24,7 @@
     };
 
     distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
+    monique.url = "github:ToRvaLDz/monique";
     nirimod.url = "github:srinivasr/nirimod";
     nixos-plymouth.url = "github:BeatLink/nixos-plymouth";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
