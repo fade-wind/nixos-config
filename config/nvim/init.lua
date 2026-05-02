@@ -50,6 +50,7 @@ opt.shiftwidth = 2
 opt.softtabstop = 2
 opt.expandtab = true
 opt.autoindent = true
+-- opt.smartindent = true
 opt.breakindent = true
 opt.preserveindent = true
 opt.linebreak = true
@@ -187,6 +188,7 @@ vim.pack.add({
 	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
 	{ src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
 	{ src = "https://github.com/karb94/neoscroll.nvim" },
+	{ src = "https://github.com/akinsho/toggleterm.nvim" },
 }, { confirm = false })
 
 -- Plugin settings
@@ -345,7 +347,10 @@ require("lualine").setup({
 		--       
 		section_separators = { left = "", right = "" },
 		component_separators = { left = "", right = "" },
-		disabled_filetypes = { "alpha", "neo-tree" },
+		disabled_filetypes = {
+      statusline = { "alpha", "neo-tree" },
+      winbar = { "alpha", "neo-tree" },
+    },
 		always_divide_middle = true,
 		globalstatus = true,
 	},
@@ -450,12 +455,6 @@ require("neo-tree").setup({
 					vim.fn.setreg("+", path, "c")
 				end,
 				desc = "Copy Path to Clipboard",
-			},
-			["O"] = {
-				function(state)
-					require("lazy.util").open(state.tree:get_node().path, { system = true })
-				end,
-				desc = "Open with System Application",
 			},
 			["P"] = { "toggle_preview", config = { use_float = false } },
 		},
@@ -654,3 +653,8 @@ require("neoscroll").setup({
   stop_eof = true,
   easing = 'quadratic',
 })
+
+-- toggleterm
+require("toggleterm").setup()
+
+keymap("n", "<leader>T", "<CMD>ToggleTerm size=15 direction=horizontal<CR>", { desc = "Toggle Terminal"})
