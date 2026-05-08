@@ -21,3 +21,7 @@ preview_command = "bat --color=always ~/.config/tmux/tmux.conf"
 [[wildcard]]
 pattern = "~/Projects/*"
 startup_command = "nvim"
+
+[[wildcard]]
+pattern = "~/Documents/*"
+startup_command = "nvim"

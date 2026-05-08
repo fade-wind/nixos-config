@@ -9,10 +9,12 @@ alias cl='zoxide_cd_and_list'
 alias cd='z'
 
 # replaced aliases
-alias vi='/usr/bin/vim'
-#alias lso='/usr/bin/ls'
-#alias cdo='/usr/bin/cd'
+alias lso='/usr/bin/ls'
+alias cdo='/usr/bin/cd'
 
 # FZF
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 
+# Updated NIXOS config
+alias nrs="sudo nixos-rebuild switch --flake $HOME/Projects/nixos-dotfiles#$(hostname)"
+alias nrb="sudo nixos-rebuild boot --flake $HOME/Projects/nixos-dotfiles#$(hostname)"

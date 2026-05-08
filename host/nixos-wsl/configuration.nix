@@ -157,6 +157,8 @@
      coreutils
      clang
      cmake
+     sshfs
+     cifs-utils
 
      podman-compose
 

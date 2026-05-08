@@ -117,6 +117,8 @@
 
     dbus.enable=true;
 
+    emacs.enable = true;
+
     gnome = {
       gnome-keyring.enable = true;
     };
@@ -237,9 +239,6 @@
       "video"
       "storage"
     ];
-    packages = with pkgs; [
-      tree
-    ];
   };
 
   # ---------------------------------------------
@@ -260,6 +259,7 @@
     coreutils
     clang
     cmake
+    sshfs
     uv
 
     podman-compose

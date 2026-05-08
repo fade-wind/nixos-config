@@ -5,6 +5,7 @@ eval "$(starship init zsh)"
 #. "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
 eval "$(tv init zsh)"
+[[ -f $HOME/.venv/bin/activate ]] && source $HOME/.venv/bin/activate
 
 (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]=none
@@ -20,6 +21,9 @@ if command -v tmux >/dev/null 2>&1; then
   # SSH: attach to a dedicated SSH session
   elif [[ -z "$TMUX" && -n "$SSH_TTY" ]]; then
     tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
+  # Neovide: attach to a dedicated Neovide session
+  elif [[ -z "$TMUX" && -n "$NEOVIDE" ]]; then
+    tmux attach-session -t neovide || tmux new-session -s neovide
   # Regular terminal: attach to main session (not in VS Code, Emacs, Vim, IntelliJ)
   elif [[ -z "$TMUX" && \
           -z "$VSCODE_IPC_HOOK_CLI" && \

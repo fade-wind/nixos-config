@@ -1,3 +1,4 @@
 *.swp
 nvim-pack-lock.json
+lazy-lock.json
 config/tmux/plugins

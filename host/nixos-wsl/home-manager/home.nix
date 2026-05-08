@@ -8,7 +8,7 @@ let
     eza = "eza";
     fzf = "fzf";
     nvim = "nvim";
-    sesh =  "sesh-work";
+    sesh =  "sesh";
     television = "television";
     tmux = "tmux";
     vim = "vim";
@@ -22,9 +22,9 @@ in
   home.stateVersion = "26.05";
 
   imports = [
-    ./modules/zsh.nix
     ../../../common-modules/btop.nix
     ../../../common-modules/yazi.nix
+    ../../../common-modules/zsh.nix
   ];
 
   home.packages = with pkgs; [
@@ -32,6 +32,7 @@ in
     cargo
     gcc
     uv
+    cifs-utils
 
     wl-clipboard
 
@@ -79,6 +80,7 @@ in
 
     git = {
       enable = true;
+      lfs.enable = true;
       package = pkgs.gitFull;
       extraConfig = {
         credential.helper = "libsecret";

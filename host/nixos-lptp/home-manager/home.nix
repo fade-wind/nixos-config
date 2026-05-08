@@ -37,10 +37,9 @@ in
     ./modules/noctalia.nix
     ./modules/vesktop.nix
     ./modules/xdg.nix
-    ./modules/zsh.nix
     ../../../common-modules/btop.nix
-    #    ../../../common-modules/nixvim.nix
     ../../../common-modules/yazi.nix
+    ../../../common-modules/zsh.nix
     inputs.noctalia.homeModules.default
   ];
 
@@ -109,6 +108,8 @@ in
         export STARSHIP_CONFIG="/etc/starship-root.toml"
       '';
     };
+
+    emacs.enable = true;
 
     git = {
       enable = true;

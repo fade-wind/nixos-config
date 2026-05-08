@@ -1,167 +1,15 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 local opt = vim.opt
 local keymap = vim.keymap.set
 local key_opts = { noremap = true, silent = true }
+local autocmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
 
--- Performance and Timing
-opt.updatetime = 100
-opt.lazyredraw = false
-opt.synmaxcol = 240
-opt.timeoutlen = 500
-
--- UI & Appearance
--- Enable relative line numbers
-opt.number = true
-opt.relativenumber = true
-opt.cursorline = true
-opt.signcolumn = "yes"
-opt.laststatus = 3
-opt.showmode = false
-opt.showmatch = true
-opt.matchtime = 1
-opt.termguicolors = true
-opt.winborder = "rounded"
-
--- Windows & Splits
-opt.splitbelow = true
-opt.splitright = true
-
--- Search
-opt.ignorecase = true
-opt.smartcase = true
-opt.incsearch = true
-opt.hlsearch = true
-
--- Files and Buffers
-opt.swapfile = false
-opt.backup = false
-opt.writebackup = false
-opt.undofile = true
-opt.autoread = true
-opt.fileencoding = "utf-8"
-opt.modeline = true
-opt.modelines = 100
-
--- Indents and Formatting
-opt.tabstop = 2
-opt.shiftwidth = 2
-opt.softtabstop = 2
-opt.expandtab = true
-opt.autoindent = true
--- opt.smartindent = true
-opt.breakindent = true
-opt.preserveindent = true
-opt.linebreak = true
-opt.wrap = true
-
--- Completion and Popup
-opt.pumheight = 10
-opt.infercase = true
-opt.completeopt = "menuone,noinsert,noselect"
-
--- Command Line and Message
-opt.cmdheight = 0
-opt.history = 100
-opt.report = 9001
-
--- Editor Behavior
-opt.virtualedit = "block"
-opt.startofline = true
-opt.title = true
-
-opt.grepprg = "rg --vimgrep"
-opt.grepformat = "%f:%l:%c:%m"
-
-opt.scrolloff = 8
-opt.mouse = "a"
-
-opt.encoding = "utf-8"
-
-opt.modifiable = true
-
--- General keymaps
-keymap("n", "gl", function()
-	vim.diagnostic.open_float()
-end, { desc = "Open Diagnostic in float" })
-keymap("n", "<leader>cf", function()
-	require("conform").format({
-		lsp_format = "fallback",
-	})
-end, { desc = "Format [c]urrent [f]ile" })
-
--- Disable spacebar's default behavior
-keymap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
-
--- save file
-keymap("n", "<C-s>", "<cmd> w <CR>", key_opts)
-
--- save file w/o auto-format
-keymap("n", "<C-a>", "<cmd> noautocmd w <CR>", key_opts)
-
--- source
-keymap("n", "<C-S-r>", "<CMD>so<CR>", key_opts)
-
--- quit file
-keymap("n", "<C-q>", "<cmd> q <CR>", key_opts)
-
--- delete character w/o copy into register
-keymap("n", "x", '"_x', key_opts)
-
--- Vertical Scroll and center
-keymap("n", "<C-d>", "<C-d>zz", key_opts)
-keymap("n", "<C-u>", "<C-u>zz", key_opts)
-
--- Find and center
-keymap("n", "n", "nzzzv", key_opts)
-keymap("n", "N", "Nzzzv", key_opts)
-
--- Resize with arrows
-keymap("n", "<S-Up>", ":resize -2<CR>", key_opts)
-keymap("n", "<S-Down>", ":resize +2<CR>", key_opts)
-keymap("n", "<S-Left>", ":vertical resize -2<CR>", key_opts)
-keymap("n", "<S-Right>", ":vertical resize +2<CR>", key_opts)
-
--- Buffers
-keymap("n", "<Tab>", ":bnext<CR>", key_opts)
-keymap("n", "<S-Tab>", ":bprevious<CR>", key_opts)
-keymap("n", "<leader>x", ":Bdelete!<CR>", key_opts) -- close buffer
-keymap("n", "<leader>b", "<cmd> enew <CR>", key_opts) -- new buffer
-
--- Window management
-keymap("n", "<leader>v", "<C-w>v", key_opts) -- split window vertically
-keymap("n", "<leader>h", "<C-w>s", key_opts) -- split window horizontally
-keymap("n", "<leader>se", "<C-w>=", key_opts) -- split windows equally w/h
-keymap("n", "<leader>xs", ":close<CR>", key_opts) -- close current split window
-
--- Navigate between splits
-keymap("n", "<C-k>", ":wincmd k<CR>", key_opts)
-keymap("n", "<C-j>", ":wincmd j<CR>", key_opts)
-keymap("n", "<C-h>", ":wincmd h<CR>", key_opts)
-keymap("n", "<C-l>", ":wincmd l<CR>", key_opts)
-
--- Tabs
-keymap("n", "<leader>to", ":tabnew<CR>", key_opts) -- open new tab
-keymap("n", "<leader>tx", ":tabclose<CR>", key_opts) -- close current tab
-keymap("n", "<leader>tn", ":tabn<CR>", key_opts) --  go to next tab
-keymap("n", "<leader>tp", ":tabp<CR>", key_opts) --  go to previous tab
-
--- Toggle line wrapping
-keymap("n", "<leader>lw", "<cmd>set wrap!<CR>", key_opts)
-
--- Stay in indent mode
-keymap("v", "<", "<gv", key_opts)
-keymap("v", ">", ">gv", key_opts)
-
--- Keep last yanked when pasting
-keymap("v", "p", '"_dP', key_opts)
+require("core")
 
 -- Pack Add
 vim.pack.add({
 	{ src = "https://github.com/windwp/nvim-autopairs" },
 	{ src = "https://github.com/folke/tokyonight.nvim" },
-	{ src = "https://github.com/mikavilpas/yazi.nvim" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
 	{ src = "https://github.com/ibhagwan/fzf-lua" },
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
@@ -172,6 +20,7 @@ vim.pack.add({
 	{ src = "https://github.com/folke/noice.nvim" },
 	{ src = "https://github.com/MunifTanjim/nui.nvim" },
 	{ src = "https://github.com/christoomey/vim-tmux-navigator" },
+  { src = "https://github.com/tpope/vim-fugitive" },
 	{
 		src = "https://github.com/nvim-neo-tree/neo-tree.nvim",
 		version = vim.version.range("3"),
@@ -189,48 +38,29 @@ vim.pack.add({
 	{ src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
 	{ src = "https://github.com/karb94/neoscroll.nvim" },
 	{ src = "https://github.com/akinsho/toggleterm.nvim" },
+	{ src = "https://github.com/uhs-robert/sshfs.nvim" },
+	{
+		src = "https://github.com/Ramilito/kubectl.nvim",
+		version = vim.version.range("2.*"),
+	},
+	{ src = "https://github.com/Saghen/blink.download" },
+	{ src = "https://github.com/folke/persistence.nvim" },
+	{ src = "https://github.com/nvimdev/dashboard-nvim" },
 }, { confirm = false })
 
 -- Plugin settings
 
 require("nvim-autopairs").setup()
 
-
 require("tokyonight").setup({
 	style = "storm",
 })
 
 require("tokyonight").load()
--- Yazi
-require("yazi").setup({
-	open_for_directories = false,
-	keymaps = {
-		show_help = "<f1>",
-	},
-})
-
-keymap("n", "<leader>-", function()
-	require("yazi").yazi()
-end)
-
-vim.g.loaded_netrwPlugin = 1
-vim.api.nvim_create_autocmd("UIEnter", {
-	callback = function()
-		require("yazi").setup({
-			open_for_directories = true,
-		})
-	end,
-})
 
 -- FZFLua
 require("fzf-lua").setup()
-
-keymap("n", "<leader>ff", "<CMD>FzfLua files<CR>", { desc = "Find Files" })
-keymap("n", "<leader>fh", "<CMD>FzfLua helptags<CR>", { desc = "Find Helptags" })
-keymap("n", "<leader>fk", "<CMD>FzfLua keymaps<CR>", { desc = "Find keymaps" })
-keymap("n", "<leader>fb", "<CMD>FzfLua builtin<CR>", { desc = "Find Builtin FZF" })
-keymap("n", "<leader><leader>", "<CMD>FzfLua buffers<CR>", { desc = "Find existing buffers" })
-keymap("n", "<leader>/", "<CMD>FzfLua live_grep<CR>", { desc = "Live grep current buffer" })
+require("fzf-lua").register_ui_select()
 
 -- Bufferline
 require("bufferline").setup({
@@ -297,9 +127,6 @@ require("which-key").setup({
 		preset = "helix",
 	},
 })
-keymap("n", "<leader>?", function()
-	require("which-key").show({ global = false })
-end, { desc = "Buffer keymaps (which-key)" })
 
 -- Lualine
 local mode = {
@@ -348,9 +175,8 @@ require("lualine").setup({
 		section_separators = { left = "", right = "" },
 		component_separators = { left = "", right = "" },
 		disabled_filetypes = {
-      statusline = { "alpha", "neo-tree" },
-      winbar = { "alpha", "neo-tree" },
-    },
+			statusline = { "alpha", "neo-tree" },
+		},
 		always_divide_middle = true,
 		globalstatus = true,
 	},
@@ -479,23 +305,6 @@ require("neo-tree").setup({
 	},
 })
 
-keymap( { "n", "t" }, "<leader>e", "<CMD>Neotree filesystem toggle left<CR>", { desc = "Neo-tree toggle" })
-
-vim.api.nvim_create_autocmd("BufEnter", {
-	group = vim.api.nvim_create_augroup("Neotree_start_directory", { clear = true }),
-	desc = "Start Neo-tree with directory",
-	once = true,
-	callback = function()
-		if package.loaded["neo-tree"] then
-			return
-		else
-			local stats = vim.uv.fs_stat(vim.fn.argv(0))
-			if stats and stats.type == "directory" then
-				require("neo-tree")
-			end
-		end
-	end,
-})
 
 -- Treesitter
 require("nvim-treesitter").setup({
@@ -503,19 +312,6 @@ require("nvim-treesitter").setup({
 	indent = { enable = false },
 })
 
-vim.api.nvim_create_autocmd("PackChanged", {
-	pattern = "nvim-treesitter",
-	desc = "Run :TSUpdate after pack changed",
-	group = vim.api.nvim_create_augroup("treesitter_update", { clear = true }),
-	callback = function(e)
-		local kind, name
-		name = e.data.kind, e.data.spec.name
-		if kind == "install" or kind == "update" then
-			vim.cmd.packadd({ args = { name }, bang = false })
-			vim.cmd("TSUpdate")
-		end
-	end,
-})
 
 local parsers = {
 	"lua",
@@ -534,34 +330,10 @@ local parsers = {
 
 require("nvim-treesitter").install(parsers)
 
--- vim.api.nvim_create_autocmd("FileType", {
--- 	pattern = parsers,
--- 	callback = function(e)
--- 		vim.treesitter.start(e.buf)
--- 		vim.bo[e.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexp()"
--- 	end,
--- })
-
 -- LSP and Mason
-require("mason").setup()
-require("mason-lspconfig").setup()
-require("mason-tool-installer").setup({
-	ensure_installed = {
-		"lua_ls",
-		"bashls",
-		"nil",
-		"jinja-lsp",
-		"shellcheck",
-		"marksman",
-		"stylua",
-		"shfmt",
-		"markdownlint",
-		"prettier",
-	},
-})
 
-vim.lsp.config("lua_ls", {
-	settings = {
+local lsp_servers = {
+	lua_ls = {
 		Lua = {
 			runtime = {
 				version = "LuaJIT",
@@ -580,6 +352,28 @@ vim.lsp.config("lua_ls", {
 			},
 		},
 	},
+  ansiblels = {
+   python = {
+     interpreterPath = "$HOME/.venv/bin/python",
+   },
+  },
+	bashls = {},
+  marksman = {},
+	nil_ls = {},
+	jinja_lsp = {},
+  stylua = {},
+}
+
+require("mason").setup()
+require("mason-lspconfig").setup()
+require("mason-tool-installer").setup({
+	ensure_installed = {
+		"shellcheck",
+		"shfmt",
+		"markdownlint",
+		"prettier",
+		vim.tbl_keys(lsp_servers),
+	},
 })
 
 vim.filetype.add({
@@ -590,12 +384,24 @@ vim.filetype.add({
 	},
 })
 
-vim.api.nvim_create_autocmd("BufReadPost", {
+autocmd("BufReadPost", {
 	pattern = { "*main.yml", "*main.yaml" },
 	callback = function()
 		vim.bo.filetype = "yaml.ansible"
 	end,
 })
+
+for server, config in pairs(lsp_servers) do
+	vim.lsp.config(server, {
+		settings = config,
+
+		on_attach = function(_, bufnr)
+			keymap("n", "grd", vim.lsp.buf.definition, { buffer = bufnr, desc = "vim.lsp.buff.defintion()" })
+
+			keymap("n", "grf", vim.lsp.buf.format, { buffer = bufnr, desc = "vim.lsp.buff.format()" })
+		end,
+	})
+end
 
 require("blink.cmp").setup({
 	signature = {
@@ -624,37 +430,113 @@ require("blink.cmp").setup({
 	},
 })
 
-keymap("n", "K", function()
-	vim.lsp.buf.hover({ border = "rounded" })
-end, { desc = "Hover" })
-
-keymap("n", "<leader>fa", function()
-	vim.lsp.buf.format({ async = true })
-end, { desc = "Format" })
 
 -- Renderer-Markdown
 require("render-markdown").setup()
 
 -- Indent Blankline
 require("ibl").setup({
-  indent = {
-    char = '▏',
-  },
-  scope = {
-    show_start = false,
-    show_end = false,
-    show_exact_scope = false,
+	indent = {
+		char = "▏",
+	},
+	scope = {
+		show_start = false,
+		show_end = false,
+		show_exact_scope = false,
+	},
+  exclude = {
+    filetypes = {
+      "dashboard"
+    },
   },
 })
 
 -- neoscroll
 require("neoscroll").setup({
-  hide_cursor = true,
-  stop_eof = true,
-  easing = 'quadratic',
+	hide_cursor = true,
+	stop_eof = true,
+	easing = "quadratic",
 })
 
 -- toggleterm
-require("toggleterm").setup()
+require("toggleterm").setup({
+	size = 20,
+	open_mapping = nil,
+	hide_numbers = true,
+	shade_terminals = true,
+	shading_factor = 1,
+	start_in_insert = true,
+	insert_mappings = true,
+	terminal_mappings = true,
+	persist_size = true,
+	direction = "horizontal", -- "vertical" | "horizontal" | "tab" | "float"
+	close_on_exit = true,
+	shell = vim.o.shell,
+	float_opts = {
+		border = "curved",
+	},
+})
+-- sshfs
+require("sshfs").setup({
+	ui = {
+		preferred_picker = "neo-tree",
+	},
+})
 
-keymap("n", "<leader>T", "<CMD>ToggleTerm size=15 direction=horizontal<CR>", { desc = "Toggle Terminal"})
+-- kubectl.nvim
+require("kubectl").setup()
+autocmd("FileType", {
+	pattern = "k8s_*",
+	callback = function()
+		keymap("n", "7", "<Plug>(kubectl.view_nodes)", {
+			buffer = true,
+		})
+		keymap("n", "8", "<Plug>(kubectl.view_overview)", {
+			buffer = true,
+		})
+		keymap("n", "<C-k>", "<Plug>(kubectl.kill)", {
+			buffer = true,
+		})
+		keymap("n", "<C-t>", "<Plug>(kubectl.view_top)", {
+			buffer = true,
+		})
+	end,
+})
+
+-- persistence 
+require("persistence").setup({
+  dir = vim.fn.stdpath("state") .. "/sessions/",
+  options = { "buffers", "curdir", "options", "tabpages", "winsize" },
+  pre_save = function()
+    local cwd = vim.fn.getcwd()
+    if cwd == vim.fn.expand("~") or cwd:match("/tmp") then
+      return false
+    end
+  end,
+})
+
+local logo = [[
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░    ░░░░░   ░░░░░░░░░░░░░░░░░░░░░░░   ░░░░░░░░░   ░░░░░░░░░░░░░░░░░░
+▒  ▒   ▒▒▒   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒   ▒▒▒▒▒▒▒   ▒▒▒  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▒   ▒   ▒▒   ▒▒▒▒   ▒▒▒▒▒▒▒▒   ▒▒▒▒▒▒▒   ▒▒▒▒▒   ▒▒▒▒▒▒▒    ▒   ▒   ▒
+▓   ▓▓   ▓   ▓▓  ▓▓▓   ▓▓▓   ▓▓   ▓▓▓▓▓   ▓▓▓   ▓▓▓▓   ▓▓   ▓▓  ▓▓   
+▓   ▓▓▓  ▓   ▓         ▓▓   ▓▓▓▓   ▓▓▓▓▓   ▓   ▓▓▓▓▓   ▓▓   ▓▓  ▓▓   
+▓   ▓▓▓▓  ▓  ▓  ▓▓▓▓▓▓▓▓▓▓   ▓▓   ▓▓▓▓▓▓▓     ▓▓▓▓▓▓   ▓▓   ▓▓  ▓▓   
+█   ██████   ███     ███████   ███████████   ███████   █    ██  ██   
+█████████████████████████████████████████████████████████████████████
+]]
+
+require("dashboard").setup({
+  theme = "doom",
+  config = {
+    header = vim.split(logo,"\n"),
+    center = {
+      { action = 'FzfLua files', desc = " Find File", icon = " ", key = "f" },
+      { action = "ene | startinsert", desc = " New File", icon = " ", key = "n" },
+      { action = 'FzfLua live_grep', desc = " Find Text", icon = " ", key = "g" },
+      { action = function() require("persistence").select() end, desc = " Restore Session", icon = " ", key = "s" },
+      { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = " Quit", icon = " ", key = "q" },
+    },
+  },
+})
