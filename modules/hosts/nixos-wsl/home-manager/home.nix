@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  dotfiles = "${config.home.homeDirectory}/Projects/nixos-dotfiles/config";
+  dotfiles = "${config.home.homeDirectory}/Projects/nixos-dotfiles/modules/config";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
     atuin = "atuin";
@@ -22,9 +22,9 @@ in
   home.stateVersion = "26.05";
 
   imports = [
-    ../../../common-modules/btop.nix
-    ../../../common-modules/yazi.nix
-    ../../../common-modules/zsh.nix
+    ../../../features/btop.nix
+    ../../../features/yazi/default.nix
+    ../../../features/zsh/default.nix
   ];
 
   home.packages = with pkgs; [

@@ -3,7 +3,7 @@
 
 {
   imports = [
-    ../../common-modules/root-modules/starship-root.nix
+    ../../features/starship.nix
   ];
   
   # ---------------------------------------------

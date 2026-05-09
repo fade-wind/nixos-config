@@ -20,7 +20,7 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     enableCompletion = true;
-    initContent = builtins.readFile ./submodules/zsh/zshrc.zsh;
+    initContent = builtins.readFile ./zshrc.zsh;
 
   };
 }

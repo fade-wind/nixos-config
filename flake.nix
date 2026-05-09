@@ -35,7 +35,7 @@
       inherit system;
       specialArgs = { inherit inputs system; };
       modules = [
-        ./host/nixos-lptp/configuration.nix
+        ./modules/hosts/nixos-lptp/configuration.nix
         inputs.nix-ld.nixosModules.nix-ld
         inputs.home-manager.nixosModules.home-manager
         { programs.nix-ld.dev.enable = true; }
@@ -45,7 +45,7 @@
       inherit system;
       specialArgs = { inherit inputs system; };
       modules = [
-        ./host/nixos-wsl/configuration.nix
+        ./modules/hosts/nixos-wsl/configuration.nix
         inputs.nix-ld.nixosModules.nix-ld
         inputs.home-manager.nixosModules.home-manager
         nixos-wsl.nixosModules.default {

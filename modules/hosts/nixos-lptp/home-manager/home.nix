@@ -6,7 +6,7 @@
 }:
 
 let
-  dotfiles = "${config.home.homeDirectory}/Projects/nixos-dotfiles/config";
+  dotfiles = "${config.home.homeDirectory}/Projects/nixos-dotfiles/modules/config";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
     assets = "assets";
@@ -37,9 +37,9 @@ in
     ./modules/noctalia.nix
     ./modules/vesktop.nix
     ./modules/xdg.nix
-    ../../../common-modules/btop.nix
-    ../../../common-modules/yazi.nix
-    ../../../common-modules/zsh.nix
+    ../../../features/btop.nix
+    ../../../features/yazi/default.nix
+    ../../../features/zsh/default.nix
     inputs.noctalia.homeModules.default
   ];
 
