@@ -33,47 +33,23 @@ in
   home.stateVersion = "26.05";
 
   imports = [
-    ./modules/foot.nix
-    ./modules/noctalia.nix
-    ./modules/vesktop.nix
-    ./modules/xdg.nix
-    ../../../features/btop.nix
-    ../../../features/yazi/default.nix
-    ../../../features/zsh/default.nix
+    ../../../features/programs/btop.nix
+    ../../../features/programs/yazi/default.nix
+    ../../../features/programs/zsh/default.nix
+    ../../../features/home-modules/default.nix
+    ../../../features/home-modules/foot.nix
+    ../../../features/home-modules/noctalia.nix
+    ../../../features/home-modules/vesktop.nix
+    ../../../features/home-modules/xdg/default.nix
+    ../../../features/home-modules/xdg/desktop.nix
     inputs.noctalia.homeModules.default
   ];
 
   home.packages = with pkgs; [
-    nodejs
-    gcc
-    uv
-    cargo
-    marksman
-
     # Apps
     kitty
     qutebrowser
-    wl-clipboard
     neovide
-
-    # Terminal
-    btop
-    eza
-    fastfetch
-    ffmpeg
-    fzf
-    imagemagick
-    jp
-    matugen
-    poppler
-    ripgrep
-    starship
-    yazi
-    zoxide
-    lazygit
-    neovim
-
-    dconf
     papirus-icon-theme
     qt6Packages.qt6ct
   ];
@@ -84,8 +60,6 @@ in
     QTA_QPA_PLATFORMTHEME = "qt6ct";
     QT_ICON_THEME = "Papirus";
     GTK_USE_PORTAL = "1";
-    EDITOR = "nvim";
-    VISUAL = "nvim";
   };
 
   home.pointerCursor = {
@@ -95,20 +69,6 @@ in
   };
 
   programs = {
-    atuin.enable = true;
-    bash = {
-      enable = true;
-      shellAliases = {
-        lla = "ls -la";
-        ll = "ls -l";
-        nrs = "sudo nixos-rebuild switch --flake $HOME/Projects/nixos-dotfiles#nixos-lptp";
-      };
-      initExtra = ''
-        export PS1="\[\e[38;5;75m\]\u@\h \[\e[38;5;113m\]\w \[\e[38;5;189m\]\$ \[\e[0m\]"
-        export STARSHIP_CONFIG="/etc/starship-root.toml"
-      '';
-    };
-
     emacs.enable = true;
 
     git = {
@@ -120,14 +80,7 @@ in
         };
       };
     };
-
-    vim = {
-      enable = true;
-      extraConfig = ''
-        source ~/.config/vim/vimrc
-      '';
-    };
-
+    
     vscode = {
       enable = true;
     };
@@ -137,16 +90,7 @@ in
     source = create_symlink "${dotfiles}/${subpath}";
     recursive = true;
   }) configs;
-
-  dconf = {
-    enable = true;
-    settings = {
-      "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
-      };
-    };
-  };
-
+  
   gtk = {
     enable = true;
     iconTheme = {

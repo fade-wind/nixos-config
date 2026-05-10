@@ -25,62 +25,18 @@ in
     ../../../features/btop.nix
     ../../../features/yazi/default.nix
     ../../../features/zsh/default.nix
+    ../../../features/home-modules/default.nix
+    ../../../features/home-modules/xdg/default.nix
   ];
 
   home.packages = with pkgs; [
-    nodejs
-    cargo
-    gcc
-    uv
-    cifs-utils
-
-    wl-clipboard
-
-    # Terminal
-    btop
-    eza
-    fastfetch
-    ffmpeg
-    fzf
-    imagemagick
-    jp
-    matugen
-    poppler
-    ripgrep
-    starship
-    yazi
-    zoxide
-    neovim
-    lazygit
-    openshift
-
     dconf
-    cifs-utils
   ];
-
-  home.sessionVariables = {
-    EDITOR = "vim";
-    VISUAL = "vim";
-  };
   
   programs = {
-    atuin.enable = true;
-    bash = {
-      enable = true;
-      shellAliases = {
-        lla = "ls -la";
-        ll = "ls -l";
-        nrs = "sudo nixos-rebuild switch --flake $HOME/Projects/nixos-dotfiles#nixos-wsl";
-      };
-      initExtra = ''
-        export STARSHIP_CONFIG="/etc/starship-root.toml"
-        eval "$(starship init bash)"
-      '';
-    };
-
     git = {
       enable = true;
-      lfs.enable = true;
+    lfs.enable = true;
       package = pkgs.gitFull;
       extraConfig = {
         credential.helper = "libsecret";
@@ -112,13 +68,4 @@ in
       recursive = true;
     })
     configs;
-    
-    dconf = {
-    enable = true;
-    settings = {
-      "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
-      };
-    };
-  };
 }

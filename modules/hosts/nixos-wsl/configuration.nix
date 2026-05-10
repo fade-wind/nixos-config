@@ -3,7 +3,13 @@
 
 {
   imports = [
-    ../../features/starship.nix
+    ../../features/configuration/fonts.nix
+    ../../features/configuration/locale.nix
+    ../../features/configuration/nix.nix
+    ../../features/configuration/podman.nix
+    ../../features/configuration/security.nix
+    ../../features/configuration/packages/default.nix
+    ../../features/programs/starship.nix
   ];
   
   # ---------------------------------------------
@@ -16,27 +22,6 @@
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };
     users.zpeppler = import ./home-manager/home.nix;
-  };
-  
-  # ---------------------------------------------
-  # Nix Settings 
-  # ---------------------------------------------
-
-  nixpkgs = {
-    config.allowUnfree = true;
-  };
-
-  nix = {
-    settings = {
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-      trusted-users = [
-        "root"
-        "zpeppler"
-      ];
-    };
   };
 
   # ---------------------------------------------
@@ -74,40 +59,6 @@
   };
   
   # ---------------------------------------------
-  # Security
-  # ---------------------------------------------
-
-  security = {
-    polkit.enable = true;
-    rtkit.enable = true;
-
-    sudo = {
-      wheelNeedsPassword = false; 
-      extraConfig = ''
-        Defaults pwfeedback
-      '';
-    };
-  };
-
-  virtualisation = {
-    containers.enable = true;
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
-    };
-  };
-
-  # ---------------------------------------------
-  # Locale
-  # ---------------------------------------------
-
-  time.timeZone = "America/New_York";
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-  };
-
-  # ---------------------------------------------
   # Programs
   # ---------------------------------------------
 
@@ -139,61 +90,6 @@
     defaultUser = "zpeppler";
     wslConf.boot.command = "mount --make-rshard /"; 
   };
-
-  # ---------------------------------------------
-  # System Pacakges
-  # ---------------------------------------------
-
-  environment.systemPackages = with pkgs; [
-     vim
-     wget
-     git
-     gcc
-     gnumake
-     libtool
-     curl
-     zip
-     unzip
-     coreutils
-     clang
-     cmake
-     sshfs
-     cifs-utils
-
-     podman-compose
-
-     cockpit
-     cockpit-podman
-     
-     gnome-keyring
-
-     kubectl
-     tmux
-     sesh
-     television
-     wl-clipboard
-     lua5_1
-     luarocks
-     tree-sitter
-     unzip
-     fd
-     ripgrep
-     fzf
-     imagemagick
-     bat
-     jq
-     yq
-     nodejs
-  ];
-
-  # ---------------------------------------------
-  # Fonts
-  # ---------------------------------------------
-
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.symbols-only 
-  ];
 
   # ---------------------------------------------
   # System version

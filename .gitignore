@@ -2,3 +2,4 @@
 nvim-pack-lock.json
 lazy-lock.json
 modules/config/tmux/plugins
+modules/config/vim/undodir
