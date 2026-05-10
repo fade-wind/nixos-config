@@ -52,13 +52,6 @@ in
         }
       ];
     };
-
-    vim = {
-      enable = true;
-      extraConfig = ''
-        source ~/.config/vim/vimrc
-      '';
-    };
   };
 
 
