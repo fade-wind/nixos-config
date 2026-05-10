@@ -3,9 +3,6 @@ blacklist = ["scratch"]
 
 cache = false
 
-[default_session]
-startup_command = "eza --all --git --icons --color=always {}"
-
 [[session]]
 name = "tmux-conf"
 path = "~/.config/tmux"

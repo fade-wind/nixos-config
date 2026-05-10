@@ -1,7 +1,7 @@
 local opt = vim.opt
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
+vim.g.markdown_recommended_style = 0
 
 -- Performance and Timing
 opt.updatetime = 100
