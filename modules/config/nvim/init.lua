@@ -360,7 +360,9 @@ local lsp_servers = {
 	bashls = {},
   marksman = {},
 	nil_ls = {},
-	jinja_lsp = {},
+	jinja_lsp = {
+    filetypes = { "jinja" },
+  },
   stylua = {},
 }
 
@@ -382,6 +384,9 @@ vim.filetype.add({
 		[".*/roles.*/tasks/.*%.ya?ml"] = "yaml.ansible",
 		[".*/group_vars/all/*.*%.ya?ml"] = "yaml.ansible",
 	},
+  extension = {
+    j2 = "jinja",
+  },
 })
 
 autocmd("BufReadPost", {
