@@ -22,9 +22,9 @@ in
   home.stateVersion = "26.05";
 
   imports = [
-    ../../../features/btop.nix
-    ../../../features/yazi/default.nix
-    ../../../features/zsh/default.nix
+    ../../../features/programs/btop.nix
+    ../../../features/programs/yazi/default.nix
+    ../../../features/programs/zsh/default.nix
     ../../../features/home-modules/default.nix
     ../../../features/home-modules/xdg/default.nix
   ];
