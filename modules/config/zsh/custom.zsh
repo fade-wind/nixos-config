@@ -39,9 +39,6 @@ fi
 eval "$(zoxide init zsh)"
 # export EZA_DEFAULT_THEME="$HOME/.config/eza/theme/onedarkpro.yml"
 
-### "nvim" as manpager
-export MANPAGER="nvim +Man!"
-
 ### FZF ###
 # Enables the following keybindings:
 # CTRL-t = fzf select
