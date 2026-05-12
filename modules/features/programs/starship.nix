@@ -23,7 +23,7 @@
     $kotlin\
     $haskell\
     $python\
-    $nix-shell\
+    $nix_shell\
     $line_break\
     $character"""
     
@@ -108,8 +108,8 @@
     style = "bg:bright_black"
     format = '[](red)[[ $symbol( $version)(\(#$virtualenv\)) ](fg:white bg:bright_black)]($style)[](bright_black)'
     
-    [nix-shell]
-    symbol = ""
+    [nix_shell]
+    symbol = " "
     style = "bg:bright_black"
     format = '[](red)[[ $symbol( $state)(\(#$name\)) ](fg:white bg:bright_black)]($style)[](bright_black)'
     
