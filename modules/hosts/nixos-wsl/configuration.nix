@@ -91,10 +91,6 @@
     wslConf.boot.command = "mount --make-rshard /"; 
   };
 
-  environment.systemPackages = with pkgs; [
-    uv
-  ];
-
   # ---------------------------------------------
   # System version
   # ---------------------------------------------

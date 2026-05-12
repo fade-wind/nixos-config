@@ -22,6 +22,7 @@
     neovim
     lazygit
     dconf
+    uv
   ];
   home.sessionVariables = {
     EDITOR = "nvim";

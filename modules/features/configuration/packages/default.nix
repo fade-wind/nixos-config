@@ -14,6 +14,7 @@
     clang
     cmake
     sshfs
+    uv
     cifs-utils
 
     podman-compose
