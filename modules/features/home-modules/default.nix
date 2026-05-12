@@ -3,8 +3,7 @@
   home.packages = with pkgs; [
     nodejs
     cargo
-    gcc
-    uv
+    gcc 
     cifs-utils
     wl-clipboard
     btop
