@@ -23,6 +23,7 @@
     $kotlin\
     $haskell\
     $python\
+    $nix-shell\
     $line_break\
     $character"""
     
@@ -106,6 +107,11 @@
     symbol = ""
     style = "bg:bright_black"
     format = '[](red)[[ $symbol( $version)(\(#$virtualenv\)) ](fg:white bg:bright_black)]($style)[](bright_black)'
+    
+    [nix-shell]
+    symbol = ""
+    style = "bg:bright_black"
+    format = '[](red)[[ $symbol( $state)(\(#$name\)) ](fg:white bg:bright_black)]($style)[](bright_black)'
     
     [docker_context]
     symbol = ""
