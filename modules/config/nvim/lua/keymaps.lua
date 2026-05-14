@@ -91,14 +91,11 @@ keymap("n", "<leader>/", "<CMD>FzfLua live_grep<CR>", { desc = "Live grep curren
 keymap("n", "<leader>?", function()
 	require("which-key").show({ global = false })
 end, { desc = "Buffer keymaps (which-key)" })
+  
+keymap({ "n", "t" }, "<leader>e", "<CMD>Neotree filesystem toggle left<CR>", { desc = "Neo-tree toggle" })
 
-if vim.g.neovide then
-  keymap({ "n", "t" }, "<leader>e", "<CMD>Neotree filesystem toggle left<CR>", { desc = "Neo-tree toggle" })
-  keymap("t", "<ESC>", [[<C-\><C-n>]])
-  keymap("n", "<leader>T", "<CMD>ToggleTerm size=15 direction=horizontal<CR>", { desc = "Toggle Terminal" })
-else
-  keymap({ "n", "t" }, "<leader>E", "<CMD>Neotree filesystem toggle left<CR>", { desc = "Neo-tree toggle" })
-end
+keymap("t", "<ESC>", [[<C-\><C-n>]])
+keymap("n", "<leader>T", "<CMD>ToggleTerm<CR>", { desc = "Toggle Terminal" })
 
 keymap("n", "K", function()
 	vim.lsp.buf.hover({ border = "rounded" })

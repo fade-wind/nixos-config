@@ -4,222 +4,105 @@ local key_opts = { noremap = true, silent = true }
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 
-require("core")
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+vim.g.markdown_recommended_style = 0
 
--- Pack Add
-vim.pack.add({
-	{ src = "https://github.com/windwp/nvim-autopairs" },
-	{ src = "https://github.com/folke/tokyonight.nvim" },
-	{ src = "https://github.com/nvim-lua/plenary.nvim" },
-	{ src = "https://github.com/ibhagwan/fzf-lua" },
-	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
-	{ src = "https://github.com/akinsho/bufferline.nvim" },
-	{ src = "https://github.com/folke/which-key.nvim" },
-	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
-	{ src = "https://github.com/kdheepak/lazygit.nvim" },
-	{ src = "https://github.com/folke/noice.nvim" },
-	{ src = "https://github.com/MunifTanjim/nui.nvim" },
-	{ src = "https://github.com/christoomey/vim-tmux-navigator" },
-  { src = "https://github.com/tpope/vim-fugitive" },
-	{
-		src = "https://github.com/nvim-neo-tree/neo-tree.nvim",
-		version = vim.version.range("3"),
-	},
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-	{ src = "https://github.com/neovim/nvim-lspconfig" },
-	{ src = "https://github.com/mason-org/mason.nvim" },
-	{ src = "https://github.com/mason-org/mason-lspconfig.nvim" },
-	{ src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
-	{
-		src = "https://github.com/Saghen/blink.cmp",
-		version = vim.version.range("1.*"),
-	},
-	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
-	{ src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
-	{ src = "https://github.com/karb94/neoscroll.nvim" },
-	{ src = "https://github.com/akinsho/toggleterm.nvim" },
-	{ src = "https://github.com/uhs-robert/sshfs.nvim" },
-	{
-		src = "https://github.com/Ramilito/kubectl.nvim",
-		version = vim.version.range("2.*"),
-	},
-	{ src = "https://github.com/Saghen/blink.download" },
-	{ src = "https://github.com/folke/persistence.nvim" },
-	{ src = "https://github.com/nvimdev/dashboard-nvim" },
-}, { confirm = false })
+-- Performance and Timing
+opt.updatetime = 100
+opt.lazyredraw = false
+opt.synmaxcol = 240
+opt.timeoutlen = 500
+
+-- UI & Appearance
+-- Enable relative line numbers
+opt.number = true
+opt.relativenumber = true
+opt.cursorline = true
+opt.signcolumn = "yes"
+opt.laststatus = 3
+opt.showmode = false
+opt.showmatch = true
+opt.matchtime = 1
+opt.termguicolors = true
+opt.winborder = "rounded"
+
+-- Windows & Splits
+opt.splitbelow = true
+opt.splitright = true
+
+-- Search
+opt.ignorecase = true
+opt.smartcase = true
+opt.incsearch = true
+opt.hlsearch = true
+
+-- Files and Buffers
+opt.swapfile = false
+opt.backup = false
+opt.writebackup = false
+opt.undofile = true
+opt.autoread = true
+opt.fileencoding = "utf-8"
+opt.modeline = true
+opt.modelines = 100
+
+-- Indents and Formatting
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.softtabstop = 2
+opt.expandtab = true
+opt.autoindent = true
+-- opt.smartindent = true
+opt.breakindent = true
+opt.preserveindent = true
+opt.linebreak = true
+opt.wrap = true
+
+-- Completion and Popup
+opt.pumheight = 10
+opt.infercase = true
+opt.completeopt = "menuone,noinsert,noselect"
+
+-- Command Line and Message
+opt.cmdheight = 0
+opt.history = 100
+opt.report = 9001
+
+-- Editor Behavior
+opt.virtualedit = "block"
+opt.startofline = true
+opt.title = true
+
+opt.grepprg = "rg --vimgrep"
+opt.grepformat = "%f:%l:%c:%m"
+
+opt.scrolloff = 8
+opt.mouse = "a"
+
+opt.encoding = "utf-8"
+
+opt.modifiable = true
+
+opt.guicursor = {
+	"n-v-c:block", -- Normal, Visual, Command-line
+	"i-ci-ve:block", -- Insert, Command-line Insert, Visual-exclusive
+	"r-cr:hor20", -- Replace, Command-line Replace
+	"o:hor50", -- Operator-pending
+	"a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor", -- All modes: blinking & highlight groups
+	"sm:block-blinkwait175-blinkoff150-blinkon175", -- Showmatch mode
+}
+
+
+require '00-pack'
 
 -- Plugin settings
-
-require("nvim-autopairs").setup()
 
 require("tokyonight").setup({
 	style = "storm",
 })
 
 require("tokyonight").load()
-
--- FZFLua
-require("fzf-lua").setup()
-require("fzf-lua").register_ui_select()
-
--- Bufferline
-require("bufferline").setup({
-	options = {
-		mode = "buffers", -- set to "tabs" to only show tabpages instead
-		themable = true, -- allows highlight groups to be overriden i.e. sets highlights as default
-		numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-		buffer_close_icon = "✗",
-		close_icon = "✗",
-		modified_icon = "●",
-		left_trunc_marker = "",
-		right_trunc_marker = "",
-		max_name_length = 30,
-		max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
-		tab_size = 21,
-		diagnostics = false,
-		diagnostics_update_in_insert = false,
-		color_icons = true,
-		show_buffer_icons = true,
-		show_buffer_close_icons = true,
-		show_close_icon = true,
-		persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-		separator_style = { "│", "│" }, -- | "thick" | "thin" | { 'any', 'any' },
-		enforce_regular_tabs = true,
-		always_show_bufferline = true,
-		show_tab_indicators = false,
-		indicator = {
-			-- icon = '▎', -- this should be omitted if indicator style is not 'icon'
-			style = "none", -- Options: 'icon', 'underline', 'none'
-		},
-		icon_pinned = "󰐃",
-		minimum_padding = 1,
-		maximum_padding = 5,
-		maximum_length = 15,
-		sort_by = "insert_at_end",
-		offsets = {
-			{
-				filetype = "neo-tree",
-				text = "Neotree",
-				text_align = "center",
-				separator = true,
-			},
-		},
-	},
-	highlights = {
-		separator = {
-			fg = "#434C5E",
-		},
-		buffer_selected = {
-			bold = true,
-			italic = true,
-		},
-		-- separator_selected = {},
-		-- tab_selected = {},
-		-- background = {},
-		-- indicator_selected = {},
-		-- fill = {},
-	},
-})
-
--- WhichKey
-require("which-key").setup({
-	options = {
-		preset = "helix",
-	},
-})
-
--- Lualine
-local mode = {
-	"mode",
-	fmt = function(str)
-		return " " .. str
-		-- return ' ' .. str:sub(1, 1) -- displays only the first character of the mode
-	end,
-}
-
-local filename = {
-	"filename",
-	file_status = true, -- displays file status (readonly status, modified status)
-	path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
-}
-
-local hide_in_width = function()
-	return vim.fn.winwidth(0) > 100
-end
-
-local diagnostics = {
-	"diagnostics",
-	sources = { "nvim_diagnostic" },
-	sections = { "error", "warn" },
-	symbols = { error = " ", warn = " ", info = " ", hint = " " },
-	colored = false,
-	update_in_insert = false,
-	always_visible = false,
-	cond = hide_in_width,
-}
-
-local diff = {
-	"diff",
-	colored = false,
-	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
-	cond = hide_in_width,
-}
-
-require("lualine").setup({
-	options = {
-		icons_enabled = true,
-		theme = "tokyonight", -- Set theme based on environment variable
-		-- Some useful glyphs:
-		-- https://www.nerdfonts.com/cheat-sheet
-		--       
-		section_separators = { left = "", right = "" },
-		component_separators = { left = "", right = "" },
-		disabled_filetypes = {
-			statusline = { "alpha", "neo-tree" },
-		},
-		always_divide_middle = true,
-		globalstatus = true,
-	},
-	sections = {
-		lualine_a = { mode },
-		lualine_b = { "branch" },
-		lualine_c = { filename },
-		lualine_x = {
-			diagnostics,
-			diff,
-			{ "encoding", cond = hide_in_width },
-			{ "filetype", cond = hide_in_width },
-		},
-		lualine_y = { "location" },
-		lualine_z = { "progress" },
-	},
-	inactive_sections = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = { { "filename", path = 1 } },
-		lualine_x = { { "location", padding = 0 } },
-		lualine_y = {},
-		lualine_z = {},
-	},
-	tabline = {},
-	extensions = { "fugitive", "fzf" },
-})
-
--- LazyGit
-
-keymap(
-	"n",
-	"<leader>lg",
-	"<cmd>LazyGit<cr><cmd>hi LazyGitFloat guibg=NONE guifg=NONE<cr><cmd>setlocal winhl=NormalFloat:LazyGitFloat<cr>",
-	{ desc = "LazyGit" }
-)
-vim.g.lazygit_floating_window_winblend = 0 -- transparency of floating window (0-100)
-vim.g.lazygit_floating_window_scaling_factor = 0.9 -- scaling factor for floating window
-vim.g.lazygit_floating_window_border_chars = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" } -- customize lazygit popup window border characters
-vim.g.lazygit_floating_window_use_plenary = 0 -- use plenary.nvim to manage floating window if available
-vim.g.lazygit_use_neovim_remote = 1 -- fallback to 0 if neovim-remote is not installed
-vim.g.lazygit_use_custom_config_file_path = 0 -- config file path is evaluated if this value is 1
-vim.g.lazygit_config_file_path = {} -- table of custom config file paths
 
 -- Diagnostics
 local sev = vim.diagnostic.severity
@@ -236,82 +119,11 @@ vim.diagnostic.config({
 	},
 })
 
--- Noice
-require("noice").setup({
-	presets = {
-		bottom_search = false,
-		command_palette = true,
-		long_message_to_split = true,
-		inc_rename = false,
-		lsp_doc_border = false,
-	},
-})
-
--- Neotree
-
-require("neo-tree").setup({
-	sources = {
-		"filesystem",
-		"buffers",
-		"git_status",
-	},
-	close_if_last_window = true,
-	open_files_do_not_replace_types = {
-		"terminal",
-		"Trouble",
-		"trouble",
-		"qf",
-		"Outline",
-	},
-	filesystem = {
-		bind_to_cwd = false,
-		follow_current_file = { enabled = true },
-		use_libuv_file_watcher = true,
-	},
-	window = {
-		width = 25,
-		mappings = {
-			["l"] = "open",
-			["h"] = "close_node",
-			["<space>"] = "none",
-			["Y"] = {
-				function(state)
-					local node = state.tree:get_node()
-					local path = node:get_id()
-					vim.fn.setreg("+", path, "c")
-				end,
-				desc = "Copy Path to Clipboard",
-			},
-			["P"] = { "toggle_preview", config = { use_float = false } },
-		},
-	},
-	source_selector = {
-		winbar = true,
-		statusline = false,
-	},
-	default_component_configs = {
-		indent = {
-			with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
-			expander_collapsed = "",
-			expander_expanded = "",
-			expander_highlight = "NeoTreeExpander",
-		},
-		git_status = {
-			symbols = {
-				unstaged = "󰄱",
-				staged = "󰱒",
-			},
-		},
-	},
-})
-
-
 -- Treesitter
 require("nvim-treesitter").setup({
 	install_dir = vim.fn.stdpath("data") .. "/site",
 	indent = { enable = false },
 })
-
 
 local parsers = {
 	"lua",
@@ -352,18 +164,18 @@ local lsp_servers = {
 			},
 		},
 	},
-  ansiblels = {
-   python = {
-     interpreterPath = "$HOME/.venv/bin/python",
-   },
-  },
+	ansiblels = {
+		python = {
+			interpreterPath = "$HOME/.venv/bin/python",
+		},
+	},
 	bashls = {},
-  marksman = {},
+	marksman = {},
 	nil_ls = {},
 	jinja_lsp = {
-    filetypes = { "jinja" },
-  },
-  stylua = {},
+		filetypes = { "jinja" },
+	},
+	stylua = {},
 }
 
 require("mason").setup()
@@ -384,9 +196,9 @@ vim.filetype.add({
 		[".*/roles.*/tasks/.*%.ya?ml"] = "yaml.ansible",
 		[".*/group_vars/all/*.*%.ya?ml"] = "yaml.ansible",
 	},
-  extension = {
-    j2 = "jinja",
-  },
+	extension = {
+		j2 = "jinja",
+	},
 })
 
 autocmd("BufReadPost", {
@@ -408,140 +220,55 @@ for server, config in pairs(lsp_servers) do
 	})
 end
 
-require("blink.cmp").setup({
-	signature = {
-		enabled = true,
-		window = { border = "rounded" },
-	},
-	completion = {
-		documentation = {
-			auto_show = true,
-			auto_show_delay_ms = 500,
-			window = { border = "rounded" },
-		},
-		menu = {
-			border = "rounded",
-			auto_show = true,
-			draw = {
-				treesitter = { "lsp" },
-				columns = { { "kind_icon", "label", "label_description", gap = 1 }, { "kind" } },
-			},
-		},
-	},
-	keymap = {
-		preset = "default",
-		["<C-k>"] = false,
-		["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
-	},
-})
-
-
 -- Renderer-Markdown
 require("render-markdown").setup()
 
--- Indent Blankline
-require("ibl").setup({
-	indent = {
-		char = "▏",
-	},
-	scope = {
-		show_start = false,
-		show_end = false,
-		show_exact_scope = false,
-	},
-  exclude = {
-    filetypes = {
-      "dashboard"
-    },
-  },
-})
-
--- neoscroll
-require("neoscroll").setup({
-	hide_cursor = true,
-	stop_eof = true,
-	easing = "quadratic",
-})
-
--- toggleterm
-require("toggleterm").setup({
-	size = 20,
-	open_mapping = nil,
-	hide_numbers = true,
-	shade_terminals = true,
-	shading_factor = 1,
-	start_in_insert = true,
-	insert_mappings = true,
-	terminal_mappings = true,
-	persist_size = true,
-	direction = "horizontal", -- "vertical" | "horizontal" | "tab" | "float"
-	close_on_exit = true,
-	shell = vim.o.shell,
-	float_opts = {
-		border = "curved",
-	},
-})
--- sshfs
-require("sshfs").setup({
-	ui = {
-		preferred_picker = "neo-tree",
-	},
-})
-
--- kubectl.nvim
-require("kubectl").setup()
-autocmd("FileType", {
-	pattern = "k8s_*",
+autocmd("BufEnter", {
+	group = augroup("Neotree_start_directory", { clear = true }),
+	desc = "Start Neo-tree with directory",
+	once = true,
 	callback = function()
-		keymap("n", "7", "<Plug>(kubectl.view_nodes)", {
-			buffer = true,
-		})
-		keymap("n", "8", "<Plug>(kubectl.view_overview)", {
-			buffer = true,
-		})
-		keymap("n", "<C-k>", "<Plug>(kubectl.kill)", {
-			buffer = true,
-		})
-		keymap("n", "<C-t>", "<Plug>(kubectl.view_top)", {
-			buffer = true,
-		})
+		if package.loaded["neo-tree"] then
+			return
+		else
+			local stats = vim.uv.fs_stat(vim.fn.argv(0))
+			if stats and stats.type == "directory" then
+				require("neo-tree")
+			end
+		end
 	end,
 })
 
--- persistence 
-require("persistence").setup({
-  dir = vim.fn.stdpath("state") .. "/sessions/",
-  options = { "buffers", "curdir", "options", "tabpages", "winsize" },
-  pre_save = function()
-    local cwd = vim.fn.getcwd()
-    if cwd == vim.fn.expand("~") or cwd:match("/tmp") then
-      return false
+autocmd("PackChanged", {
+	pattern = "nvim-treesitter",
+	desc = "Run :TSUpdate after pack changed",
+	group = augroup("treesitter_update", { clear = true }),
+	callback = function(e)
+		local kind, name
+		name = e.data.kind, e.data.spec.name
+		if kind == "install" or kind == "update" then
+			vim.cmd.packadd({ args = { name }, bang = false })
+			vim.cmd("TSUpdate")
+		end
+	end,
+})
+
+-- if entering from neovide, dashboard displays
+-- if entering from terminal, will trigger persistence
+-- NOTE: this requires sesh+television+tmux
+
+autocmd("VimEnter", {
+  callback = function()
+    if vim.g.neovide then
+      vim.cmd("Dashboard")
+    else
+      require("persistence").load({
+        silent = true,
+      })
+      vim.cmd("filetype detect")
     end
   end,
 })
 
-local logo = [[
-░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-░    ░░░░░   ░░░░░░░░░░░░░░░░░░░░░░░   ░░░░░░░░░   ░░░░░░░░░░░░░░░░░░
-▒  ▒   ▒▒▒   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒   ▒▒▒▒▒▒▒   ▒▒▒  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-▒   ▒   ▒▒   ▒▒▒▒   ▒▒▒▒▒▒▒▒   ▒▒▒▒▒▒▒   ▒▒▒▒▒   ▒▒▒▒▒▒▒    ▒   ▒   ▒
-▓   ▓▓   ▓   ▓▓  ▓▓▓   ▓▓▓   ▓▓   ▓▓▓▓▓   ▓▓▓   ▓▓▓▓   ▓▓   ▓▓  ▓▓   
-▓   ▓▓▓  ▓   ▓         ▓▓   ▓▓▓▓   ▓▓▓▓▓   ▓   ▓▓▓▓▓   ▓▓   ▓▓  ▓▓   
-▓   ▓▓▓▓  ▓  ▓  ▓▓▓▓▓▓▓▓▓▓   ▓▓   ▓▓▓▓▓▓▓     ▓▓▓▓▓▓   ▓▓   ▓▓  ▓▓   
-█   ██████   ███     ███████   ███████████   ███████   █    ██  ██   
-█████████████████████████████████████████████████████████████████████
-]]
-
-require("dashboard").setup({
-  theme = "doom",
-  config = {
-    header = vim.split(logo,"\n"),
-    center = {
-      { action = 'FzfLua files', desc = " Find File", icon = " ", key = "f" },
-      { action = "ene | startinsert", desc = " New File", icon = " ", key = "n" },
-      { action = 'FzfLua live_grep', desc = " Find Text", icon = " ", key = "g" },
-      { action = function() require("persistence").select() end, desc = " Restore Session", icon = " ", key = "s" },
-      { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = " Quit", icon = " ", key = "q" },
-    },
-  },
-})
+require 'keymaps'
+require 'neovide'

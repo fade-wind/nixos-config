@@ -5,15 +5,16 @@
     enable = true;
     settings = {
       bar = {
-        barType = "framed";
+        density = "default";
+        barType = "floating";
         position = "top";
         monitors =  [];
         showOutline = false;
-        showCapsule = true;
+        showCapsule = false;
         capsuleOpacity = 0.30;
         capsuleColorKey = "secondary";
-        widgetSpacing = 6;
-        contentPadding = 2;
+        widgetSpacing = 3;
+        contentPadding = 4;
         fontScale = 1;
         enableExclusionZoneInset = false;
         backgroundOpacity = 0.93;
@@ -74,6 +75,9 @@
               id = "plugin:ssh-sessions";
             }
             {
+              id = "plugin:monique";
+            }
+            {
               id = "plugin:kubectl-ctx";
             }
           ];
@@ -109,13 +113,16 @@
           ];
           right = [
             {
-              blacklist = [];
+              blacklist = "KDE*";
               chevronColor = "none";
               colorizeIcons = false;
               drawerEnabled = true;
               hidePassive = false;
               id = "Tray";
               pinned = [];
+            }
+            {
+              id = "plugin:kde-connect";
             }
             {
               id = "plugin:clipboard";
@@ -187,8 +194,8 @@
         mouseWheelAction = "none";
         reverseScroll = false;
         mouseWheelWrap = true;
-        middleClickAction = "none";
-        middleClickFollowMouse = false;
+        middleClickAction = "settings";
+        middleClickFollowMouse = true;
         middleClickCommand = "";
         rightClickAction = "controlCenter";
         rightClickFollowMouse = true;
@@ -452,20 +459,22 @@
         enabled = true;
         position = "bottom";
         displayMode = "auto_hide";
-        dockType = "attached";
+        dockType = "floating";
         backgroundOpacity = 1;
         floatingRatio = 1;
         size = 1;
         onlySameOutput = true;
         monitors = [];
-        pinnedApps = [];
+        pinnedApps = [
+          "vesktop"
+        ];
         colorizeIcons = false;
         showLauncherIcon = false;
         launcherPosition = "end";
         launcherUseDistroLogo = false;
         launcherIcon = "";
         launcherIconColor = "none";
-        pinnedStatic = false;
+        pinnedStatic = true;
         inactiveIndicators = false;
         groupApps = false;
         groupContextMenuMode = "extended";
@@ -807,6 +816,14 @@
             sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
         clipboard= {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
+        monique = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
+        kde-connect = {
             enabled = true;
             sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
