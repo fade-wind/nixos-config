@@ -92,7 +92,7 @@ keymap("n", "<leader>?", function()
 	require("which-key").show({ global = false })
 end, { desc = "Buffer keymaps (which-key)" })
   
-keymap({ "n", "t" }, "<leader>e", "<CMD>Neotree filesystem toggle left<CR>", { desc = "Neo-tree toggle" })
+keymap({ "n", "v", "t" }, "<leader>e", "<CMD>Neotree filesystem toggle left<CR>", { desc = "Neo-tree toggle" })
 
 keymap("t", "<ESC>", [[<C-\><C-n>]])
 keymap("n", "<leader>T", "<CMD>ToggleTerm<CR>", { desc = "Toggle Terminal" })
@@ -107,4 +107,4 @@ end, { desc = "Format" })
 
 keymap("n", "<leader>k", '<CMD>lua require("kubectl").toggle()<CR>')
 
-keymap({"n","v","t"}, "<leader>F", "<CMD>filetype detect<CR>", { desc = "Filetype detect"})
+keymap({"n","v" }, "<leader>F", "<CMD>filetype detect<CR>", { desc = "Filetype detect"})

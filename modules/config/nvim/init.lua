@@ -170,7 +170,12 @@ local lsp_servers = {
 		},
 	},
 	bashls = {},
-	marksman = {},
+	marksman = {
+   filetypes = {
+     "markdown",
+     "mdx", 
+   },
+  },
 	nil_ls = {},
 	jinja_lsp = {
 		filetypes = { "jinja" },
@@ -198,6 +203,8 @@ vim.filetype.add({
 	},
 	extension = {
 		j2 = "jinja",
+    md = "markdown",
+    mdx = "markdown",
 	},
 })
 
