@@ -37,4 +37,5 @@ vim.pack.add({
 	{ src = "https://github.com/Saghen/blink.download" },
 	{ src = "https://github.com/folke/persistence.nvim" },
 	{ src = "https://github.com/nvimdev/dashboard-nvim" },
+	{ src = "https://github.com/TheLeoP/powershell.nvim" },
 }, { confirm = false })

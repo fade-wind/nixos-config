@@ -134,6 +134,7 @@ local parsers = {
 	"json",
 	"markdown",
 	"markdown_inline",
+  "powershell",
 	"nix",
 	"html",
 	"latex",
@@ -173,10 +174,11 @@ local lsp_servers = {
 	marksman = {
    filetypes = {
      "markdown",
-     "mdx", 
+     "mdx",
    },
   },
 	nil_ls = {},
+  powershell_es = {},
 	jinja_lsp = {
 		filetypes = { "jinja" },
 	},
@@ -230,6 +232,10 @@ end
 -- Renderer-Markdown
 require("render-markdown").setup()
 
+require("powershell").setup({
+  bundle_path = vim.fn.stdpath "data" .. "/mason/packages/powershell-editor-services",
+})
+
 autocmd("BufEnter", {
 	group = augroup("Neotree_start_directory", { clear = true }),
 	desc = "Start Neo-tree with directory",
@@ -259,6 +265,7 @@ autocmd("PackChanged", {
 		end
 	end,
 })
+
 
 -- if entering from neovide, dashboard displays
 -- if entering from terminal, will trigger persistence
