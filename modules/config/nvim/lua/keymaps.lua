@@ -92,7 +92,7 @@ keymap("n", "<leader>?", function()
 	require("which-key").show({ global = false })
 end, { desc = "Buffer keymaps (which-key)" })
   
-keymap({ "n", "v", "t" }, "<leader>e", "<CMD>Neotree filesystem toggle left<CR>", { desc = "Neo-tree toggle" })
+keymap({ "n", "v" }, "<leader>e", "<CMD>Neotree filesystem toggle left<CR>", { desc = "Neo-tree toggle" })
 
 keymap("t", "<ESC>", [[<C-\><C-n>]])
 keymap("n", "<leader>T", "<CMD>ToggleTerm<CR>", { desc = "Toggle Terminal" })
