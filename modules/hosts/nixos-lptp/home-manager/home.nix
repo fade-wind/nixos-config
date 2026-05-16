@@ -37,6 +37,7 @@ in
     ../../../features/programs/yazi/default.nix
     ../../../features/programs/zsh/default.nix
     ../../../features/home-modules/default.nix
+    ../../../features/home-modules/fzf.nix
     ../../../features/home-modules/foot.nix
     ../../../features/home-modules/noctalia.nix
     ../../../features/home-modules/vesktop.nix
