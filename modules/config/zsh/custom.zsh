@@ -1,17 +1,12 @@
-export STARSHIP_CONFIG="/etc/starship-root.toml"
 export PATH="$HOME/.config/bin:$HOME/.local/share/bin:$HOME/.local/bin:$HOME/.config/zide/bin/:$PATH"
-eval "$(starship init zsh)"
 # eval "$(ssh-agent -s)"
 #. "$HOME/.atuin/bin/env"
-eval "$(atuin init zsh)"
-eval "$(tv init zsh)"
 [[ -f $HOME/.venv/bin/activate ]] && source $HOME/.venv/bin/activate
 
-(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[path]=none
-ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+# (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
+# ZSH_HIGHLIGHT_STYLES[path]=none
+# ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 
-source $HOME/.config/fzf/theme.sh
 
 # Tmux autostart logic
 if command -v tmux >/dev/null 2>&1; then
@@ -36,21 +31,10 @@ if command -v tmux >/dev/null 2>&1; then
   fi
 fi
 
-eval "$(zoxide init zsh)"
-# export EZA_DEFAULT_THEME="$HOME/.config/eza/theme/onedarkpro.yml"
 
-
-export MANPAGER="bat -l man -p"
-
-### FZF ###
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --strip-cwd-prefix'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export _FZF_PREVIEW_CMD='bat --color=always --style=plain,numbers --line-range=:500 {}'
-export FZF_CTRL_T_OPTS="--preview '$_FZF_PREVIEW_CMD'"
 # Enables the following keybindings:
 # CTRL-t = fzf select
 # CTRL-r = fzf history
 # ALT-c  = fzf cd
-eval "$(fzf --zsh)"
 fpath=(~/.config/zsh/completions $fpath)
 autoload -U compinit && compinit

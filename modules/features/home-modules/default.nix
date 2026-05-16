@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
-{
+{ 
+
   home.packages = with pkgs; [
     nodejs
     cargo
@@ -18,7 +19,6 @@
     ripgrep
     starship
     yazi
-    zoxide
     neovim
     lazygit
     dconf
@@ -30,7 +30,12 @@
   };
 
   programs = {
-    atuin.enable = true;
+    atuin = {
+      enable = true;
+      enableBashIntegration = true;
+      enableZshIntegration = true;
+    };
+
     bash = {
       enable = true;
       shellAliases = {
@@ -43,11 +48,30 @@
         eval "$(starship init bash)"
       '';
     };
+    
+    starship = {
+      enable = true;
+      enableBashIntegration = true;
+      enableZshIntegration = true; 
+    };
+
+    television = {
+      enable = true;
+      enableBashIntegration = true;
+      enableZshIntegration = true; 
+     
+    };
+
     vim = {
       enable = true;
       extraConfig = ''
         source ~/.config/vim/vimrc
       '';
+    };
+    zoxide = {
+      enable = true;
+      enableBashIntegration = true;
+      enableZshIntegration = true;
     };
   };
 
