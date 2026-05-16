@@ -1,5 +1,9 @@
 { config, pkgs, ... }: {
 
+  imports = [
+    ./aliases.nix
+  ];
+
   programs.zsh = {
     enable = true;
     dotDir = "${config.xdg.configHome}/zshrc";
@@ -20,6 +24,12 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     enableCompletion = true;
+
+    setOptions = [
+      "NOBEEP"
+      "NUMERIC_GLOB_SORT"
+    ];
+
     initContent = builtins.readFile ./zshrc.zsh;
 
   };

@@ -18,6 +18,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    preservation.url = "github:nix-community/preservation";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
     monique.url = "github:ToRvaLDz/monique";
     nixos-plymouth.url = "github:BeatLink/nixos-plymouth";
@@ -26,7 +31,7 @@
     nur.url = "github:nix-community/NUR";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixos-wsl,  ... }: 
+  outputs = inputs@{ self, nixpkgs, nixos-wsl, disko, preservation, ... }: 
   let
     system = "x86_64-linux";
   in
@@ -53,6 +58,18 @@
           wsl.enable = true;
         }
         { programs.nix-ld.dev.enable = true; }
+      ];
+    };
+    nixosConfigurations.nixos-srv = nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = { inherit inputs system; };
+      modules = [
+        inputs.disko.nixosModules.disko
+        inputs.preservation.nixosModules.default
+        ./modules/hosts/nixos-srv/configuration.nix
+        ./modules/features/configuration/preservation.nix
+        ./modules/hosts/nixos-srv/disko.nix
+        inputs.home-manager.nixosModules.home-manager
       ];
     };
   };
