@@ -14,5 +14,7 @@
     nrs = "sudo nixos-rebuild switch --flake $HOME/Projects/nixos-dotfiles#$(hostname)";
     nrb = "sudo nixos-rebuild boot --flake $HOME/Projects/nixos-dotfiles#$(hostname)";
     gh-add = "eval $(ssh-agent -s) && ssh-add $HOME/.ssh/github";
+    gh-push = "gh-add && git push";
+    gh-pull = "gh-add && git pull";
   };
 }

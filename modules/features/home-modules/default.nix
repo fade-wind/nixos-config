@@ -30,12 +30,6 @@
   };
 
   programs = {
-    atuin = {
-      enable = true;
-      enableBashIntegration = true;
-      enableZshIntegration = true;
-    };
-
     bash = {
       enable = true;
       shellAliases = {
@@ -48,18 +42,29 @@
         eval "$(starship init bash)"
       '';
     };
+
+    sesh = {
+      enable = true;
+      settings = {
+        blacklist = ["scratch"];
+        cache = false;
+        wildcard = [
+          {
+            pattern = "${config.home.homeDirectory}/Projects/*";
+            startup_command = "nvim";
+          }
+          {
+            pattern = "${config.home.homeDirectory}/Documents/*";
+            startup_command = "nvim";
+          }
+        ];
+      };
+    };
     
     starship = {
       enable = true;
       enableBashIntegration = true;
       enableZshIntegration = true; 
-    };
-
-    television = {
-      enable = true;
-      enableBashIntegration = true;
-      enableZshIntegration = true; 
-     
     };
 
     vim = {
