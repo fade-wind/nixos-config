@@ -10,7 +10,6 @@ let
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
     assets = "assets";
-    atuin = "atuin";
     eza = "eza";
     fzf = "fzf";
     kitty = "kitty";
@@ -19,8 +18,6 @@ let
     niri = "niri";
     nvim = "nvim";
     qutebrowser = "qutebrowser";
-    sesh = "sesh";
-    television = "television";
     tmux = "tmux";
     vim = "vim";
     zsh = "zsh";
@@ -36,10 +33,12 @@ in
     ../../../features/programs/btop.nix
     ../../../features/programs/yazi/default.nix
     ../../../features/programs/zsh/default.nix
+    ../../../features/home-modules/atuin.nix
     ../../../features/home-modules/default.nix
     ../../../features/home-modules/fzf.nix
     ../../../features/home-modules/foot.nix
     ../../../features/home-modules/noctalia.nix
+    ../../../features/home-modules/television/default.nix
     ../../../features/home-modules/vesktop.nix
     ../../../features/home-modules/xdg/default.nix
     ../../../features/home-modules/xdg/desktop.nix

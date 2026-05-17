@@ -25,8 +25,10 @@ in
     ../../../features/programs/btop.nix
     ../../../features/programs/yazi/default.nix
     ../../../features/programs/zsh/default.nix
+    ../../../features/home-modules/atuin.nix
     ../../../features/home-modules/default.nix
     ../../../features/home-modules/fzf.nix
+    ../../../features/home-modules/television/default.nix
     ../../../features/home-modules/xdg/default.nix
   ];
 
