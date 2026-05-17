@@ -5,23 +5,9 @@
     ./env.nix
   ];
 
+  home.file.".config/zsh/completions".source = ./completions;
   programs.zsh = {
     enable = true;
-    dotDir = "${config.xdg.configHome}/zshrc";
-
-    plugins = [
-      {
-        name = "zsh-autosuggestions";
-        src = pkgs.zsh-autosuggestions;
-        file = "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh";
-      }
-      {
-        name = "zsh-syntax-highlighting";
-        src = pkgs.zsh-syntax-highlighting;
-        file = "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
-      }
-    ];
-    
     autosuggestion.enable = true;
     syntaxHighlighting = { 
       enable = true;
@@ -32,7 +18,7 @@
     };
     enableCompletion = true;
     setOptions = [
-      "NOBEEP"
+      "NO_BEEP"
       "NUMERIC_GLOB_SORT"
     ];
 
@@ -53,7 +39,7 @@
         eza --color=always --color-scale=all --color-scale-mode=gradient --icons=always --group-directories-first -l --git -h
       '';
     };
-    initContent = builtins.readFile ./zshrc.zsh;
+    initContent = builtins.readFile ./custom/autostart.zsh;
 
   };
 }

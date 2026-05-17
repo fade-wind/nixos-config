@@ -8,7 +8,7 @@
     ../../features/configuration/podman.nix
     ../../features/configuration/security.nix
     ../../features/configuration/packages/default.nix
-    ../../features/programs/starship.nix
+    ../../features/home-modules/starship.nix
   ];
   
   # ---------------------------------------------

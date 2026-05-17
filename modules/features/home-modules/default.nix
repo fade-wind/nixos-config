@@ -45,6 +45,7 @@
 
     sesh = {
       enable = true;
+      enableTmuxIntegration = false;
       settings = {
         blacklist = ["scratch"];
         cache = false;

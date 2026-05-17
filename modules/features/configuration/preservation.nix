@@ -3,16 +3,16 @@
     enable = true;
     preserveAt."/persistent" = {
       users.zpeppler = {
-       directories = [
+        directories = [
          "Projects"
          ".ssh"
          ".local/state/nvim"
          ".local/share/atuin"
          ".local/share/nvim"
          ".local/share/zoxide"
-         ".tmux/plugins"
+         # ".tmux/plugins"
          ".venv"
-       ];
+        ];
       };
 
       files = [

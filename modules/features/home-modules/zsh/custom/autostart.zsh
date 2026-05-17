@@ -37,4 +37,3 @@ fi
 # CTRL-r = fzf history
 # ALT-c  = fzf cd
 fpath=(~/.config/zsh/completions $fpath)
-autoload -U compinit && compinit

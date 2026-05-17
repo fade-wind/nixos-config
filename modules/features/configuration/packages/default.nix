@@ -1,5 +1,6 @@
 { pkgs, ...  }:
 {
+  environment.pathsToLink = [ "/share/zsh" ];
   environment.systemPackages = with pkgs; [
     vim
     wget
