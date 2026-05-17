@@ -4,12 +4,7 @@ let
   dotfiles = "${config.home.homeDirectory}/Projects/nixos-dotfiles/modules/config";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
-    atuin = "atuin";
-    eza = "eza";
-    fzf = "fzf";
     nvim = "nvim";
-    sesh =  "sesh";
-    television = "television";
     tmux = "tmux";
     vim = "vim";
     zsh = "zsh";

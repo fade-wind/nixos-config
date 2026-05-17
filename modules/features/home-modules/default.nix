@@ -67,12 +67,6 @@
       enableZshIntegration = true; 
     };
 
-    vim = {
-      enable = true;
-      extraConfig = ''
-        source ~/.config/vim/vimrc
-      '';
-    };
     zoxide = {
       enable = true;
       enableBashIntegration = true;

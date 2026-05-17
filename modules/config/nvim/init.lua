@@ -177,7 +177,12 @@ local lsp_servers = {
      "mdx",
    },
   },
-	nil_ls = {},
+	nil_ls = {
+    flake = {
+      autoArchive = true,
+      autoEvalInputs = true,
+    },
+  },
   powershell_es = {},
 	jinja_lsp = {
 		filetypes = { "jinja" },
