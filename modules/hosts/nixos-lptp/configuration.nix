@@ -10,7 +10,7 @@
     ../../features/configuration/podman.nix
     ../../features/configuration/security.nix
     ../../features/configuration/packages/default.nix
-    ../../features/programs/starship.nix
+    ../../features/home-modules/starship.nix
     inputs.nixos-plymouth.nixosModules.default
     inputs.noctalia.nixosModules.default
     inputs.nur.modules.nixos.default
