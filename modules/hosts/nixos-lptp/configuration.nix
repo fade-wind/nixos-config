@@ -1,8 +1,13 @@
-
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =[ 
+  imports = [
     ./hardware-configuration.nix
     ../../features/configuration/fonts.nix
     ../../features/configuration/locale.nix
@@ -18,7 +23,7 @@
   ];
 
   # ---------------------------------------------
-  # Home Manager 
+  # Home Manager
   # ---------------------------------------------
 
   home-manager = {
@@ -30,7 +35,7 @@
   };
 
   # ---------------------------------------------
-  # Boot Settings 
+  # Boot Settings
   # ---------------------------------------------
 
   boot = {
@@ -51,16 +56,10 @@
     };
 
     kernelPackages = pkgs.linuxPackages_latest;
-
-    tmp = {
-      useTmpfs = true;
-      tmpfsSize = "4G";
-      cleanOnBoot = true;
-    };
   };
 
   # ---------------------------------------------
-  # Network Settings 
+  # Network Settings
   # ---------------------------------------------
 
   networking = {
@@ -70,12 +69,22 @@
       22
       9090
     ];
-    firewall.allowedTCPPortRanges = [ { from = 1714; to = 1764; }];
-    firewall.allowedUDPPortRanges = [ { from = 1714; to = 1764; }];
+    firewall.allowedTCPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
+    firewall.allowedUDPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
   };
-  
+
   # ---------------------------------------------
-  # Hardware Settings 
+  # Hardware Settings
   # ---------------------------------------------
 
   hardware = {
@@ -89,9 +98,9 @@
       enable32Bit = true;
     };
   };
-  
+
   # ---------------------------------------------
-  # Services 
+  # Services
   # ---------------------------------------------
 
   services = {
@@ -102,7 +111,7 @@
       videoDrivers = [ "modesetting" ];
     };
 
-    dbus.enable=true;
+    dbus.enable = true;
 
     emacs.enable = true;
 
@@ -144,7 +153,7 @@
       wireplumber.enable = true;
     };
   };
-  
+
   # ---------------------------------------------
   # Programs
   # ---------------------------------------------
@@ -153,7 +162,7 @@
     monique.enable = true;
     niri.enable = true;
     zsh.enable = true;
-    
+
     regreet = {
       enable = true;
       settings = {
@@ -175,18 +184,20 @@
     };
   };
 
-  environment.etc."regreet/Amaurot_Wallpaper.jpg".source = ../../config/assets/wallpapers/Amaurot_Wallpaper.jpg;
+  environment.etc."regreet/Amaurot_Wallpaper.jpg".source =
+    ../../config/assets/wallpapers/Amaurot_Wallpaper.jpg;
 
   # ---------------------------------------------
   # Users
   # ---------------------------------------------
 
-  users.users.zpeppler= {
+  users.users.zpeppler = {
     isNormalUser = true;
+    initialPassword = "password";
     shell = pkgs.zsh;
-    extraGroups = [ 
-      "wheel" 
-      "audio" 
+    extraGroups = [
+      "wheel"
+      "audio"
       "networkmanager"
       "podman"
       "video"
@@ -215,11 +226,12 @@
     xdg-terminal-exec
 
   ];
-  
+
   # ---------------------------------------------
   # System version
   # ---------------------------------------------
- 
-  system.stateVersion = "26.05"; 
+
+  system.stateVersion = "26.05";
 
 }
+

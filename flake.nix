@@ -48,7 +48,11 @@
         inherit system;
         specialArgs = { inherit inputs system; };
         modules = [
+          inputs.disko.nixosModules.disko
+          inputs.preservation.nixosModules.default
           ./modules/hosts/nixos-lptp/configuration.nix
+          ./modules/features/configuration/preservation.nix
+          ./modules/hosts/nixos-lptp/disko.nix
           inputs.nix-ld.nixosModules.nix-ld
           inputs.home-manager.nixosModules.home-manager
           { programs.nix-ld.dev.enable = true; }
@@ -83,3 +87,4 @@
       };
     };
 }
+
