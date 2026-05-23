@@ -31,7 +31,6 @@ in
     ../../../features/home-modules/fzf.nix
     ../../../features/home-modules/foot.nix
     ../../../features/home-modules/lazygit/default.nix
-    ../../../features/home-modules/noctalia.nix
     ../../../features/home-modules/tmux/default.nix
     ../../../features/home-modules/vesktop.nix
     ../../../features/home-modules/vim.nix
