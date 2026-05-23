@@ -10,6 +10,7 @@
           "Music"
           "Pictures"
           "Projects"
+          "Templates"
           "Videos"
           ".ssh"
           ".local/share/atuin"
