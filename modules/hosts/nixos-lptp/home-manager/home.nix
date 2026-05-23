@@ -32,7 +32,6 @@ in
     ../../../features/home-modules/foot.nix
     ../../../features/home-modules/lazygit/default.nix
     ../../../features/home-modules/noctalia.nix
-    ../../../features/home-modules/television/default.nix
     ../../../features/home-modules/tmux/default.nix
     ../../../features/home-modules/vesktop.nix
     ../../../features/home-modules/vim.nix
@@ -54,7 +53,7 @@ in
 
   home.sessionVariables = {
     BROWSER = "qutebrowser";
-    QTA_QPA_PLATFORM= "wayland";
+    QTA_QPA_PLATFORM = "wayland";
     QTA_QPA_PLATFORMTHEME = "qt6ct";
     QT_ICON_THEME = "Papirus";
     GTK_USE_PORTAL = "1";
@@ -78,7 +77,7 @@ in
         };
       };
     };
-    
+
     vscode = {
       enable = true;
     };
@@ -92,7 +91,7 @@ in
     source = create_symlink "${dotfiles}/${subpath}";
     recursive = true;
   }) configs;
-  
+
   gtk = {
     enable = true;
     iconTheme = {
@@ -107,3 +106,4 @@ in
   };
 
 }
+

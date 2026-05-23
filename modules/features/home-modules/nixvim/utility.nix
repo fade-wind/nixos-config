@@ -48,8 +48,6 @@
               end
             end
           end
-          vim.cmd("Neotree filesystem toggle left")
-          vim.cmd("ToggleTerm")
         end
       '';
     }

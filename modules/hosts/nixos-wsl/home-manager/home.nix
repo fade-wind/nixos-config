@@ -20,7 +20,6 @@ in
     ../../../features/home-modules/eza.nix
     ../../../features/home-modules/fzf.nix
     ../../../features/home-modules/lazygit/default.nix
-    ../../../features/home-modules/television/default.nix
     ../../../features/home-modules/tmux/default.nix
     ../../../features/home-modules/vim.nix
     ../../../features/home-modules/xdg/default.nix
@@ -31,11 +30,11 @@ in
   home.packages = with pkgs; [
     dconf
   ];
-  
+
   programs = {
     git = {
       enable = true;
-    lfs.enable = true;
+      lfs.enable = true;
       package = pkgs.gitFull;
       extraConfig = {
         credential.helper = "libsecret";
@@ -53,11 +52,9 @@ in
     };
   };
 
-
-  xdg.configFile = builtins.mapAttrs
-    (name: subpath: {
-      source = create_symlink "${dotfiles}/${subpath}";
-      recursive = true;
-    })
-    configs;
+  xdg.configFile = builtins.mapAttrs (name: subpath: {
+    source = create_symlink "${dotfiles}/${subpath}";
+    recursive = true;
+  }) configs;
 }
+

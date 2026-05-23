@@ -51,9 +51,10 @@
       source $HOME/.config/tmux/custom/statusbar.conf
       run "$HOME/.config/tmux/custom/remote.tmux"
     '';
-    plugins = with pkgs;[
+    plugins = with pkgs; [
       tmuxPlugins.tmux-floax
       tmuxPlugins.yank
     ];
   };
 }
+
