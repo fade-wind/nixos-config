@@ -1,10 +1,10 @@
 { config, pkgs, ... }:
-{ 
+{
 
   home.packages = with pkgs; [
     nodejs
     cargo
-    gcc 
+    gcc
     cifs-utils
     wl-clipboard
     btop
@@ -42,11 +42,18 @@
       '';
     };
 
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+      flake = "${config.home.homeDirectory}/Projects/nixos-dotfiles";
+    };
+
     sesh = {
       enable = true;
       enableTmuxIntegration = false;
       settings = {
-        blacklist = ["scratch"];
+        blacklist = [ "scratch" ];
         cache = false;
         wildcard = [
           {
@@ -60,11 +67,11 @@
         ];
       };
     };
-    
+
     starship = {
       enable = true;
       enableBashIntegration = true;
-      enableZshIntegration = true; 
+      enableZshIntegration = true;
     };
 
     zoxide = {
@@ -84,3 +91,4 @@
   };
 
 }
+

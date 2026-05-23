@@ -4,20 +4,26 @@
     preserveAt."/persistent" = {
       users.zpeppler = {
         directories = [
-         "Projects"
-         ".ssh"
-         ".local/share/atuin"
-         ".local/share/zoxide"
-         ".local/state/nvim"
-         ".venv"
-         ".kube"
+          "Desktop"
+          "Documents"
+          "Downloads"
+          "Music"
+          "Pictures"
+          "Projects"
+          "Videos"
+          ".ssh"
+          ".local/share/atuin"
+          ".local/share/zoxide"
+          ".local/state/nvim"
+          ".venv"
+          ".kube"
         ];
       };
 
       files = [
-        { 
-          file = "/etc/machine-id"; 
-          inInitrd = true; 
+        {
+          file = "/etc/machine-id";
+          inInitrd = true;
         }
       ];
 
@@ -32,3 +38,4 @@
     };
   };
 }
+

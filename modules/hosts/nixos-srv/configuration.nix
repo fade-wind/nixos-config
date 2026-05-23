@@ -1,4 +1,10 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -10,9 +16,9 @@
     ../../features/configuration/packages/default.nix
     ../../features/home-modules/starship.nix
   ];
-  
+
   # ---------------------------------------------
-  # Home Manager 
+  # Home Manager
   # ---------------------------------------------
 
   home-manager = {
@@ -42,12 +48,12 @@
     extraGroups = [ "wheel" ];
   };
 
-
   programs = {
     zsh.enable = true;
   };
 
   services.openssh.enable = true;
+  services.emacs.enable = true;
 
   systemd.services.systemd-machine-id-commit.enable = false;
 

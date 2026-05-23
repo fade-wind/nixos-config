@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   home.username = "zpeppler";
@@ -13,7 +18,6 @@
     ../../../features/home-modules/fzf.nix
     ../../../features/home-modules/lazygit/default.nix
     ../../../features/home-modules/nixvim/default.nix
-    ../../../features/home-modules/television/default.nix
     ../../../features/home-modules/tmux/default.nix
     ../../../features/home-modules/vim.nix
     ../../../features/home-modules/xdg/default.nix
@@ -25,7 +29,7 @@
   home.packages = with pkgs; [
     dconf
   ];
-  
+
   programs = {
     git = {
       enable = true;
@@ -38,3 +42,4 @@
     };
   };
 }
+
