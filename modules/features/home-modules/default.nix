@@ -19,7 +19,6 @@
     ripgrep
     starship
     yazi
-    neovim
     lazygit
     dconf
     uv

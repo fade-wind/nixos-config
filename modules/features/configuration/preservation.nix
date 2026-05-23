@@ -6,12 +6,11 @@
         directories = [
          "Projects"
          ".ssh"
-         ".local/state/nvim"
          ".local/share/atuin"
-         ".local/share/nvim"
          ".local/share/zoxide"
-         # ".tmux/plugins"
+         ".local/state/nvim"
          ".venv"
+         ".kube"
         ];
       };
 

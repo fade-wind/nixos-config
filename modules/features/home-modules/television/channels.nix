@@ -225,12 +225,44 @@
       };
       actions.connect = {
         description = "Connect to selected session";
-        command = "sesh connect '{strip_ansi|split: :1..|join: }'";
+        command = "sesh connect '{strip_ansi|split: :1..|join: }' -c nvim";
         mode = "execute";
       };
       actions.kill_session = {
         description = "Kill selected tmux session (press Ctrl+r to reload)";
         command = "tmux kill-session -t '{strip_ansi|split: :1..|join: }'";
+        mode = "fork";
+      };
+    };
+    tmux-session = {
+      metadata = {
+        name = "tmux-sessions";
+        description = "List and manage tmux sessions";
+        requirements = [ "tmux" ];
+      };
+
+      source = {
+        command = "tmux list-sessions -F '#{session_name}\t#{session_windows} windows\t#{session_created_string}'";
+        display = "{split:\t:0} ({split:\t:1})";
+        output = "{split:\t:0}";
+      };
+
+      preview.command = "sesh preview '{strip_ansi|split: :1..|join: }'";
+      
+      keybindings = { 
+        enter = "actions:attach";
+        ctrl-d = [ "actions:kill" "reload_source"];
+      };
+
+      actions.attach = {
+        description = "Attach to the selected session";
+        command = "tmux switch-client -t '{split:\t:0}' || tmux attach-session -t '{split:\t:0}'";
+        mode = "execute";
+      };
+
+      actions.kill = {
+        description = "Kill the selected session";
+        command = "tmux kill-session -t '{split:\t:0}'";
         mode = "fork";
       };
     };

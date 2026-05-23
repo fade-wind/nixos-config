@@ -31,46 +31,55 @@
     nur.url = "github:nix-community/NUR";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixos-wsl, disko, preservation, ... }: 
-  let
-    system = "x86_64-linux";
-  in
-  {
-    nixosConfigurations.nixos-lptp = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit inputs system; };
-      modules = [
-        ./modules/hosts/nixos-lptp/configuration.nix
-        inputs.nix-ld.nixosModules.nix-ld
-        inputs.home-manager.nixosModules.home-manager
-        { programs.nix-ld.dev.enable = true; }
-      ];
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      nixos-wsl,
+      disko,
+      preservation,
+      ...
+    }:
+    let
+      system = "x86_64-linux";
+    in
+    {
+      nixosConfigurations.nixos-lptp = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs system; };
+        modules = [
+          ./modules/hosts/nixos-lptp/configuration.nix
+          inputs.nix-ld.nixosModules.nix-ld
+          inputs.home-manager.nixosModules.home-manager
+          { programs.nix-ld.dev.enable = true; }
+        ];
+      };
+      nixosConfigurations.nixos-wsl = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs system; };
+        modules = [
+          ./modules/hosts/nixos-wsl/configuration.nix
+          inputs.nix-ld.nixosModules.nix-ld
+          inputs.home-manager.nixosModules.home-manager
+          nixos-wsl.nixosModules.default
+          {
+            system.stateVersion = "26.05";
+            wsl.enable = true;
+          }
+          { programs.nix-ld.dev.enable = true; }
+        ];
+      };
+      nixosConfigurations.nixos-srv = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs system; };
+        modules = [
+          inputs.disko.nixosModules.disko
+          inputs.preservation.nixosModules.default
+          ./modules/hosts/nixos-srv/configuration.nix
+          ./modules/features/configuration/preservation.nix
+          ./modules/hosts/nixos-srv/disko.nix
+          inputs.home-manager.nixosModules.home-manager
+        ];
+      };
     };
-    nixosConfigurations.nixos-wsl = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit inputs system; };
-      modules = [
-        ./modules/hosts/nixos-wsl/configuration.nix
-        inputs.nix-ld.nixosModules.nix-ld
-        inputs.home-manager.nixosModules.home-manager
-        nixos-wsl.nixosModules.default {
-          system.stateVersion = "26.05";
-          wsl.enable = true;
-        }
-        { programs.nix-ld.dev.enable = true; }
-      ];
-    };
-    nixosConfigurations.nixos-srv = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit inputs system; };
-      modules = [
-        inputs.disko.nixosModules.disko
-        inputs.preservation.nixosModules.default
-        ./modules/hosts/nixos-srv/configuration.nix
-        ./modules/features/configuration/preservation.nix
-        ./modules/hosts/nixos-srv/disko.nix
-        inputs.home-manager.nixosModules.home-manager
-      ];
-    };
-  };
 }

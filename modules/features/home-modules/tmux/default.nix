@@ -31,9 +31,22 @@
       bind-key -T copy-mode-vi 'v' send -X begin-selection
       bind-key -T copy-mode-vi 'y' send -X copy-selection
       unbind s
-      bind-key s display-popup -E -w 80% -h 70% -d '#{pane_current_path}' -T 'Session' tv sesh
+      bind-key s run-shell "sesh connect \"$(
+        sesh list --icons | fzf-tmux -p 80%,70% \
+          --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
+          --header '  C-a all C-t tmux C-g configs C-x zoxide C-d tmux kill C-f find' \
+          --bind 'tab:down,btab:up' \
+          --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)' \
+          --bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list -t --icons)' \
+          --bind 'ctrl-g:change-prompt(⚙️  )+reload(sesh list -c --icons)' \
+          --bind 'ctrl-x:change-prompt(📁  )+reload(sesh list -z --icons)' \
+          --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
+          --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(sesh list --icons)' \
+          --preview-window 'right:55%' \
+          --preview 'sesh preview {}'
+      )\""
       unbind w
-      bind-key w display-popup -E -w 80% -h 70% -d '#{pane_current_path}' -T 'Windows' tv tmux-windows 
+      bind-key w run-shell "sesh window \"$(sesh window | fzf-tmux -p 60%,50% --prompt '🪟  ')\""
       bind-key g display-popup -E -w 80% -h 80% -d '#{pane_current_path}' -T 'LazyGit' lazygit
       source $HOME/.config/tmux/custom/statusbar.conf
       run "$HOME/.config/tmux/custom/remote.tmux"
