@@ -2,24 +2,6 @@
   preservation = {
     enable = true;
     preserveAt."/persistent" = {
-      users.zpeppler = {
-        directories = [
-          "Desktop"
-          "Documents"
-          "Downloads"
-          "Music"
-          "Pictures"
-          "Projects"
-          "Templates"
-          "Videos"
-          ".ssh"
-          ".local/share/atuin"
-          ".local/share/zoxide"
-          ".local/state/nvim"
-          ".venv"
-          ".kube"
-        ];
-      };
 
       files = [
         {
@@ -36,6 +18,28 @@
         "/etc/NetworkManager/system-connections"
         "/etc/ssh"
       ];
+    };
+    preserveAt."/home" = {
+      users.zpeppler = {
+        directories = [
+          "Desktop"
+          "Documents"
+          "Downloads"
+          "Games"
+          "Music"
+          "Pictures"
+          "Projects"
+          "Templates"
+          "Videos"
+          ".ssh"
+          ".local/share/atuin"
+          ".local/share/zoxide"
+          ".local/share/Steam"
+          ".local/state/nvim"
+          ".venv"
+          ".kube"
+        ];
+      };
     };
   };
 }
