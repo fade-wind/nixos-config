@@ -19,7 +19,6 @@
     inputs.nixos-plymouth.nixosModules.default
     inputs.noctalia.nixosModules.default
     inputs.nur.modules.nixos.default
-    inputs.monique.nixosModules.default
   ];
 
   # ---------------------------------------------
@@ -157,11 +156,22 @@
   # ---------------------------------------------
   # Programs
   # ---------------------------------------------
+  nixpkgs.overlays = [
+    (final: prev: {
+      steam = prev.steam.override {
+        extraArgs = "-cef-disable-gpu-compositing";
+      };
+    })
+  ];
 
   programs = {
-    monique.enable = true;
     niri.enable = true;
     zsh.enable = true;
+
+    steam = {
+      enable = true;
+      protontricks.enable = true;
+    };
 
     regreet = {
       enable = true;

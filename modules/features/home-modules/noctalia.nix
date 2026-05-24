@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   programs.noctalia-shell = {
@@ -8,7 +13,7 @@
         density = "default";
         barType = "floating";
         position = "top";
-        monitors =  [];
+        monitors = [ ];
         showOutline = false;
         showCapsule = false;
         capsuleOpacity = 0.30;
@@ -42,7 +47,7 @@
             {
               characterCount = 2;
               colorizeIcons = false;
-              emptyColor =  "none";
+              emptyColor = "none";
               enableScrollWheel = true;
               focusedColor = "primary";
               followFocusedScreen = false;
@@ -72,9 +77,6 @@
             }
             {
               id = "plugin:ssh-sessions";
-            }
-            {
-              id = "plugin:monique";
             }
             {
               id = "plugin:kubectl-ctx";
@@ -118,7 +120,7 @@
               drawerEnabled = true;
               hidePassive = false;
               id = "Tray";
-              pinned = [];
+              pinned = [ ];
             }
             {
               id = "plugin:kde-connect";
@@ -199,7 +201,7 @@
         rightClickAction = "controlCenter";
         rightClickFollowMouse = true;
         rightClickCommand = "";
-        screenOverrides = [];
+        screenOverrides = [ ];
       };
       general = {
         avatarImage = "/home/zpeppler/.config/assets/profile-pic/blu.jpg";
@@ -235,7 +237,7 @@
         clockStyle = "custom";
         clockFormat = "h:mm AP";
         passwordChars = false;
-        lockScreenMonitors = [];
+        lockScreenMonitors = [ ];
         lockScreenBlur = 0;
         lockScreenTint = 0;
         reverseScroll = false;
@@ -245,7 +247,10 @@
           keyDown = [ "Down" ];
           keyLeft = [ "Left" ];
           keyRight = [ "Right" ];
-          keyEnter = [ "Return" "Enter" ];
+          keyEnter = [
+            "Return"
+            "Enter"
+          ];
           keyEscape = [ "Esc" ];
           keyRemove = [ "Del" ];
         };
@@ -262,7 +267,7 @@
         translucentWidgets = false;
         panelsAttachedToBar = true;
         settingsPanelMode = "attached";
-        settingsPanelSideBarCardStyle = true; 
+        settingsPanelSideBarCardStyle = true;
       };
       location = {
         name = "North Charleston, SC";
@@ -294,11 +299,11 @@
           }
         ];
       };
-      wallpaper = {    
+      wallpaper = {
         enabled = true;
         overviewEnabled = false;
         directory = "/home/zpeppler/.config/assets/wallpapers";
-        monitorDirectories = [];
+        monitorDirectories = [ ];
         enableMultiMonitorDirectories = false;
         showHiddenFiles = false;
         viewMode = "single";
@@ -338,7 +343,7 @@
         wallhavenResolutionWidth = "";
         wallhavenResolutionHeight = "";
         sortOrder = "name";
-        favorites = [];
+        favorites = [ ];
       };
       appLauncher = {
         enableClipboardHistory = true;
@@ -350,7 +355,7 @@
         clipboardWatchTextCommand = "wl-paste --type text --watch cliphist store";
         clipboardWatchImageCommand = "wl-paste --type image --watch cliphist store";
         position = "top_left";
-        pinnedApps = [];
+        pinnedApps = [ ];
         sortByMostUsed = true;
         terminalCommand = "footclient -e";
         customLaunchPrefixEnabled = false;
@@ -427,7 +432,7 @@
           ];
         };
       };
-      systemMonitor = { 
+      systemMonitor = {
         cpuWarningThreshold = 80;
         cpuCriticalThreshold = 90;
         tempWarningThreshold = 80;
@@ -463,7 +468,7 @@
         floatingRatio = 1;
         size = 1;
         onlySameOutput = true;
-        monitors = [];
+        monitors = [ ];
         pinnedApps = [
           "vesktop"
         ];
@@ -569,7 +574,7 @@
         enabled = true;
         enableMarkdown = false;
         density = "default";
-        monitors = [];
+        monitors = [ ];
         location = "top_right";
         overlayLayer = true;
         backgroundOpacity = 1;
@@ -607,7 +612,7 @@
           1
           2
         ];
-        monitors = [];
+        monitors = [ ];
       };
       audio = {
         volumeStep = 5;
@@ -615,7 +620,7 @@
         spectrumFrameRate = 30;
         visualizerType = "linear";
         spectrumMirrored = true;
-        mprisBlacklist = [];
+        mprisBlacklist = [ ];
         preferredPlayer = "";
         volumeFeedback = false;
         volumeFeedbackSoundFile = "";
@@ -624,7 +629,7 @@
         brightnessStep = 5;
         enforceMinimum = true;
         enableDdcSupport = false;
-        backlightDeviceMappings = [];
+        backlightDeviceMappings = [ ];
       };
       colorSchemes = {
         useWallpaperColors = true;
@@ -718,7 +723,7 @@
             name = "eDP-1";
             widgets = [
               {
-                defaultSettings = {};
+                defaultSettings = { };
                 id = "plugin:sys-info-widget";
                 scale = 1.1024568263156758;
                 showBackground = true;
@@ -768,8 +773,8 @@
                 x = 20;
                 y = 160;
               }
-            ]; 
-          }    
+            ];
+          }
         ];
       };
     };
@@ -783,52 +788,48 @@
       ];
       states = {
         calendar-widget = {
-            enabled = true;
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
         keybind-cheatsheet = {
-            enabled = true;
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
         polkit-agent = {
-            enabled = true;
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
         sticky-notes = {
-            enabled = true;
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
         sys-info-widget = {
-            enabled = true;
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
         file-search = {
-            enabled = true;
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
         ssh-sessions = {
-            enabled = true;
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
-        kubectl-ctx= {
-            enabled = true;
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        kubectl-ctx = {
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
-        clipboard= {
-            enabled = true;
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-        };
-        monique = {
-            enabled = true;
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        clipboard = {
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
         kde-connect = {
-            enabled = true;
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
         usb-drive-manager = {
-            enabled = true;
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
       };
       version = 2;
@@ -851,3 +852,4 @@
     };
   };
 }
+

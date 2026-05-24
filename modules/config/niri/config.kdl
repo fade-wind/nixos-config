@@ -99,6 +99,3 @@ include "./niri/output.kdl"
 include "./niri/startup.kdl"
 include "./niri/windowrules.kdl"
 
-
-// Monique monitor configuration
-include "monitors.kdl"

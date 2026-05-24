@@ -39,7 +39,7 @@
         };
 
         swap = {
-          size = "4G";
+          size = "8G";
 
           content = {
             type = "swap";
@@ -53,29 +53,32 @@
           size = "100%";
 
           content = {
-            type = "luks";
-            name = "cryptroot";
+            type = "btrfs";
+            extraArgs = [ "-f" ];
 
-            content = {
-              type = "btrfs";
-              extraArgs = [ "-f" ];
+            subvolumes = {
+              "/persistent" = {
+                mountOptions = [
+                  "subvol=persistent"
+                  "noatime"
+                ];
+                mountpoint = "/persistent";
+              };
 
-              subvolumes = {
-                "/persistent" = {
-                  mountOptions = [
-                    "subvol=persistent"
-                    "noatime"
-                  ];
-                  mountpoint = "/persistent";
-                };
+              "/nix" = {
+                mountOptions = [
+                  "subvol=nix"
+                  "noatime"
+                ];
+                mountpoint = "/nix";
+              };
 
-                "/nix" = {
-                  mountOptions = [
-                    "subvol=nix"
-                    "noatime"
-                  ];
-                  mountpoint = "/nix";
-                };
+              "/home" = {
+                mountOptions = [
+                  "subvol=home"
+                  "noatime"
+                ];
+                mountpoint = "/home";
               };
             };
           };

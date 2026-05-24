@@ -13,7 +13,6 @@ let
     kitty = "kitty";
     mango = "mango";
     niri = "niri";
-    nvim = "nvim";
     qutebrowser = "qutebrowser";
   };
 in
@@ -31,6 +30,8 @@ in
     ../../../features/home-modules/fzf.nix
     ../../../features/home-modules/foot.nix
     ../../../features/home-modules/lazygit/default.nix
+    ../../../features/home-modules/noctalia.nix
+    ../../../features/home-modules/nixvim/default.nix
     ../../../features/home-modules/tmux/default.nix
     ../../../features/home-modules/vesktop.nix
     ../../../features/home-modules/vim.nix
@@ -39,6 +40,7 @@ in
     ../../../features/home-modules/yazi/default.nix
     ../../../features/home-modules/zsh/default.nix
     inputs.noctalia.homeModules.default
+    inputs.nixvim.homeModules.nixvim
   ];
 
   home.packages = with pkgs; [
