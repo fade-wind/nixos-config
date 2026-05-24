@@ -5,6 +5,7 @@ binds {
     Mod+N hotkey-overlay-title="Open Neovide" { spawn "app2unit" "--" "neovide"; }
     Mod+E hotkey-overlay-title="Open Emacs" { spawn-sh "emacsclient -c"; }
     Mod+B hotkey-overlay-title="Open Qutebrowser" { spawn "app2unit" "--" "qutebrowser"; }
+    Mod+Shift+R hotkey-overlay-title="Refresh Noctalia-Shell" { spawn-sh "noctalia-shell kill && noctalia-shell"; } 
     Mod+Shift+B hotkey-overlay-title="Open Brave Browser" { spawn "app2unit" "--" "brave"; }
     Mod+Space hotkey-overlay-title="Open Noctalia Launcher" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
     Mod+Shift+Space hotkey-overlay-title="Open Noctalia Control Center" { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
@@ -159,8 +160,5 @@ binds {
     Ctrl+Alt+Delete { quit; }
 
     Mod+Shift+P { power-off-monitors; }
-
-    Mod+Shift+R hotkey-overlay-title="Reload Config" {
-        spawn "sh" "-c" "systemctl --user restart noctalia-shell.service";
-    }
 }
+

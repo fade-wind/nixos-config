@@ -201,9 +201,10 @@
   # Users
   # ---------------------------------------------
 
+  users.mutableUsers = false;
   users.users.zpeppler = {
+    hashedPasswordFile = "/persistent/passwd";
     isNormalUser = true;
-    initialPassword = "password";
     shell = pkgs.zsh;
     extraGroups = [
       "wheel"
