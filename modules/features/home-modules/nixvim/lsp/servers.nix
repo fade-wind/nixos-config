@@ -36,7 +36,7 @@ in
   ];
   plugins.lsp = {
     enable = true;
-    server = {
+    servers = {
       lua_ls = {
         enable = true;
         Lua = {
@@ -51,7 +51,15 @@ in
           };
         };
       };
-      ansiblels.enable = true;
+      ansiblels = {
+        enable = true;
+        package = null;
+        settings = {
+          python = {
+            interpreterPath = "$HOME/.venv/bin/python";
+          };
+        };
+      };
       jinja_lsp = {
         filetypes = [
           "jinja_lsp"
