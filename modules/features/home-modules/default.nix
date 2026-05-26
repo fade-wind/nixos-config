@@ -1,6 +1,24 @@
-{ config, pkgs, ... }:
 {
-
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
+{
+  imports = [
+    ./atuin.nix
+    ./btop.nix
+    ./eza.nix
+    ./fzf.nix
+    ./lazygit
+    ./nixvim
+    ./tmux
+    ./vim.nix
+    ./xdg
+    ./yazi
+    ./zsh
+    inputs.nixvim.homeModules.nixvim
+  ];
   home.packages = with pkgs; [
     nodejs
     cargo

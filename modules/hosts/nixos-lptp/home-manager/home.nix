@@ -23,24 +23,13 @@ in
   home.stateVersion = "26.05";
 
   imports = [
-    ../../../features/home-modules/atuin.nix
-    ../../../features/home-modules/btop.nix
-    ../../../features/home-modules/default.nix
-    ../../../features/home-modules/eza.nix
-    ../../../features/home-modules/fzf.nix
+    ../../../features/home-modules
     ../../../features/home-modules/foot.nix
-    ../../../features/home-modules/lazygit/default.nix
     ../../../features/home-modules/noctalia.nix
-    ../../../features/home-modules/nixvim/default.nix
-    ../../../features/home-modules/tmux/default.nix
     ../../../features/home-modules/vesktop.nix
     ../../../features/home-modules/vim.nix
-    ../../../features/home-modules/xdg/default.nix
     ../../../features/home-modules/xdg/desktop.nix
-    ../../../features/home-modules/yazi/default.nix
-    ../../../features/home-modules/zsh/default.nix
     inputs.noctalia.homeModules.default
-    inputs.nixvim.homeModules.nixvim
   ];
 
   home.packages = with pkgs; [
@@ -77,10 +66,6 @@ in
           email = "peppler.zachary@gmail.com";
         };
       };
-    };
-
-    vscode = {
-      enable = true;
     };
   };
 

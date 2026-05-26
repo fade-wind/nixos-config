@@ -14,10 +14,9 @@
     ../../features/configuration/nix.nix
     ../../features/configuration/podman.nix
     ../../features/configuration/security.nix
-    ../../features/configuration/packages/default.nix
+    ../../features/configuration/packages
     ../../features/home-modules/starship.nix
     inputs.nixos-plymouth.nixosModules.default
-    inputs.noctalia.nixosModules.default
     inputs.nur.modules.nixos.default
   ];
 
@@ -132,6 +131,11 @@
       };
     };
 
+    pcscd = {
+      enable = true;
+      plugins = [ pkgs.ccid ];
+    };
+
     greetd.enable = true;
     libinput.enable = true;
     printing.enable = true;
@@ -236,7 +240,11 @@
     efibootmgr
     xdg-terminal-exec
 
+    yubioath-flutter
+    yubikey-manager
   ];
+
+  systemd.services.systemd-machine-id-commit.enable = false;
 
   # ---------------------------------------------
   # System version
