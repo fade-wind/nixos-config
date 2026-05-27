@@ -9,12 +9,8 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../features/configuration/locale.nix
-    ../../features/configuration/nix.nix
-    ../../features/configuration/podman.nix
-    ../../features/configuration/security.nix
-    ../../features/configuration/packages/default.nix
-    ../../features/home-modules/starship.nix
+    ../../features/configuration
+    ../../features/home-modules/cli/starship.nix
   ];
 
   # ---------------------------------------------

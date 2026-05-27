@@ -1,5 +1,10 @@
-
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -9,11 +14,11 @@
     ../../features/configuration/podman.nix
     ../../features/configuration/security.nix
     ../../features/configuration/packages/default.nix
-    ../../features/home-modules/starship.nix
+    ../../features/home-modules/cli/starship.nix
   ];
-  
+
   # ---------------------------------------------
-  # Home Manager 
+  # Home Manager
   # ---------------------------------------------
 
   home-manager = {
@@ -25,17 +30,17 @@
   };
 
   # ---------------------------------------------
-  # Network Settings 
+  # Network Settings
   # ---------------------------------------------
 
   networking.hostName = "nixos-wsl";
-  
+
   # ---------------------------------------------
-  # Services 
+  # Services
   # ---------------------------------------------
 
   services = {
-    dbus.enable=true;
+    dbus.enable = true;
 
     gnome = {
       gnome-keyring.enable = true;
@@ -57,7 +62,7 @@
 
     openssh.enable = true;
   };
-  
+
   # ---------------------------------------------
   # Programs
   # ---------------------------------------------
@@ -65,7 +70,7 @@
   programs = {
     zsh.enable = true;
   };
-  
+
   environment.systemPackages = with pkgs; [
     powershell
   ];
@@ -74,31 +79,32 @@
   # Users
   # ---------------------------------------------
 
-  users.users.zpeppler= {
+  users.users.zpeppler = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ 
-      "wheel" 
+    extraGroups = [
+      "wheel"
       "networkmanager"
       "podman"
       "storage"
     ];
   };
-  
+
   # ---------------------------------------------
-  # WSL Settings 
+  # WSL Settings
   # ---------------------------------------------
-  
-  wsl = { 
+
+  wsl = {
     enable = true;
     defaultUser = "zpeppler";
-    wslConf.boot.command = "mount --make-rshard /"; 
+    wslConf.boot.command = "mount --make-rshard /";
   };
 
   # ---------------------------------------------
   # System version
   # ---------------------------------------------
- 
-  system.stateVersion = "26.05"; 
+
+  system.stateVersion = "26.05";
 
 }
+

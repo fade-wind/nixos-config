@@ -15,7 +15,7 @@
     ../../features/configuration/podman.nix
     ../../features/configuration/security.nix
     ../../features/configuration/packages
-    ../../features/home-modules/starship.nix
+    ../../features/home-modules/cli/starship.nix
     inputs.nixos-plymouth.nixosModules.default
     inputs.nur.modules.nixos.default
   ];
