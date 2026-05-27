@@ -2,13 +2,10 @@
   programs.nixvim = {
     enable = true;
     imports = [
-      ./settings.nix
-      ./keymaps.nix
-      ./editor.nix
-      ./neovide.nix
-      ./lsp/default.nix
-      ./ui/default.nix
-      ./utility.nix
+      ./editor
+      ./settings
+      ./lsp
+      ./ui
     ];
     colorschemes.tokyonight = {
       enable = true;
@@ -25,3 +22,4 @@
     };
   };
 }
+

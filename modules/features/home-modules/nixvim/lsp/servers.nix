@@ -1,24 +1,4 @@
 { pkgs, ... }:
-let
-  mdx-language-server = pkgs.buildNpmPackage rec {
-    pname = "mdx-language-server";
-    version = "0.6.3";
-    src = pkgs.fetchurl {
-      url = "https://registry.npmjs.org/@mdx-js/language-server/-/language-server-${version}.tgz";
-      hash = "sha256-rNYJYQjnA7u02nP4a7EL/yJbjGdwP0RLQpAhr/I9xLs=";
-    };
-    postPatch = ''
-      ln -s ${./mdx-language-server-package-lock.json} package-lock.json
-    '';
-    npmDepsHash = "sha256-fY+lG+eu+hX7RFyWRiGOA1VXEt4hTmud6KB5XDaBeFo=";
-    dontNpmBuild = true;
-    meta = {
-      description = "Language server for MDX";
-      homepage = "https://github.com/mdx-js/mdx-analyzer";
-      mainProgram = "mdx-language-server";
-    };
-  };
-in
 {
   extraPackages = with pkgs; [
     nil
@@ -39,15 +19,17 @@ in
     servers = {
       lua_ls = {
         enable = true;
-        Lua = {
-          runtime = {
-            version = "LuaJIT";
-          };
-          diagnostics = {
-            globals = [
-              "vim"
-              "require"
-            ];
+        settings = {
+          Lua = {
+            runtime = {
+              version = "LuaJIT";
+            };
+            diagnostics = {
+              globals = [
+                "vim"
+                "require"
+              ];
+            };
           };
         };
       };
@@ -67,9 +49,11 @@ in
       };
       nil_ls = {
         enable = true;
-        flake = {
-          autoArchive = true;
-          autoEvalInputs = true;
+        settings = {
+          flake = {
+            autoArchive = true;
+            autoEvalInputs = true;
+          };
         };
       };
       marksman.enable = true;
@@ -87,11 +71,6 @@ in
       dockerls.enable = true;
       docker_compose_language_server.enable = true;
       ts_ls.enable = true;
-      mdx_analyzer = {
-        enable = true;
-        package = mdx-language-server;
-        extraOptions.init_options.typescript.tsdk = "${pkgs.typescript}/lib/node_modules/typescript/lib";
-      };
     };
   };
   plugins = {
@@ -117,9 +96,9 @@ in
         "*test.yml"
       ];
       callback.__raw = ''
-        	      function()
-        		      vim.bo.filetype = "yaml.ansible"
-        	      end
+        function()
+          vim.bo.filetype = "yaml.ansible"
+        end
       '';
     }
   ];
