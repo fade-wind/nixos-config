@@ -1,3 +1,5 @@
+{ inputs, ... }:
+
 {
   programs.nixvim = {
     enable = true;
@@ -6,6 +8,7 @@
       ./settings
       ./lsp
       ./ui
+      inputs.nixvim.homeModules.nixvim
     ];
     colorschemes.tokyonight = {
       enable = true;

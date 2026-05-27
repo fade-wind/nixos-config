@@ -44,7 +44,7 @@
           inputs.disko.nixosModules.disko
           inputs.preservation.nixosModules.default
           ./modules/hosts/nixos-lptp/configuration.nix
-          ./modules/hosts/nixos-srv/preservation.nix
+          ./modules/features/configuration/preservation.nix
           ./modules/hosts/nixos-lptp/disko.nix
           inputs.nix-ld.nixosModules.nix-ld
           inputs.home-manager.nixosModules.home-manager
