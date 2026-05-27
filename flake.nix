@@ -28,6 +28,7 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixvim.url = "github:nix-community/nixvim";
     nur.url = "github:nix-community/NUR";
+    tmux-nerd-font-window-name.url = "github:joshmedeski/tmux-nerd-font-window-name";
   };
 
   outputs =
