@@ -1,5 +1,5 @@
 {
-  description = "NixOS with Niri WM, Noctalia-Shell, and custom CachyOS kernel";
+  description = "NixOS with Niri WM and Noctalia Shell (dekstop) with test server and wsl";
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
@@ -32,19 +32,12 @@
   };
 
   outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      nixos-wsl,
-      disko,
-      preservation,
-      ...
-    }:
+    inputs:
     let
       system = "x86_64-linux";
     in
     {
-      nixosConfigurations.nixos-lptp = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.nixos-lptp = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = { inherit inputs system; };
         modules = [
@@ -58,14 +51,14 @@
           { programs.nix-ld.dev.enable = true; }
         ];
       };
-      nixosConfigurations.nixos-wsl = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.nixos-wsl = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = { inherit inputs system; };
         modules = [
           ./modules/hosts/nixos-wsl/configuration.nix
           inputs.nix-ld.nixosModules.nix-ld
           inputs.home-manager.nixosModules.home-manager
-          nixos-wsl.nixosModules.default
+          inputs.nixos-wsl.nixosModules.default
           {
             system.stateVersion = "26.05";
             wsl.enable = true;
@@ -73,7 +66,7 @@
           { programs.nix-ld.dev.enable = true; }
         ];
       };
-      nixosConfigurations.nixos-srv = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.nixos-srv = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = { inherit inputs system; };
         modules = [
