@@ -23,12 +23,12 @@ in
   home.stateVersion = "26.05";
 
   imports = [
-    ../../../features/home-modules
+    ../../../features/home-modules/cli
+    ../../../features/home-modules/cli/xdg/desktop.nix
+    ../../../features/home-modules/nixvim
     ../../../features/home-modules/foot.nix
     ../../../features/home-modules/noctalia.nix
     ../../../features/home-modules/vesktop.nix
-    ../../../features/home-modules/vim.nix
-    ../../../features/home-modules/xdg/desktop.nix
     inputs.noctalia.homeModules.default
   ];
 
