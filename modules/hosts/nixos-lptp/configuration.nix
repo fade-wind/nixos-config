@@ -9,12 +9,8 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../features/configuration
     ../../features/configuration/fonts.nix
-    ../../features/configuration/locale.nix
-    ../../features/configuration/nix.nix
-    ../../features/configuration/podman.nix
-    ../../features/configuration/security.nix
-    ../../features/configuration/packages
     ../../features/home-modules/cli/starship.nix
     inputs.nixos-plymouth.nixosModules.default
     inputs.nur.modules.nixos.default
