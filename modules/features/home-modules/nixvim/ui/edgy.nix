@@ -7,7 +7,7 @@
         {
           ft = "toggleterm";
           size = {
-            height = 0.2;
+            height = 0.3;
           };
           filter.__raw = ''
             function(buf, win)
@@ -28,3 +28,4 @@
     };
   };
 }
+
