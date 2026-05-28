@@ -11,7 +11,6 @@ let
   configs = {
     assets = "assets";
     kitty = "kitty";
-    mango = "mango";
     niri = "niri";
     qutebrowser = "qutebrowser";
   };

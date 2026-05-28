@@ -1,5 +1,5 @@
 {
-  description = "NixOS with Niri WM and Noctalia Shell (dekstop) with test server and wsl";
+  description = "NixOS with Niri WM and Noctalia Shell (desktop) with test server and wsl";
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
