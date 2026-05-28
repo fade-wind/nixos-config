@@ -13,7 +13,6 @@
     ./lazygit
     ./tmux
     ./vim.nix
-    ./xdg
     ./yazi
     ./zsh
     inputs.nixvim.homeModules.nixvim

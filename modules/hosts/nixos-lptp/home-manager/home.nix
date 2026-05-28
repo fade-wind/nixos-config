@@ -23,7 +23,7 @@ in
 
   imports = [
     ../../../features/home-modules
-    ../../../features/home-modules/cli/xdg/desktop.nix
+    ../../../features/home-modules/xdg/desktop.nix
     ../../../features/home-modules/foot.nix
     ../../../features/home-modules/noctalia.nix
     ../../../features/home-modules/vesktop.nix
