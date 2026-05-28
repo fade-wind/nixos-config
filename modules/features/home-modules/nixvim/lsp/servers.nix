@@ -35,7 +35,7 @@
       };
       ansiblels = {
         enable = true;
-        package = null;
+        package = pkgs.ansible-language-server;
         settings = {
           python = {
             interpreterPath = "$HOME/.venv/bin/python";
