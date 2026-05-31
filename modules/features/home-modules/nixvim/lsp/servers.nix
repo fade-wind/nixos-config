@@ -24,6 +24,7 @@ in
     bash-language-server
     yaml-language-server
     vscode-langservers-extracted
+    powershell-editor-services
   ];
   plugins.lsp = {
     enable = true;
@@ -67,6 +68,13 @@ in
         #   };
         # };
       };
+      powershell_es = {
+        enable = true;
+        package = pkgs.powershell-editor-services;
+        filetypes = [
+          "pwsh"
+        ];
+      };
       marksman.enable = true;
       bashls = {
         enable = true;
@@ -88,10 +96,16 @@ in
     render-markdown.enable = true;
   };
   extraPlugins = [ powershell-nvim ];
+  extraConfigLua = ''
+    require("powershell").setup({
+      bundle_path="${pkgs.powershell-editor-services}/share/powershell-editor-services",
+    })
+  '';
   filetype = {
     extension = {
       j2 = "jinja";
       md = "markdown";
+      ps1 = "pwsh";
     };
     pattern = {
       ".*/playbooks./.*%.ya?ml" = "yaml.ansible";
