@@ -1,3 +1,15 @@
+{ pkgs, ... }:
+let
+  sshfs-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "sshfs-nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "uhs-robert";
+      repo = "sshfs.nvim";
+      rev = "57f586251d788dae38fd12998b9a208f7d54c1ef";
+      hash = "sha256-Vcdjd0WbeSFIeRyCxzHNdFwC33l3hKAvZ3kKCDTDHco=";
+    };
+  };
+in
 {
   plugins.persistence = {
     enable = true;
@@ -19,6 +31,10 @@
       '';
     };
   };
+  extraPlugins = [ sshfs-nvim ];
+  extraConfigLua = ''
+    require("sshfs").setup()
+  '';
   autoCmd = [
     {
       event = "VimEnter";

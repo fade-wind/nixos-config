@@ -1,4 +1,15 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
+let
+  powershell-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "powershell-nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "TheLeoP";
+      repo = "powershell.nvim";
+      rev = "3ac437e45ff54bb4c0ce64ff044cd0c47e396a25";
+      hash = "sha256-ycv3mCRRZ+DPi2FpU1i75ev2Xmm0QctHFw/BvdGrxPE=";
+    };
+  };
+in
 {
   extraPackages = with pkgs; [
     nil
@@ -49,12 +60,12 @@
       };
       nil_ls = {
         enable = true;
-        settings = {
-          flake = {
-            autoArchive = true;
-            autoEvalInputs = true;
-          };
-        };
+        # settings = {
+        #   flake = {
+        #     autoArchive = true;
+        #     autoEvalInputs = true;
+        #   };
+        # };
       };
       marksman.enable = true;
       bashls = {
@@ -76,6 +87,7 @@
   plugins = {
     render-markdown.enable = true;
   };
+  extraPlugins = [ powershell-nvim ];
   filetype = {
     extension = {
       j2 = "jinja";
