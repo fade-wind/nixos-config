@@ -109,7 +109,7 @@ in
     };
     pattern = {
       ".*/playbooks./.*%.ya?ml" = "yaml.ansible";
-      ".*/roles.*/tasks/.*%.ya?ml" = "yaml.ansible";
+      ".*/roles/*.*%.ya?ml" = "yaml.ansible";
       ".*/group_vars/all/*.*%.ya?ml" = "yaml.ansible";
     };
   };
