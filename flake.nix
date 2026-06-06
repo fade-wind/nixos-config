@@ -14,8 +14,8 @@
     };
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:noctalia-dev/noctalia-shell/v5";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     preservation.url = "github:nix-community/preservation";
@@ -29,6 +29,13 @@
     nixvim.url = "github:nix-community/nixvim";
     nur.url = "github:nix-community/NUR";
     tmux-nerd-font-window-name.url = "github:joshmedeski/tmux-nerd-font-window-name";
+  };
+
+  nixConfig = {
+    extra-substituters = [ "https://noctalia.cachix.org" ];
+    extra-trusted-public-keys = [
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+    ];
   };
 
   outputs =

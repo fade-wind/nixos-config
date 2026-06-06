@@ -23,11 +23,7 @@ in
 
   imports = [
     ../../../features/home-modules
-    ../../../features/home-modules/xdg/desktop.nix
-    ../../../features/home-modules/foot.nix
-    ../../../features/home-modules/noctalia.nix
-    ../../../features/home-modules/vesktop.nix
-    inputs.noctalia.homeModules.default
+    ../../../features/home-modules/desktop
   ];
 
   home.packages = with pkgs; [
@@ -65,6 +61,8 @@ in
         };
       };
     };
+
+    noctalia.enable = true;
   };
 
   services = {
