@@ -10,7 +10,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../features/configuration
-    ../../features/home-modules/cli/starship.nix
+    ../../features/home-modules/shell/starship.nix
   ];
 
   # ---------------------------------------------
