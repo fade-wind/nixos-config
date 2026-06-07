@@ -1,7 +1,6 @@
 {
   imports = [
     ./cli
-    ./nixvim
     ./xdg
   ];
 }

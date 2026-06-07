@@ -26,9 +26,10 @@
     distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
     nixos-plymouth.url = "github:BeatLink/nixos-plymouth";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-    nixvim.url = "github:nix-community/nixvim";
     nur.url = "github:nix-community/NUR";
     tmux-nerd-font-window-name.url = "github:joshmedeski/tmux-nerd-font-window-name";
+    # Custom flakes from me
+    myNixvim.url = "github:zpeppler/nixvim";
   };
 
   nixConfig = {

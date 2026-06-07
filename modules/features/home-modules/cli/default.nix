@@ -15,7 +15,6 @@
     ./vim.nix
     ./yazi
     ./zsh
-    inputs.nixvim.homeModules.nixvim
   ];
   home.packages = with pkgs; [
     nodejs
