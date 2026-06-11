@@ -14,6 +14,7 @@
     ../../features/home-modules/shell/starship.nix
     inputs.nixos-plymouth.nixosModules.default
     inputs.nur.modules.nixos.default
+    inputs.noctalia-greeter.nixosModules.default
   ];
 
   # ---------------------------------------------
@@ -132,7 +133,7 @@
       plugins = [ pkgs.ccid ];
     };
 
-    greetd.enable = true;
+    # greetd.enable = true;
     libinput.enable = true;
     printing.enable = true;
     udisks2.enable = true;
@@ -167,35 +168,36 @@
   programs = {
     niri.enable = true;
     zsh.enable = true;
+    noctalia-greeter.enable = true;
 
     steam = {
       enable = true;
       protontricks.enable = true;
     };
 
-    regreet = {
-      enable = true;
-      settings = {
-        GTK = {
-          application_prefer_dark_theme = true;
-          cursor_theme_name = "Bibata-Modern-Ice";
-        };
-        background = {
-          path = "/etc/regreet/Amaurot_Wallpaper.jpg";
-          fit = "Cover";
-        };
-      };
-      cursorTheme = {
-        name = "Bibata-Modern-Ice";
-        package = pkgs.bibata-cursors;
-      };
-      font.name = "JetBrainsMono Nerd Font";
-      font.size = 16;
-    };
+    # regreet = {
+    #   enable = true;
+    #   settings = {
+    #     GTK = {
+    #       application_prefer_dark_theme = true;
+    #       cursor_theme_name = "Bibata-Modern-Ice";
+    #     };
+    #     background = {
+    #       path = "/etc/regreet/Amaurot_Wallpaper.jpg";
+    #       fit = "Cover";
+    #     };
+    #   };
+    #   cursorTheme = {
+    #     name = "Bibata-Modern-Ice";
+    #     package = pkgs.bibata-cursors;
+    #   };
+    #   font.name = "JetBrainsMono Nerd Font";
+    #   font.size = 16;
+    # };
   };
 
-  environment.etc."regreet/Amaurot_Wallpaper.jpg".source =
-    ../../config/assets/wallpapers/Amaurot_Wallpaper.jpg;
+  # environment.etc."regreet/Amaurot_Wallpaper.jpg".source =
+  #   ../../config/assets/wallpapers/Amaurot_Wallpaper.jpg;
 
   # ---------------------------------------------
   # Users
@@ -227,7 +229,7 @@
     virt-viewer
 
     bibata-cursors
-    polkit_gnome
+    # polkit_gnome
     gnome-disk-utility
     xwayland-satellite
     qt6Packages.qt6ct
