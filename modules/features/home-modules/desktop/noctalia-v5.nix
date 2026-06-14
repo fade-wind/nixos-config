@@ -57,8 +57,10 @@
 
         widget = {
           desktop-widget-0000000000000001 = {
-            cx = 1775.64501953125;
-            cy = 572.0;
+            box_height = 163.98719787597656;
+            box_width = 257.11016845703125;
+            cx = 1774.66455078125;
+            cy = 479.8135986328125;
             output = "eDP-1";
             rotation = 0.0;
             scale = 1.2839454412460327;
@@ -71,8 +73,10 @@
           };
 
           desktop-widget-0000000000000002 = {
-            cx = 1776.0;
-            cy = 410.08001708984375;
+            box_height = 163.63998413085938;
+            box_width = 256.39999389648438;
+            cx = 1775.0196533203125;
+            cy = 316.0;
             output = "eDP-1";
             rotation = 0.0;
             scale = 1.2799999713897705;
@@ -85,12 +89,14 @@
           };
 
           desktop-widget-0000000000000003 = {
-            cx = 1776.13525390625;
-            cy = 246.506103515625;
+            box_height = 163.5078125;
+            box_width = 256.129638671875;
+            cx = 1775.15478515625;
+            cy = 152.25250244140625;
             output = "eDP-1";
             rotation = 0.0;
-            scale = 1.2784979343414307;
-            type = "sysmon";
+            scale = 1.2784979343414309;
+            ype = "sysmon";
 
             settings = {
               color = "primary";
@@ -101,6 +107,8 @@
           };
 
           desktop-widget-0000000000000004 = {
+            box_height = 164.16000366210938;
+            box_width = 356.39999389648438;
             cx = 191.81394958496094;
             cy = 142.08000183105469;
             output = "eDP-1";
@@ -110,12 +118,16 @@
           };
 
           desktop-widget-0000000000000005 = {
-            cx = 192.00001525878906;
-            cy = 320.85769653320312;
+            box_height = 256.0;
+            box_width = 352.0;
+            cx = 189.61395263671875;
+            cy = 362.00640869140625;
             output = "eDP-1";
             rotation = 0.0;
-            scale = 1.3813954591751099;
+            scale = 1.3813954591751101;
             type = "media_player";
+
+            settings.layout = "vertical";
           };
         };
       };
@@ -162,6 +174,70 @@
       };
 
       location.auto_locate = true;
+      lockscreen_widgets = {
+        enabled = true;
+        schema_version = 2;
+        widget_order = [
+          "lockscreen-login-box@eDP-1"
+          "lockscreen-widget-0000000000000001"
+          "lockscreen-widget-0000000000000002"
+        ];
+
+        grid = {
+          cell_size = 16;
+          major_interval = 4;
+          visible = true;
+        };
+
+        widget = {
+          "lockscreen-login-box@eDP-1" = {
+            box_height = 0.0;
+            box_width = 0.0;
+            cx = 960.0;
+            cy = 957.0;
+            output = "eDP-1";
+            rotation = 0.0;
+            type = "login_box";
+          };
+
+          lockscreen-widget-0000000000000001 = {
+            box_height = 160.0;
+            box_width = 448.0;
+            cx = 240.0;
+            cy = 92.0;
+            output = "eDP-1";
+            rotation = 0.0;
+            type = "clock";
+
+            settings = {
+              background = false;
+              clock_style = "digital";
+              color = "on_surface";
+              font_family = "JetBrainsMono Nerd Font";
+              format = "{:%-I:%M %p}";
+            };
+          };
+
+          lockscreen-widget-0000000000000002 = {
+            box_height = 192.0;
+            box_width = 432.0;
+            cx = 240.0;
+            cy = 284.0;
+            output = "eDP-1";
+            rotation = 0.0;
+            type = "weather";
+
+            settings = {
+              background = false;
+              shadow = true;
+            };
+          };
+        };
+      };
+
+      osd = {
+        position = "top_right";
+      };
 
       shell = {
         avatar_path = "${config.home.homeDirectory}/assets/profile-pic/blu.jpg";
@@ -173,6 +249,12 @@
         telemetry_enabled = false;
         time_format = "{:%-I:%M %p}";
         screenshot.freeze_screen = true;
+
+        panel = {
+          clipboard_placement = "attached";
+          launcher_placement = "attached";
+          open_near_click_clipboard = true;
+        };
       };
 
       theme = {

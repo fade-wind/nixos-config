@@ -133,7 +133,6 @@
       plugins = [ pkgs.ccid ];
     };
 
-    # greetd.enable = true;
     libinput.enable = true;
     printing.enable = true;
     udisks2.enable = true;
@@ -175,29 +174,7 @@
       protontricks.enable = true;
     };
 
-    # regreet = {
-    #   enable = true;
-    #   settings = {
-    #     GTK = {
-    #       application_prefer_dark_theme = true;
-    #       cursor_theme_name = "Bibata-Modern-Ice";
-    #     };
-    #     background = {
-    #       path = "/etc/regreet/Amaurot_Wallpaper.jpg";
-    #       fit = "Cover";
-    #     };
-    #   };
-    #   cursorTheme = {
-    #     name = "Bibata-Modern-Ice";
-    #     package = pkgs.bibata-cursors;
-    #   };
-    #   font.name = "JetBrainsMono Nerd Font";
-    #   font.size = 16;
-    # };
   };
-
-  # environment.etc."regreet/Amaurot_Wallpaper.jpg".source =
-  #   ../../config/assets/wallpapers/Amaurot_Wallpaper.jpg;
 
   # ---------------------------------------------
   # Users
