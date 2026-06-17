@@ -165,7 +165,6 @@
   ];
 
   programs = {
-    niri.enable = true;
     zsh.enable = true;
     noctalia-greeter.enable = true;
 

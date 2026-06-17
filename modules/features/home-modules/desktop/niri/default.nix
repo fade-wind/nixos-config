@@ -42,12 +42,6 @@
         { argv = [ "wl-paste --type text --watch cliphist store" ]; }
       ];
     };
-    config = ''
-      include "./niri/keybinds.kdl"
-      include "./niri/layout.kdl"
-      include "./niri/output.kdl"
-      include "./niri/windowrules.kdl"
-    '';
   };
 }
 
