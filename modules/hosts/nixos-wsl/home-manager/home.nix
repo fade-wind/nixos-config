@@ -6,7 +6,7 @@
   home.stateVersion = "26.05";
 
   imports = [
-    ../../../features/home-modules
+    ../../../features/home-modules/shell
   ];
 
   home.packages = with pkgs; [
