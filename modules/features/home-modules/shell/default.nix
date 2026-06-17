@@ -13,6 +13,7 @@
     ./lazygit
     ./tmux
     ./vim.nix
+    ./xdg.nix
     ./yazi
     ./zsh
   ];
