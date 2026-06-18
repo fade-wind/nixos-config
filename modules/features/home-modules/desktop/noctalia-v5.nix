@@ -290,7 +290,7 @@
       widget = {
         active_window.title_scroll = "on_hover";
         clock.format = "{:%-I:%M %p}";
-        launcher.glyph = "apps-filled";
+        launcher.custom_image = "/run/current-system/sw/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
         media.hide_when_no_media = true;
         network.show_label = false;
         workspaces.empty_color = "tertiary";
