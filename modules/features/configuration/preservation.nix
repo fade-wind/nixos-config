@@ -12,8 +12,10 @@
 
       directories = [
         "/etc/nixos"
+        "/var/lib/AccountsService/"
         "/var/lib/systemd/timers"
         "/var/lib/nixos"
+        "/var/lib/noctalia-greeter"
         "/var/log"
         "/etc/NetworkManager/system-connections"
         "/etc/ssh"

@@ -106,6 +106,7 @@
       videoDrivers = [ "modesetting" ];
     };
 
+    accounts-daemon.enable = true;
     dbus.enable = true;
 
     emacs.enable = true;
