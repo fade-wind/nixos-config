@@ -5,7 +5,9 @@
   inputs,
   ...
 }:
-
+let
+  vars = import ./vars.nix;
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -58,7 +60,7 @@
   # ---------------------------------------------
 
   networking = {
-    hostName = "nixos-lptp";
+    hostName = vars.hostname;
     networkmanager.enable = true;
     firewall.allowedTCPPorts = [
       22
@@ -182,7 +184,7 @@
   # ---------------------------------------------
 
   users.mutableUsers = false;
-  users.users.zpeppler = {
+  users.users.${vars.username} = {
     hashedPasswordFile = "/persistent/passwd";
     isNormalUser = true;
     shell = pkgs.zsh;
@@ -226,7 +228,7 @@
   # System version
   # ---------------------------------------------
 
-  system.stateVersion = "26.05";
+  system.stateVersion = vars.stateVersion;
 
 }
 
