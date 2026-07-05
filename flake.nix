@@ -47,13 +47,11 @@
   outputs =
     inputs:
     let
-      system = "x86_64-linux";
       vars = import ./vars.nix;
     in
     {
       nixosConfigurations.nixos-lptp = inputs.nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs system vars; };
+        specialArgs = { inherit inputs vars; };
         modules = [
           inputs.disko.nixosModules.disko
           inputs.preservation.nixosModules.default
@@ -62,12 +60,10 @@
           ./modules/hosts/nixos-lptp/disko.nix
           inputs.nix-ld.nixosModules.nix-ld
           inputs.home-manager.nixosModules.home-manager
-          { programs.nix-ld.dev.enable = true; }
         ];
       };
       nixosConfigurations.nixos-wsl = inputs.nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs system; };
+        specialArgs = { inherit inputs vars; };
         modules = [
           ./modules/hosts/nixos-wsl/configuration.nix
           inputs.nix-ld.nixosModules.nix-ld
@@ -77,12 +73,10 @@
             system.stateVersion = "26.05";
             wsl.enable = true;
           }
-          { programs.nix-ld.dev.enable = true; }
         ];
       };
       nixosConfigurations.nixos-srv = inputs.nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs system; };
+        specialArgs = { inherit inputs vars; };
         modules = [
           inputs.disko.nixosModules.disko
           inputs.preservation.nixosModules.default
