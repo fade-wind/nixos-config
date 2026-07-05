@@ -3,15 +3,10 @@
   lib,
   pkgs,
   inputs,
-  system,
+  vars,
   ...
 }:
-let
-  vars = import ./vars.nix;
-in
 { 
-  specialArgs = { inherit vars inputs system; };
-
   imports = [
     ./hardware-configuration.nix
     ../../features/configuration

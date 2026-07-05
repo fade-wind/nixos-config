@@ -48,10 +48,12 @@
     inputs:
     let
       system = "x86_64-linux";
+      vars = import ./vars.nix;
     in
     {
       nixosConfigurations.nixos-lptp = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
+        specialArgs = { inherit inputs system vars; };
         modules = [
           inputs.disko.nixosModules.disko
           inputs.preservation.nixosModules.default
