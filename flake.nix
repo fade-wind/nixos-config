@@ -52,7 +52,6 @@
     {
       nixosConfigurations.nixos-lptp = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs system; };
         modules = [
           inputs.disko.nixosModules.disko
           inputs.preservation.nixosModules.default
