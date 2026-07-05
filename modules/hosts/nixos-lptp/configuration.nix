@@ -229,6 +229,5 @@ in
   # ---------------------------------------------
 
   system.stateVersion = vars.stateVersion;
-
 }
 

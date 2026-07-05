@@ -5,6 +5,7 @@
     ./nix.nix
     ./podman.nix
     ./security.nix
+    ./users.nix
   ];
 }
 
