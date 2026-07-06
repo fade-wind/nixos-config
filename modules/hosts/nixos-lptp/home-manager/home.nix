@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  vars,
   ...
 }:
 
@@ -17,9 +18,9 @@ let
 in
 
 {
-  home.username = "zpeppler";
-  home.homeDirectory = "/home/zpeppler";
-  home.stateVersion = "26.05";
+  home.username = vars.username;
+  home.homeDirectory = "/home/${vars.username}";
+  home.stateVersion = vars.stateVersion;
 
   imports = [
     ../../../features/home-modules/shell
@@ -88,4 +89,3 @@ in
   };
 
 }
-
