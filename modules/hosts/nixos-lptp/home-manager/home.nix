@@ -7,7 +7,7 @@
 }:
 
 let
-  dotfiles = "${config.home.homeDirectory}/Projects/nixos-dotfiles/modules/config";
+  dotfiles = "${config.home.homeDirectory}/Projects/nixos-config/modules/config";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
     assets = "assets";
@@ -57,8 +57,8 @@ in
       enable = true;
       settings = {
         user = {
-          name = "ZPeppler";
-          email = "peppler.zachary@gmail.com";
+          name = "Fadewind";
+          email = "jamz.p14@gmail.com";
         };
       };
     };

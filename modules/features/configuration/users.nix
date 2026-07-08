@@ -1,5 +1,6 @@
 { vars, pkgs, ... }:
 {
+  users.mutableUsers = false;
   users.users.${vars.username} = {
     hashedPasswordFile = "/persistent/passwd";
     isNormalUser = true;
