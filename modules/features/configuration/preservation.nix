@@ -1,3 +1,4 @@
+{ vars, ... }:
 {
   preservation = {
     enable = true;
@@ -22,7 +23,7 @@
       ];
     };
     preserveAt."/home" = {
-      users.zpeppler = {
+      users.${vars.username} = {
         directories = [
           "Desktop"
           "Documents"

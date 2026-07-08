@@ -50,7 +50,7 @@
       shellAliases = {
         lla = "ls -la";
         ll = "ls -l";
-        nrs = "sudo nixos-rebuild switch --flake $HOME/Projects/nixos-dotfiles#nixos-wsl";
+        nrs = "sudo nixos-rebuild switch --flake $HOME/Projects/nixos-config#nixos-lptp";
       };
       initExtra = ''
         export STARSHIP_CONFIG="/etc/starship-root.toml"
@@ -62,7 +62,7 @@
       enable = true;
       clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 3";
-      flake = "${config.home.homeDirectory}/Projects/nixos-dotfiles";
+      flake = "${config.home.homeDirectory}/Projects/nixos-config";
     };
 
     sesh = {
