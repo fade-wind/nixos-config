@@ -1,8 +1,9 @@
 { vars, pkgs, ... }:
 {
-  users.mutableUsers = false;
+#  users.mutableUsers = false;
   users.users.${vars.username} = {
-    hashedPasswordFile = "/persistent/passwd";
+    initialPassword = "12345";
+#    hashedPasswordFile = "/pres-machine/passwd";
     isNormalUser = true;
     shell = pkgs.zsh;
     extraGroups = [

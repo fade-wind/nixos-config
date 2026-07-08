@@ -2,7 +2,7 @@
 {
   preservation = {
     enable = true;
-    preserveAt."/persistent" = {
+    preserveAt."/pres-system" = {
 
       files = [
         {
@@ -22,7 +22,7 @@
         "/etc/ssh"
       ];
     };
-    preserveAt."/home" = {
+    preserveAt."/pres-user" = {
       users.${vars.username} = {
         directories = [
           "Desktop"
