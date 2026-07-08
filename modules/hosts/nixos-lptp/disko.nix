@@ -1,6 +1,6 @@
 {
   fileSystems."/nix".neededForBoot = true;
-  fileSystems."/pres-machine".neededForBoot = true;
+  fileSystems."/pres-system".neededForBoot = true;
 
   disko.devices.nodev = {
     "/" = {
@@ -57,12 +57,12 @@
             extraArgs = [ "-f" ];
 
             subvolumes = {
-              "/pres-machine" = {
+              "/pres-system" = {
                 mountOptions = [
-                  "subvol=pres-machine"
+                  "subvol=pres-system"
                   "noatime"
                 ];
-                mountpoint = "/pres-machine";
+                mountpoint = "/pres-system";
               };
 
               "/nix" = {
