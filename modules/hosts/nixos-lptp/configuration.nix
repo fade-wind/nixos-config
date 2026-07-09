@@ -3,13 +3,15 @@
   lib,
   pkgs,
   inputs,
+  vars,
   ...
 }:
-
-{
+{ 
   imports = [
     ./hardware-configuration.nix
     ../../features/configuration
+    ../../features/configuration/packages/steam.nix
+    ../../features/configuration/networking.nix
     ../../features/configuration/fonts.nix
     ../../features/home-modules/shell/starship.nix
     inputs.nixos-plymouth.nixosModules.default
@@ -25,8 +27,8 @@
     backupFileExtension = "hm-backup";
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit inputs; };
-    users.zpeppler = import ./home-manager/home.nix;
+    extraSpecialArgs = { inherit inputs vars; };
+    users.${vars.username} = import ./home-manager/home.nix;
   };
 
   # ---------------------------------------------
@@ -58,12 +60,6 @@
   # ---------------------------------------------
 
   networking = {
-    hostName = "nixos-lptp";
-    networkmanager.enable = true;
-    firewall.allowedTCPPorts = [
-      22
-      9090
-    ];
     firewall.allowedTCPPortRanges = [
       {
         from = 1714;
@@ -157,44 +153,16 @@
   # ---------------------------------------------
   # Programs
   # ---------------------------------------------
-  nixpkgs.overlays = [
-    (final: prev: {
-      steam = prev.steam.override {
-        extraArgs = "-cef-disable-gpu-compositing";
-      };
-    })
-  ];
-
   programs = {
     niri.enable = true;
     zsh.enable = true;
     noctalia-greeter.enable = true;
-
-    steam = {
-      enable = true;
-      protontricks.enable = true;
-    };
-
   };
 
   # ---------------------------------------------
   # Users
   # ---------------------------------------------
 
-  users.mutableUsers = false;
-  users.users.zpeppler = {
-    hashedPasswordFile = "/persistent/passwd";
-    isNormalUser = true;
-    shell = pkgs.zsh;
-    extraGroups = [
-      "wheel"
-      "audio"
-      "networkmanager"
-      "podman"
-      "video"
-      "storage"
-    ];
-  };
 
   # ---------------------------------------------
   # System Pacakges
@@ -226,7 +194,6 @@
   # System version
   # ---------------------------------------------
 
-  system.stateVersion = "26.05";
-
+  system.stateVersion = vars.stateVersion;
 }
 

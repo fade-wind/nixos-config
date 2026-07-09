@@ -1,6 +1,6 @@
 {
   fileSystems."/nix".neededForBoot = true;
-  fileSystems."/persistent".neededForBoot = true;
+  fileSystems."/pres-system".neededForBoot = true;
 
   disko.devices.nodev = {
     "/" = {
@@ -57,12 +57,12 @@
             extraArgs = [ "-f" ];
 
             subvolumes = {
-              "/persistent" = {
+              "/pres-system" = {
                 mountOptions = [
-                  "subvol=persistent"
+                  "subvol=pres-system"
                   "noatime"
                 ];
-                mountpoint = "/persistent";
+                mountpoint = "/pres-system";
               };
 
               "/nix" = {
@@ -73,12 +73,12 @@
                 mountpoint = "/nix";
               };
 
-              "/home" = {
+              "/pres-user" = {
                 mountOptions = [
-                  "subvol=home"
+                  "subvol=pres-user"
                   "noatime"
                 ];
-                mountpoint = "/home";
+                mountpoint = "/pres-user";
               };
             };
           };

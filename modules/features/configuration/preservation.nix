@@ -1,7 +1,8 @@
+{ vars, ... }:
 {
   preservation = {
     enable = true;
-    preserveAt."/persistent" = {
+    preserveAt."/pres-system" = {
 
       files = [
         {
@@ -21,8 +22,8 @@
         "/etc/ssh"
       ];
     };
-    preserveAt."/home" = {
-      users.zpeppler = {
+    preserveAt."/pres-user" = {
+      users.${vars.username} = {
         directories = [
           "Desktop"
           "Documents"
@@ -38,11 +39,15 @@
           ".local/share/zoxide"
           ".local/share/Steam"
           ".local/state/nvim"
+          ".local/share/icons"
+          ".config/GIMP/3.0"
           ".venv"
           ".kube"
+        ];
+        files = [
+          ".local/share/applications/org.gimp.GIMP.desktop"
         ];
       };
     };
   };
 }
-

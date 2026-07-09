@@ -2,11 +2,12 @@
   config,
   pkgs,
   inputs,
+  vars,
   ...
 }:
 
 let
-  dotfiles = "${config.home.homeDirectory}/Projects/nixos-dotfiles/modules/config";
+  dotfiles = "${config.home.homeDirectory}/Projects/nixos-config/modules/config";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
     assets = "assets";
@@ -17,9 +18,9 @@ let
 in
 
 {
-  home.username = "zpeppler";
-  home.homeDirectory = "/home/zpeppler";
-  home.stateVersion = "26.05";
+  home.username = vars.username;
+  home.homeDirectory = "/home/${vars.username}";
+  home.stateVersion = vars.stateVersion;
 
   imports = [
     ../../../features/home-modules/shell
@@ -33,6 +34,7 @@ in
     neovide
     papirus-icon-theme
     qt6Packages.qt6ct
+    gimp
   ];
 
   home.sessionVariables = {
@@ -56,8 +58,8 @@ in
       enable = true;
       settings = {
         user = {
-          name = "ZPeppler";
-          email = "peppler.zachary@gmail.com";
+          name = vars.git.name;
+          email = vars.git.email;
         };
       };
     };
@@ -88,4 +90,3 @@ in
   };
 
 }
-
