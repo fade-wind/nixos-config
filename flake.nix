@@ -49,7 +49,7 @@
       vars = import ./vars.nix;
     in
     {
-      nixosConfigurations.nixos-lptp = inputs.nixpkgs.lib.nixosSystem {
+      nixosConfigurations.${vars.hostname} = inputs.nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs vars; };
         modules = [
           inputs.disko.nixosModules.disko
@@ -63,4 +63,3 @@
       };
     };
 }
-

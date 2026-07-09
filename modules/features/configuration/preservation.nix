@@ -39,11 +39,15 @@
           ".local/share/zoxide"
           ".local/share/Steam"
           ".local/state/nvim"
+          ".local/share/icons"
+          ".config/GIMP/3.0"
           ".venv"
           ".kube"
+        ];
+        files = [
+          ".local/share/applications/org.gimp.GIMP.desktop"
         ];
       };
     };
   };
 }
-

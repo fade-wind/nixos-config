@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  vars,
   ...
 }:
 {
@@ -50,7 +51,7 @@
       shellAliases = {
         lla = "ls -la";
         ll = "ls -l";
-        nrs = "sudo nixos-rebuild switch --flake $HOME/Projects/nixos-config#nixos-lptp";
+        nrs = "sudo nixos-rebuild switch --flake $HOME/Projects/nixos-config#${vars.hostname}";
       };
       initExtra = ''
         export STARSHIP_CONFIG="/etc/starship-root.toml"
@@ -107,4 +108,3 @@
   };
 
 }
-

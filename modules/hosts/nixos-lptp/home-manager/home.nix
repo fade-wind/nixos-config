@@ -34,6 +34,7 @@ in
     neovide
     papirus-icon-theme
     qt6Packages.qt6ct
+    gimp
   ];
 
   home.sessionVariables = {
@@ -57,8 +58,8 @@ in
       enable = true;
       settings = {
         user = {
-          name = "Fadewind";
-          email = "jamz.p14@gmail.com";
+          name = vars.git.name;
+          email = vars.git.email;
         };
       };
     };
