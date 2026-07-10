@@ -14,6 +14,8 @@
       bar.default = {
         border = "surface";
         capsule = true;
+        capsule_padding = 8.0;
+        capsule_thickness = 0.86;
         center = [
           "audio_visualizer"
           "clock"
@@ -141,6 +143,8 @@
           "Steam"
           "Neovide"
         ];
+        reserve_space = false;
+        show_dots = true;
       };
 
       idle = {
@@ -241,7 +245,9 @@
 
       shell = {
         avatar_path = "${config.home.homeDirectory}/assets/profile-pic/blu.jpg";
+        external_ip_enabled = true;
         font_family = "JetBrainsMono NF";
+        greeter_sync.auto_sync = true;
         launch_apps_as_systemd_services = true;
         niri_overview_type_to_launch_enabled = true;
         polkit_agent = true;
@@ -298,4 +304,3 @@
     };
   };
 }
-
