@@ -8,10 +8,10 @@
         mode = {
           width = 1920;
           height = 1080;
-          referesh = 120.030;
+          refresh = 120.030;
         };
         scale = 1.0;
-        transform = "normal";
+        # transform = "normal";
         position = {
           x = 0;
           y = 0;

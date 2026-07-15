@@ -12,7 +12,6 @@ let
   configs = {
     assets = "assets";
     kitty = "kitty";
-    niri = "niri";
     qutebrowser = "qutebrowser";
   };
 in

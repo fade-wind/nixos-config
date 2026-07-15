@@ -244,7 +244,7 @@
       };
 
       shell = {
-        avatar_path = "${config.home.homeDirectory}/assets/profile-pic/blu.jpg";
+        avatar_path = "${config.home.homeDirectory}/.config/assets/profile-pic/blu.jpg";
         external_ip_enabled = true;
         font_family = "JetBrainsMono NF";
         greeter_sync.auto_sync = true;
@@ -281,11 +281,11 @@
       };
 
       wallpaper = {
-        directory = "${config.home.homeDirectory}/assets/wallpapers";
+        directory = "${config.home.homeDirectory}/.config/assets/wallpapers";
         fill_mode = "center";
 
-        default.path = "${config.home.homeDirectory}/assets/wallpapers/Amaurot_Wallpaper.jpg";
-        last.path = "${config.home.homeDirectory}/assets/wallpapers/Amaurot_Wallpaper.jpg";
+        default.path = "${config.home.homeDirectory}/.config/assets/wallpapers/Amaurot_Wallpaper.jpg";
+        last.path = "${config.home.homeDirectory}/.config/assets/wallpapers/Amaurot_Wallpaper.jpg";
       };
 
       weather = {

@@ -15,7 +15,7 @@
 
     niri = {
       url = "github:sodiboo/niri-flake";
-      inputs.nixpks.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     noctalia = {
