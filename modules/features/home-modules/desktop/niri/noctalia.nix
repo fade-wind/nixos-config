@@ -6,9 +6,12 @@
 }:
 let
   niriPkg = config.programs.niri.package;
-  withNoctalia = config.programs.niri.finalConfig + ''
-    include optional=true "noctlia.kdl"
-  '';
+  withNoctalia =
+    config.programs.niri.finalConfig
+    + "\n\n"
+    + ''
+      include optional=true "noctlia.kdl"
+    '';
 in
 {
   xdg.configFile.niri-config = lib.mkForce {
