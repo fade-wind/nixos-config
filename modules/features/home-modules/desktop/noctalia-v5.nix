@@ -19,6 +19,7 @@
         center = [
           "audio_visualizer"
           "clock"
+          "notes"
         ];
         end = [
           "tray"
@@ -49,6 +50,7 @@
           "desktop-widget-0000000000000003"
           "desktop-widget-0000000000000004"
           "desktop-widget-0000000000000005"
+          "desktop-widget-0000000000000006"
         ];
 
         grid = {
@@ -69,8 +71,10 @@
             type = "sysmon";
 
             settings = {
+              display = "graph";
+              gauge_layout = "horizontal";
               stat = "cpu_usage";
-              stat2 = "";
+              stat2 = "cpu_temp";
             };
           };
 
@@ -86,7 +90,10 @@
 
             settings = {
               color = "secondary";
+              display = "graph";
+              gauge_layout = "horizontal";
               stat = "ram_pct";
+              stat2 = "swap_pct";
             };
           };
 
@@ -101,8 +108,8 @@
             ype = "sysmon";
 
             settings = {
-              color = "primary";
-              color2 = "tertiary";
+              display = "graph";
+              network_speed_compact = false;
               stat = "net_rx";
               stat2 = "net_tx";
             };
@@ -243,6 +250,16 @@
         position = "top_right";
       };
 
+      plugin_settings = {
+        "noctalia/notes" = {
+          notes_dir = "${config.home.homeDirectory}/Documents/Notes";
+          panel_open_near_click = true;
+          panel_placement = "floating";
+        };
+      };
+
+      plugins.enabled = [ "noctalia/notes" ];
+
       shell = {
         avatar_path = "${config.home.homeDirectory}/.config/assets/profile-pic/blu.jpg";
         external_ip_enabled = true;
@@ -260,6 +277,8 @@
           clipboard_placement = "attached";
           launcher_placement = "attached";
           open_near_click_clipboard = true;
+          open_near_click_launcer = true;
+          open_near_click_wallpaper = true;
         };
       };
 
