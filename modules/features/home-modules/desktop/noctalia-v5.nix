@@ -47,7 +47,6 @@
         widget_order = [
           "desktop-widget-0000000000000001"
           "desktop-widget-0000000000000002"
-          "desktop-widget-0000000000000003"
           "desktop-widget-0000000000000004"
           "desktop-widget-0000000000000005"
           "desktop-widget-0000000000000006"
@@ -97,7 +96,7 @@
             };
           };
 
-          desktop-widget-0000000000000003 = {
+          desktop-widget-0000000000000006 = {
             box_height = 163.5078125;
             box_width = 256.129638671875;
             cx = 1775.15478515625;
@@ -318,6 +317,7 @@
         launcher.custom_image = "/run/current-system/sw/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
         media.hide_when_no_media = true;
         network.show_label = false;
+        notes.type = "noctalia/notes:notes";
         workspaces.empty_color = "tertiary";
       };
     };

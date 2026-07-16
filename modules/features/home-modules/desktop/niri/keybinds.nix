@@ -36,7 +36,7 @@ in
     };
     "Mod+Shift+R" = {
       hotkey-overlay.title = "Refresh Noctalia-Shell";
-      action = spawn-sh "noctalia-shell kill && noctalia-shell";
+      action = spawn-sh "noctalia msg config-reload";
     };
     "Mod+Shift+B" = {
       hotkey-overlay.title = "Open Brave Browser";
@@ -216,8 +216,8 @@ in
     "Mod+V".action = toggle-window-floating;
     "Mod+Shift+V".action = switch-focus-between-floating-and-tiling;
     "Mod+W".action = toggle-column-tabbed-display;
-    # "Print".action = screenshot;
-    # "Ctrl+Print".action = screenshot-screen;
+    "Print".action = spawn-sh "noctalia msg screenshot-region";
+    "Ctrl+Print".action = spawn-sh "noctalia msg screenshot-fullscreen";
     # "Alt+Print".action = screenshot-window;
     "Mod+Escape" = {
       allow-inhibiting = false;
