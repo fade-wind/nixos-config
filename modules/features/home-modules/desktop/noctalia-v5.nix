@@ -10,6 +10,7 @@
   ];
   programs.noctalia = {
     enable = true;
+    systemd.enable = true;
     settings = {
       bar.default = {
         border = "surface";
@@ -19,7 +20,6 @@
         center = [
           "audio_visualizer"
           "clock"
-          "notes"
         ];
         end = [
           "tray"
@@ -66,7 +66,6 @@
             cy = 479.8135986328125;
             output = "eDP-1";
             rotation = 0.0;
-            scale = 1.2839454412460327;
             type = "sysmon";
 
             settings = {
@@ -84,7 +83,6 @@
             cy = 316.0;
             output = "eDP-1";
             rotation = 0.0;
-            scale = 1.2799999713897705;
             type = "sysmon";
 
             settings = {
@@ -103,8 +101,7 @@
             cy = 152.25250244140625;
             output = "eDP-1";
             rotation = 0.0;
-            scale = 1.2784979343414309;
-            ype = "sysmon";
+            type = "sysmon";
 
             settings = {
               display = "graph";
@@ -121,7 +118,6 @@
             cy = 142.08000183105469;
             output = "eDP-1";
             rotation = 0.0;
-            scale = 1.7799999713897705;
             type = "weather";
           };
 
@@ -132,7 +128,6 @@
             cy = 362.00640869140625;
             output = "eDP-1";
             rotation = 0.0;
-            scale = 1.3813954591751101;
             type = "media_player";
 
             settings.layout = "vertical";
@@ -249,16 +244,6 @@
         position = "top_right";
       };
 
-      plugin_settings = {
-        "noctalia/notes" = {
-          notes_dir = "${config.home.homeDirectory}/Documents/Notes";
-          panel_open_near_click = true;
-          panel_placement = "floating";
-        };
-      };
-
-      plugins.enabled = [ "noctalia/notes" ];
-
       shell = {
         avatar_path = "${config.home.homeDirectory}/.config/assets/profile-pic/blu.jpg";
         external_ip_enabled = true;
@@ -267,16 +252,17 @@
         launch_apps_as_systemd_services = true;
         niri_overview_type_to_launch_enabled = true;
         polkit_agent = true;
+        screenshot.freeze_screen = true;
         settings_show_advanced = true;
+        setup_wizard_enabled = false;
         telemetry_enabled = false;
         time_format = "{:%-I:%M %p}";
-        screenshot.freeze_screen = true;
 
         panel = {
           clipboard_placement = "attached";
           launcher_placement = "attached";
           open_near_click_clipboard = true;
-          open_near_click_launcer = true;
+          open_near_click_launcher = true;
           open_near_click_wallpaper = true;
         };
       };
@@ -307,7 +293,6 @@
       };
 
       weather = {
-        auto_locate = true;
         unit = "imperial";
       };
 
@@ -317,7 +302,6 @@
         launcher.custom_image = "/run/current-system/sw/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
         media.hide_when_no_media = true;
         network.show_label = false;
-        notes.type = "noctalia/notes:notes";
         workspaces.empty_color = "tertiary";
       };
     };
