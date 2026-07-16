@@ -48,7 +48,6 @@
       nodejs
     ]
     ++ [
-      inputs.myNixvim.packages.${pkgs.system}.default
+      inputs.myNixvim.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
 }
-

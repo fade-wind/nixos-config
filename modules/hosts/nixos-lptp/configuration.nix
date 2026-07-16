@@ -6,7 +6,7 @@
   vars,
   ...
 }:
-{ 
+{
   imports = [
     ./hardware-configuration.nix
     ../../features/configuration
@@ -154,7 +154,6 @@
   # Programs
   # ---------------------------------------------
   programs = {
-    niri.enable = true;
     zsh.enable = true;
     noctalia-greeter.enable = true;
   };
@@ -162,7 +161,6 @@
   # ---------------------------------------------
   # Users
   # ---------------------------------------------
-
 
   # ---------------------------------------------
   # System Pacakges
@@ -196,4 +194,3 @@
 
   system.stateVersion = vars.stateVersion;
 }
-

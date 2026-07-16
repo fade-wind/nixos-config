@@ -10,6 +10,7 @@
   ];
   programs.noctalia = {
     enable = true;
+    systemd.enable = true;
     settings = {
       bar.default = {
         border = "surface";
@@ -46,9 +47,9 @@
         widget_order = [
           "desktop-widget-0000000000000001"
           "desktop-widget-0000000000000002"
-          "desktop-widget-0000000000000003"
           "desktop-widget-0000000000000004"
           "desktop-widget-0000000000000005"
+          "desktop-widget-0000000000000006"
         ];
 
         grid = {
@@ -65,12 +66,13 @@
             cy = 479.8135986328125;
             output = "eDP-1";
             rotation = 0.0;
-            scale = 1.2839454412460327;
             type = "sysmon";
 
             settings = {
+              display = "graph";
+              gauge_layout = "horizontal";
               stat = "cpu_usage";
-              stat2 = "";
+              stat2 = "cpu_temp";
             };
           };
 
@@ -81,28 +83,29 @@
             cy = 316.0;
             output = "eDP-1";
             rotation = 0.0;
-            scale = 1.2799999713897705;
             type = "sysmon";
 
             settings = {
               color = "secondary";
+              display = "graph";
+              gauge_layout = "horizontal";
               stat = "ram_pct";
+              stat2 = "swap_pct";
             };
           };
 
-          desktop-widget-0000000000000003 = {
+          desktop-widget-0000000000000006 = {
             box_height = 163.5078125;
             box_width = 256.129638671875;
             cx = 1775.15478515625;
             cy = 152.25250244140625;
             output = "eDP-1";
             rotation = 0.0;
-            scale = 1.2784979343414309;
-            ype = "sysmon";
+            type = "sysmon";
 
             settings = {
-              color = "primary";
-              color2 = "tertiary";
+              display = "graph";
+              network_speed_compact = false;
               stat = "net_rx";
               stat2 = "net_tx";
             };
@@ -115,7 +118,6 @@
             cy = 142.08000183105469;
             output = "eDP-1";
             rotation = 0.0;
-            scale = 1.7799999713897705;
             type = "weather";
           };
 
@@ -126,7 +128,6 @@
             cy = 362.00640869140625;
             output = "eDP-1";
             rotation = 0.0;
-            scale = 1.3813954591751101;
             type = "media_player";
 
             settings.layout = "vertical";
@@ -244,22 +245,25 @@
       };
 
       shell = {
-        avatar_path = "${config.home.homeDirectory}/assets/profile-pic/blu.jpg";
+        avatar_path = "${config.home.homeDirectory}/.config/assets/profile-pic/blu.jpg";
         external_ip_enabled = true;
         font_family = "JetBrainsMono NF";
         greeter_sync.auto_sync = true;
         launch_apps_as_systemd_services = true;
         niri_overview_type_to_launch_enabled = true;
         polkit_agent = true;
+        screenshot.freeze_screen = true;
         settings_show_advanced = true;
+        setup_wizard_enabled = false;
         telemetry_enabled = false;
         time_format = "{:%-I:%M %p}";
-        screenshot.freeze_screen = true;
 
         panel = {
           clipboard_placement = "attached";
           launcher_placement = "attached";
           open_near_click_clipboard = true;
+          open_near_click_launcher = true;
+          open_near_click_wallpaper = true;
         };
       };
 
@@ -281,15 +285,14 @@
       };
 
       wallpaper = {
-        directory = "${config.home.homeDirectory}/assets/wallpapers";
+        directory = "${config.home.homeDirectory}/.config/assets/wallpapers";
         fill_mode = "center";
 
-        default.path = "${config.home.homeDirectory}/assets/wallpapers/Amaurot_Wallpaper.jpg";
-        last.path = "${config.home.homeDirectory}/assets/wallpapers/Amaurot_Wallpaper.jpg";
+        default.path = "${config.home.homeDirectory}/.config/assets/wallpapers/Amaurot_Wallpaper.jpg";
+        last.path = "${config.home.homeDirectory}/.config/assets/wallpapers/Amaurot_Wallpaper.jpg";
       };
 
       weather = {
-        auto_locate = true;
         unit = "imperial";
       };
 

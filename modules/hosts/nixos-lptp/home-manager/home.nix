@@ -12,7 +12,6 @@ let
   configs = {
     assets = "assets";
     kitty = "kitty";
-    niri = "niri";
     qutebrowser = "qutebrowser";
   };
 in
@@ -46,6 +45,7 @@ in
   };
 
   home.pointerCursor = {
+    enable = true;
     name = "Bibata-Modern-Ice";
     size = 24;
     package = pkgs.bibata-cursors;
