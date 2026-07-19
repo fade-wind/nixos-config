@@ -275,7 +275,6 @@
           builtin_ids = [
             "btop"
             "foot"
-            "kitty"
             "qt"
           ];
           community_ids = [
