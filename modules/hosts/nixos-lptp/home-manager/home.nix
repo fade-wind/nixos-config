@@ -11,7 +11,6 @@ let
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
     assets = "assets";
-    kitty = "kitty";
     qutebrowser = "qutebrowser";
   };
 in
