@@ -9,18 +9,19 @@
 let
   inherit (config.lib.niri.actions) spawn;
   inherit (config.lib.niri.actions) spawn-sh;
+  kitty = "${pkgs.kitty}/bin/kitty";
 in
 {
   programs.niri.settings.binds = with config.lib.niri.actions; {
     "Mod+Shift+Slash".action = show-hotkey-overlay;
 
     "Mod+T" = {
-      hotkey-overlay.title = "Open Terminal: foot";
-      action = spawn "footclient";
+      hotkey-overlay.title = "Open Terminal: Kitty";
+      action = spawn kitty;
     };
     "Mod+Y" = {
       hotkey-overlay.title = "Open Yazi";
-      action = spawn "footclient" "-e" "yazi";
+      action = spawn kitty "-e" "yazi";
     };
     "Mod+N" = {
       hotkey-overlay.title = "Open Neovide";

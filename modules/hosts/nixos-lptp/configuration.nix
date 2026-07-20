@@ -10,6 +10,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../features/configuration
+    ../../features/configuration/packages/flatpak.nix
     ../../features/configuration/packages/steam.nix
     ../../features/configuration/networking.nix
     ../../features/configuration/fonts.nix

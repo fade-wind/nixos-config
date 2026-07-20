@@ -6,6 +6,7 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     extraGroups = [
+      "flatpak"
       "wheel"
       "audio"
       "networkmanager"
