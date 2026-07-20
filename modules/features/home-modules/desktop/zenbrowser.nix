@@ -1,11 +1,10 @@
 { inputs, ... }:
 {
   imports = [
-    inputs.zen-browser.homeModules.base
+    inputs.zen-browser.homeModules.beta
   ];
 
-  programs.zen-broswer = {
+  programs.zen-browser = {
     enable = true;
-    setAsDefaultBrowser = true;
   };
 }

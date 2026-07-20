@@ -36,7 +36,7 @@ in
   ];
 
   home.sessionVariables = {
-    BROWSER = "qutebrowser";
+    BROWSER = vars.default.browser;
     QTA_QPA_PLATFORM = "wayland";
     QTA_QPA_PLATFORMTHEME = "qt6ct";
     QT_ICON_THEME = "Papirus";

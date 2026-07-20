@@ -9,19 +9,19 @@
 let
   inherit (config.lib.niri.actions) spawn;
   inherit (config.lib.niri.actions) spawn-sh;
-  kitty = "${pkgs.kitty}/bin/kitty";
+  term = "${pkgs.${vars.default.terminal}}/bin/${vars.default.terminal}";
 in
 {
   programs.niri.settings.binds = with config.lib.niri.actions; {
     "Mod+Shift+Slash".action = show-hotkey-overlay;
 
     "Mod+T" = {
-      hotkey-overlay.title = "Open Terminal: Kitty";
-      action = spawn kitty;
+      hotkey-overlay.title = "Open Terminal: ${vars.default.terminal}";
+      action = spawn term;
     };
     "Mod+Y" = {
       hotkey-overlay.title = "Open Yazi";
-      action = spawn kitty "-e" "yazi";
+      action = spawn term "-e" "yazi";
     };
     "Mod+N" = {
       hotkey-overlay.title = "Open Neovide";
@@ -32,8 +32,8 @@ in
       action = spawn-sh "emacsclient -c";
     };
     "Mod+B" = {
-      hotkey-overlay.title = "Open Qutebrowser";
-      action = spawn "app2unit" "--" "qutebrowser";
+      hotkey-overlay.title = "Open ${vars.default.browser}";
+      action = spawn "app2unit" "--" vars.default.browser;
     };
     "Mod+Shift+R" = {
       hotkey-overlay.title = "Refresh Noctalia-Shell";
@@ -219,7 +219,6 @@ in
     "Mod+W".action = toggle-column-tabbed-display;
     "Print".action = spawn-sh "noctalia msg screenshot-region";
     "Ctrl+Print".action = spawn-sh "noctalia msg screenshot-fullscreen";
-    # "Alt+Print".action = screenshot-window;
     "Mod+Escape" = {
       allow-inhibiting = false;
       action = toggle-keyboard-shortcuts-inhibit;

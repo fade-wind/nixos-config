@@ -8,4 +8,9 @@
     name = "Fadewind";
     email = "jamz.p14@gmail.com";
   };
+
+  default = {
+    browser = "zen-beta";
+    terminal = "kitty";
+  };
 }
