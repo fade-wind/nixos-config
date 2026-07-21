@@ -168,9 +168,9 @@
   # ---------------------------------------------
 
   environment.systemPackages = with pkgs; [
-    brave
-
     headlamp
+    openconnect
+    openconnect-gui
 
     cockpit-machines
     virt-viewer

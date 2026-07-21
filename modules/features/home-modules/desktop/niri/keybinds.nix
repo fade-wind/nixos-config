@@ -10,6 +10,7 @@ let
   inherit (config.lib.niri.actions) spawn;
   inherit (config.lib.niri.actions) spawn-sh;
   term = "${pkgs.${vars.default.terminal}}/bin/${vars.default.terminal}";
+  browser = "${pkgs.${vars.default.browser}}/bin/${vars.default.browser}"
 in
 {
   programs.niri.settings.binds = with config.lib.niri.actions; {
@@ -33,15 +34,11 @@ in
     };
     "Mod+B" = {
       hotkey-overlay.title = "Open ${vars.default.browser}";
-      action = spawn "app2unit" "--" vars.default.browser;
+      action = spawn browser;
     };
     "Mod+Shift+R" = {
       hotkey-overlay.title = "Refresh Noctalia-Shell";
       action = spawn-sh "noctalia msg config-reload";
-    };
-    "Mod+Shift+B" = {
-      hotkey-overlay.title = "Open Brave Browser";
-      action = spawn "app2unit" "--" "brave";
     };
     "Mod+Space" = {
       hotkey-overlay.title = "Open Noctalia Launcher";
