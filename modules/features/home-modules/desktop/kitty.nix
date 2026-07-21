@@ -33,6 +33,7 @@
       "shift+end" = " scroll_end";
     };
     extraConfig = ''
+      window_padding_width 0 4 0 4
       include themes/noctalia.conf
     '';
   };
