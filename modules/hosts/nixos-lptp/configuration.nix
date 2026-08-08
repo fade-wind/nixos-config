@@ -30,6 +30,7 @@
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs vars; };
     users.${vars.username} = import ./home-manager/home.nix;
+    users.zpeppler = import ./home-manager/home-zpeppler.nix;
   };
 
   # ---------------------------------------------

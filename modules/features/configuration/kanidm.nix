@@ -1,5 +1,7 @@
+{ pkgs, ... }:
 {
   services.kanidm = {
+    package = pkgs.kanidm_1_10;
     client = {
       enable = true;
       settings = {
@@ -10,9 +12,12 @@
       enable = true;
 
       settings = {
-        pam_allowed_login_groups = [
-          "unix-login"
-        ];
+        kanidm = {
+          pam_allowed_login_groups = [
+            "unix-login"
+          ];
+          uid_attr_map = "name";
+        };
       };
     };
   };
