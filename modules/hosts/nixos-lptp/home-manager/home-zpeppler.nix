@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   inputs,
   vars,
   ...
@@ -16,7 +17,7 @@ in
 
 {
   home.username = "zpeppler";
-  home.homeDirectory = "/home/zpeppler";
+  home.homeDirectory = lib.mkDefault "/home/zpeppler";
   home.stateVersion = vars.stateVersion;
 
   imports = [

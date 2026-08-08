@@ -12,11 +12,13 @@
       enable = true;
 
       settings = {
+        home_prefix = "/home/";
+        home_attr = "name";
+        uid_attr_map = "name";
         kanidm = {
           pam_allowed_login_groups = [
             "unix-login"
           ];
-          uid_attr_map = "name";
         };
       };
     };
