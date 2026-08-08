@@ -169,8 +169,6 @@
 
   environment.systemPackages = with pkgs; [
     headlamp
-    openconnect
-    openconnect-gui
 
     cockpit-machines
     virt-viewer

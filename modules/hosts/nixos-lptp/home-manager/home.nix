@@ -52,6 +52,13 @@ in
   programs = {
     emacs.enable = true;
 
+    gh = {
+      enable = true;
+      settings = {
+        git_protocol = "ssh";
+        editor = "nvim";
+      };
+    };
     git = {
       enable = true;
       settings = {
@@ -60,8 +67,19 @@ in
           email = vars.git.email;
         };
       };
+      includes = [
+        {
+          condition = "gitdir:~/Projects/iac";
+          path = "~/.gitconfig-iac";
+        }
+      ];
     };
 
+    mise = {
+      enable = true;
+      enableBashIntegration = true;
+      enableZshIntegration = true;
+    };
     noctalia.enable = true;
   };
 
