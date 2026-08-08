@@ -15,9 +15,40 @@
         home_prefix = "/home/";
         home_attr = "name";
         uid_attr_map = "name";
+        gid_attr_map = "name";
         kanidm = {
           pam_allowed_login_groups = [
             "unix-login"
+          ];
+          map_group = [
+            {
+              local = "wheel";
+              "with" = "sys-admin";
+            }
+            {
+              local = "flatpak";
+              "with" = "sys-admin";
+            }
+            {
+              local = "audio";
+              "with" = "sys-admin";
+            }
+            {
+              local = "networkmanager";
+              "with" = "sys-admin";
+            }
+            {
+              local = "podman";
+              "with" = "sys-admin";
+            }
+            {
+              local = "video";
+              "with" = "sys-admin";
+            }
+            {
+              local = "storage";
+              "with" = "sys-admin";
+            }
           ];
         };
       };
