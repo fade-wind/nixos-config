@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   imports = [
-    inputs.niri.homeModules.niri
+    # inputs.niri.homeModules.niri
     ./autostart.nix
     ./keybinds.nix
     # ./noctalia.nix

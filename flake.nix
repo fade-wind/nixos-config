@@ -73,14 +73,5 @@
           inputs.home-manager.nixosModules.home-manager
         ];
       };
-      homeConfigurations.zpeppler = inputs.home-manager.lib.homeManagerConfiguration {
-        pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {
-          inherit inputs vars;
-        };
-        modules = [
-          ./modules/hosts/nixos-lptp/home-manager/home-zpeppler.nix
-        ];
-      };
     };
 }

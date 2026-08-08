@@ -4,7 +4,6 @@
     inputs.niri.nixosModules.niri
     ./packages
     ./locale.nix
-    ./kanidm.nix
     ./nix.nix
     ./podman.nix
     ./security.nix
