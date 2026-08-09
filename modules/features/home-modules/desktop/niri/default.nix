@@ -1,10 +1,14 @@
 { inputs, pkgs, ... }:
 {
   imports = [
-    ./autostart.nix
-    ./keybinds.nix
+    inputs.niri-nix.homeModules.default
+    # ./autostart.nix
+    # ./keybinds.nix
     # ./noctalia.nix
-    ./rules.nix
-    ./settings.nix
+    # ./rules.nix
+    # ./settings.nix
   ];
+  wayland.windowManager.niri = {
+    enable = true;
+    pack
 }
