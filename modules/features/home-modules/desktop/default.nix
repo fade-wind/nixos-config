@@ -6,5 +6,6 @@
     ./vesktop.nix
     ./xdg.nix
     ./niri
+    ./zenbrowser.nix
   ];
 }

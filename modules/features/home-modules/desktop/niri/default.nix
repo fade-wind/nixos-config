@@ -1,8 +1,9 @@
+{ inputs, pkgs, ... }:
 {
   imports = [
     ./autostart.nix
     ./keybinds.nix
-    ./noctalia.nix
+    # ./noctalia.nix
     ./rules.nix
     ./settings.nix
   ];

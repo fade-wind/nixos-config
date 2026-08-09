@@ -46,6 +46,7 @@
       jq
       yq
       nodejs
+      openssl
     ]
     ++ [
       inputs.myNixvim.packages.${pkgs.stdenv.hostPlatform.system}.default

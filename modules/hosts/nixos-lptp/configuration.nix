@@ -168,7 +168,7 @@
   # ---------------------------------------------
 
   environment.systemPackages = with pkgs; [
-    brave
+    headlamp
 
     cockpit-machines
     virt-viewer

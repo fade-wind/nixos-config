@@ -43,6 +43,7 @@
           ".config/GIMP/3.0"
           ".venv"
           ".kube"
+          ".talos"
         ];
         files = [
           ".local/share/applications/org.gimp.GIMP.desktop"

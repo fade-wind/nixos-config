@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   inputs,
   vars,
   ...
@@ -15,8 +16,8 @@ let
 in
 
 {
-  home.username = vars.username;
-  home.homeDirectory = "/home/${vars.username}";
+  home.username = "zpeppler";
+  home.homeDirectory = lib.mkDefault "/home/zpeppler";
   home.stateVersion = vars.stateVersion;
 
   imports = [
