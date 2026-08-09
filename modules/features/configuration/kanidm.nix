@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   services.kanidm = {
     package = pkgs.kanidm_1_10;
@@ -52,6 +52,14 @@
           ];
         };
       };
+    };
+  };
+  systemd.user.services.home-manager-zpeppler = {
+    wantedBy = [ "default.target" ];
+
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${inputs.self.homeConfigurations.zpeppler.activationPackage}/activate";
     };
   };
 }
