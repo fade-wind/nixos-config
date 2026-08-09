@@ -19,4 +19,7 @@
     "/share/applications"
     "/share/xdg-desktop-portal"
   ];
+  programs.niri = {
+    enable = true;
+  };
 }
