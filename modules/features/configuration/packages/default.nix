@@ -47,6 +47,7 @@
       yq
       nodejs
       openssl
+      smartmontools
     ]
     ++ [
       inputs.myNixvim.packages.${pkgs.stdenv.hostPlatform.system}.default
