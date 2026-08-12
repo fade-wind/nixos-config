@@ -45,8 +45,6 @@ in
             top 0
             bottom 0
         }
-        focus-ring { width 4; }
-        border { off; }
         background-color "transparent"
         default-column-width { proportion 0.500000; }
         preset-column-widths {
