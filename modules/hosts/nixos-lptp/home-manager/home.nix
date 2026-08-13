@@ -68,7 +68,6 @@ in
       enableBashIntegration = true;
       enableZshIntegration = true;
     };
-    noctalia.enable = true;
   };
 
   services = {

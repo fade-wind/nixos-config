@@ -2,10 +2,10 @@
   imports = [
     ./foot.nix
     ./kitty.nix
-    ./noctalia-v5.nix
     ./vesktop.nix
     ./xdg.nix
     ./niri
+    ./noctalia
     ./zenbrowser.nix
   ];
 }
