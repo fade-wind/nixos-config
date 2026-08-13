@@ -209,6 +209,6 @@ in
         match namespace="^noctalia-wallpaper"
         place-within-backdrop true
     }
-    include optional=true "noctlia.kdl"
+    include optional=true "noctalia.kdl"
   '';
 }
