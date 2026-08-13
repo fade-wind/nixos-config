@@ -5,7 +5,7 @@
     ./treesitter.nix
   ];
 
-  extraConfigLua = ''
+  programs.nixvim.extraConfigLua = ''
     local sev = vim.diagnostic.severity
 
     vim.diagnostic.config({
@@ -21,4 +21,3 @@
     })
   '';
 }
-

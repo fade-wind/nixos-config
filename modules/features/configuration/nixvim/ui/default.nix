@@ -1,5 +1,5 @@
 {
-  plugins = {
+  programs.nixvim.plugins = {
     which-key = {
       enable = true;
       settings = {
@@ -10,26 +10,30 @@
     lazygit.enable = true;
   };
 
-  keymaps = [
+  programs.nixvim.keymaps = [
     {
-	    mode = "n";
-	    key = "<leader>lg";
-	    action = "<cmd>LazyGit<cr><cmd>hi LazyGitFloat guibg=NONE guifg=NONE<cr><cmd>setlocal winhl=NormalFloat:LazyGitFloat<cr>";
-	    options = { desc = "LazyGit"; };
+      mode = "n";
+      key = "<leader>lg";
+      action = "<cmd>LazyGit<cr><cmd>hi LazyGitFloat guibg=NONE guifg=NONE<cr><cmd>setlocal winhl=NormalFloat:LazyGitFloat<cr>";
+      options = {
+        desc = "LazyGit";
+      };
     }
-    { 
-      mode = "t"; 
-      key = "<ESC>"; 
+    {
+      mode = "t";
+      key = "<ESC>";
       action = "<C-\\><C-n>";
-    } 
-    { 
-      mode = "n"; 
-      key = "<leader>T"; 
-      action = "<CMD>ToggleTerm<CR>"; 
-      options = { desc = "Toggle Terminal"; };
+    }
+    {
+      mode = "n";
+      key = "<leader>T";
+      action = "<CMD>ToggleTerm<CR>";
+      options = {
+        desc = "Toggle Terminal";
+      };
     }
   ];
-  
+
   imports = [
     ./bufferline.nix
     ./dashboard.nix

@@ -1,5 +1,5 @@
 {
-  extraConfigLua = ''
+  programs.nixvim.extraConfigLua = ''
     if vim.g.neovide then
       vim.env.NEOVIDE = "1"
       vim.opt.guifont = "JetBrainsMono Nerd Font:h12.5"

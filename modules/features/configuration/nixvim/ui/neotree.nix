@@ -8,14 +8,14 @@ let
   '';
 in
 {
-  plugins.neo-tree = {
+  programs.nixvim.plugins.neo-tree = {
     enable = true;
     settings = {
       sources = [
-		    "filesystem"
-		    "buffers"
-		    "git_status"
-	    ];
+        "filesystem"
+        "buffers"
+        "git_status"
+      ];
       source_selector = {
         winbar = true;
         tabs_layout = "active";
@@ -26,56 +26,63 @@ in
           override = "active";
         };
       };
-	    close_if_last_window = true;
-	    open_files_do_not_replace_types = [
-		    "terminal"
-		    "Trouble"
-		    "trouble"
-		    "qf"
-		    "Outline"
-	    ];
-	    filesystem = {
-		    bind_to_cwd = true;
-		    use_libuv_file_watcher = true;
-	    };
-	    window = {
-		    width = 25;
-		    mappings = {
-		      "l" = "open";
-		      "h" = "close_node";
-		      "<space>" = "none";
+      close_if_last_window = true;
+      open_files_do_not_replace_types = [
+        "terminal"
+        "Trouble"
+        "trouble"
+        "qf"
+        "Outline"
+      ];
+      filesystem = {
+        bind_to_cwd = true;
+        use_libuv_file_watcher = true;
+      };
+      window = {
+        width = 25;
+        mappings = {
+          "l" = "open";
+          "h" = "close_node";
+          "<space>" = "none";
           "Y" = {
-            command.__raw = copy_path; 
+            command.__raw = copy_path;
           };
-		      "P" = { 
+          "P" = {
             command = "toggle_preview";
-            config = { use_float = false; }; 
+            config = {
+              use_float = false;
+            };
           };
-		    };
-	    };
-	    default_component_configs = {
-		    indent = {
-			    with_expanders = true;
-			    expander_collapsed = "";
-			    expander_expanded = "";
-			    expander_highlight = "NeoTreeExpander";
-		    };
-		    git_status = {
-			    symbols = {
-				    unstaged = "󰄱";
-				    staged = "󰱒";
-			    };
-		    };
-	    };
+        };
+      };
+      default_component_configs = {
+        indent = {
+          with_expanders = true;
+          expander_collapsed = "";
+          expander_expanded = "";
+          expander_highlight = "NeoTreeExpander";
+        };
+        git_status = {
+          symbols = {
+            unstaged = "󰄱";
+            staged = "󰱒";
+          };
+        };
+      };
     };
   };
-  
+
   keymaps = [
-    { 
-      mode = ["n" "v" ];
-      key = "<leader>e"; 
+    {
+      mode = [
+        "n"
+        "v"
+      ];
+      key = "<leader>e";
       action = "<CMD>Neotree filesystem toggle left<CR>";
-      options = { desc = "Neo-tree toggle"; };
+      options = {
+        desc = "Neo-tree toggle";
+      };
     }
   ];
 }

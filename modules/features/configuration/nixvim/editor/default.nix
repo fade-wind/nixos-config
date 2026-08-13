@@ -2,7 +2,7 @@
   imports = [
     ./utility.nix
   ];
-  plugins = {
+  programs.nixvim.plugins = {
     blink-cmp = {
       enable = true;
       settings = {
@@ -133,4 +133,3 @@
     }
   ];
 }
-

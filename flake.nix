@@ -40,8 +40,7 @@
     nur.url = "github:nix-community/NUR";
     tmux-nerd-font-window-name.url = "github:joshmedeski/tmux-nerd-font-window-name";
     # Custom flakes from me
-    myNixvim.url = "github:zpeppler/nixvim";
-  };
+  ;
 
   nixConfig = {
     extra-substituters = [

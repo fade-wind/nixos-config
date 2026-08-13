@@ -1,5 +1,5 @@
 {
-  keymaps = [
+  programs.nixvim.keymaps = [
     # Disable spacebar's default behavior
     {
       mode = [
@@ -160,4 +160,3 @@
     }
   ];
 }
-

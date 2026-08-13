@@ -1,5 +1,5 @@
 {
-  plugins.dashboard = {
+  programs.nixvim.plugins.dashboard = {
     enable = true;
     settings = {
       theme = "doom";
@@ -16,9 +16,24 @@
           "█████████████████████████████████████████████████████████████████████"
         ];
         center = [
-          { action = "FzfLua files"; desc = " Find File"; icon = " "; key = "f"; }
-			    { action = "ene | startinsert"; desc = " New File"; icon = " "; key = "n"; }
-			    { action = "FzfLua live_grep"; desc = " Find Text"; icon = " "; key = "g"; }
+          {
+            action = "FzfLua files";
+            desc = " Find File";
+            icon = " ";
+            key = "f";
+          }
+          {
+            action = "ene | startinsert";
+            desc = " New File";
+            icon = " ";
+            key = "n";
+          }
+          {
+            action = "FzfLua live_grep";
+            desc = " Find Text";
+            icon = " ";
+            key = "g";
+          }
           {
             action.__raw = ''
               function()
@@ -26,8 +41,8 @@
               end
             '';
             desc = " Restore Session";
-				    icon = " ";
-				    key = "s";
+            icon = " ";
+            key = "s";
           }
           {
             action.__raw = ''
@@ -35,9 +50,9 @@
                 vim.api.nvim_input("<CMD>qa<CR>")
               end
             '';
-				    desc = " Quit";
-				    icon = " ";
-				    key = "q";
+            desc = " Quit";
+            icon = " ";
+            key = "q";
           }
         ];
       };

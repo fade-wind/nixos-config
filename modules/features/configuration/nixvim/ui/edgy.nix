@@ -1,5 +1,5 @@
 {
-  plugins.edgy = {
+  programs.nixvim.plugins.edgy = {
     enable = true;
     settings = {
       animate.enabled = false;
@@ -28,4 +28,3 @@
     };
   };
 }
-

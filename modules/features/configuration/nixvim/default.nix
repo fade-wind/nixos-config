@@ -6,17 +6,20 @@
     ./lsp
     ./ui
   ];
-  colorschemes.gruvbox = {
+  programs.nixvim = {
     enable = true;
-  };
-  colorscheme = "gruvbox";
-  plugins = {
-    web-devicons.enable = true;
-    tmux-navigator.enable = true;
-    fugitive.enable = true;
-    neotest = {
+    colorschemes.gruvbox = {
       enable = true;
-      adapters.plenary.enable = true;
+    };
+    colorscheme = "gruvbox";
+    plugins = {
+      web-devicons.enable = true;
+      tmux-navigator.enable = true;
+      fugitive.enable = true;
+      neotest = {
+        enable = true;
+        adapters.plenary.enable = true;
+      };
     };
   };
 }

@@ -2,6 +2,7 @@
 {
   imports = [
     ./packages
+    ./nixvim
     ./locale.nix
     ./nix.nix
     ./podman.nix

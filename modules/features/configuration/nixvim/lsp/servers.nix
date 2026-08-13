@@ -1,15 +1,4 @@
 { inputs, pkgs, ... }:
-let
-  powershell-nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "powershell-nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "TheLeoP";
-      repo = "powershell.nvim";
-      rev = "3ac437e45ff54bb4c0ce64ff044cd0c47e396a25";
-      hash = "sha256-ycv3mCRRZ+DPi2FpU1i75ev2Xmm0QctHFw/BvdGrxPE=";
-    };
-  };
-in
 {
   extraPackages = with pkgs; [
     nil
@@ -24,9 +13,8 @@ in
     bash-language-server
     yaml-language-server
     vscode-langservers-extracted
-    powershell-editor-services
   ];
-  plugins.lsp = {
+  programs.nixvim.plugins.lsp = {
     enable = true;
     servers = {
       lua_ls = {
@@ -68,13 +56,6 @@ in
         #   };
         # };
       };
-      powershell_es = {
-        enable = true;
-        package = pkgs.powershell-editor-services;
-        filetypes = [
-          "pwsh"
-        ];
-      };
       marksman.enable = true;
       bashls = {
         enable = true;
@@ -92,16 +73,10 @@ in
       ts_ls.enable = true;
     };
   };
-  plugins = {
+  programs.nixvim.plugins = {
     render-markdown.enable = true;
   };
-  extraPlugins = [ powershell-nvim ];
-  extraConfigLua = ''
-    require("powershell").setup({
-      bundle_path="${pkgs.powershell-editor-services}/share/powershell-editor-services",
-    })
-  '';
-  filetype = {
+  programs.nixvim.filetype = {
     extension = {
       j2 = "jinja";
       md = "markdown";
@@ -113,7 +88,7 @@ in
       ".*/group_vars/all/*.*%.ya?ml" = "yaml.ansible";
     };
   };
-  autoCmd = [
+  programs.nixvim.autoCmd = [
     {
       event = "BufReadPost";
       pattern = [
@@ -129,4 +104,3 @@ in
     }
   ];
 }
-
