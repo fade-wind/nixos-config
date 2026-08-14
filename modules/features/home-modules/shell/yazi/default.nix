@@ -22,7 +22,7 @@
       yazi = lib.importTOML ./settings.toml;
     };
     flavors = {
-      gruvbox-material = ./flavor.toml;
+      gruvbox-material = ./flavors/gruvbox-material;
     };
     theme.flavor.dark = "gruvbox-material";
   };
