@@ -78,11 +78,11 @@
     nvim-autopairs.enable = true;
   };
 
-  extraConfigLua = ''
+  programs.nixvim.extraConfigLua = ''
     require("fzf-lua").register_ui_select()
   '';
 
-  keymaps = [
+  programs.nixvim.keymaps = [
     {
       mode = "n";
       key = "<leader>ff";

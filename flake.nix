@@ -39,8 +39,8 @@
     nixos-plymouth.url = "github:BeatLink/nixos-plymouth";
     nur.url = "github:nix-community/NUR";
     tmux-nerd-font-window-name.url = "github:joshmedeski/tmux-nerd-font-window-name";
-    # Custom flakes from me
-  ;
+    nixvim.url = "github:nix-community/nixvim";
+  };
 
   nixConfig = {
     extra-substituters = [

@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  extraPackages = with pkgs; [
+  programs.nixvim.extraPackages = with pkgs; [
     prettier
     nixfmt
     oxfmt

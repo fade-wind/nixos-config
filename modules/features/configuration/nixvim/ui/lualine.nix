@@ -42,7 +42,7 @@ in
     settings = {
       options = {
         icons_enabled = true;
-        theme = "tokyonight";
+        theme = "gruvbox-material";
         section_separators = {
           left = "";
           right = "";

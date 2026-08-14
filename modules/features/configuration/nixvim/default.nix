@@ -1,6 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
+    inputs.nixvim.nixosModules.nixvim
     ./editor
     ./settings
     ./lsp
@@ -8,10 +9,10 @@
   ];
   programs.nixvim = {
     enable = true;
-    colorschemes.gruvbox = {
+    colorschemes.gruvbox-material = {
       enable = true;
     };
-    colorscheme = "gruvbox";
+    colorscheme = "gruvbox-material";
     plugins = {
       web-devicons.enable = true;
       tmux-navigator.enable = true;

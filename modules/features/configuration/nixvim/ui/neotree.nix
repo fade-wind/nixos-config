@@ -72,7 +72,7 @@ in
     };
   };
 
-  keymaps = [
+  programs.nixvim.keymaps = [
     {
       mode = [
         "n"

@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 {
-  extraPackages = with pkgs; [
+  programs.nixvim.extraPackages = with pkgs; [
     nil
     lua-language-server
     luajit
