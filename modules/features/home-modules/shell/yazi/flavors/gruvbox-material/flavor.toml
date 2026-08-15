@@ -104,7 +104,7 @@ dirs = [
   { name = "Movies", text = "", fg = "#e78a4e" },
   { name = "Music", text = "", fg = "#e78a4e" },
   { name = "Pictures", text = "", fg = "#e78a4e" },
-  { name = "Projectss", text = "", fg = "#e78a4e" },
+  { name = "Projects", text = "", fg = "#e78a4e" },
   { name = "Public", text = "", fg = "#e78a4e" },
   { name = "Templates", text = "", fg = "#e78a4e" },
   { name = "Videos", text = "", fg = "#e78a4e" },
