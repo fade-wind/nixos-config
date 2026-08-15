@@ -12,7 +12,6 @@
       "colors.webpage.preferred_color_scheme" = "dark";
       # Completion menu
       "colors.completion.fg" = "#d4be98";
-      "colors.completion.bg" = "#282828";
       "colors.completion.category.fg" = "#d8a657";
       "colors.completion.category.bg" = "#3c3836";
       "colors.completion.item.selected.fg" = "#282828";
@@ -48,7 +47,7 @@
       "colors.hints.match.fg" = "#7daea3";
 
       # Downloads
-      "colors.downloads.bg" = "#282828";
+      "colors.downloads.bar.bg" = "#282828";
       "colors.downloads.start.fg" = "#d8a657";
       "colors.downloads.stop.fg" = "#a9b665";
       "colors.downloads.error.fg" = "#ea6962";
