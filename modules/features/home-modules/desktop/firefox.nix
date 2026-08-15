@@ -75,6 +75,8 @@
       extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
         ublock-origin
         onepassword-password-manager
+        sponsorblock
+        clearurls
       ];
     };
   };
