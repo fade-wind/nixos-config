@@ -7,6 +7,5 @@
     ./niri
     ./noctalia
     ./qutebrowser.nix
-    ./zenbrowser.nix
   ];
 }

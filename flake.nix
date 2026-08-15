@@ -28,13 +28,6 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
-    };
     distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
     nixos-plymouth.url = "github:BeatLink/nixos-plymouth";
     nur.url = "github:nix-community/NUR";
