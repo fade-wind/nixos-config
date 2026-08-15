@@ -10,7 +10,7 @@
   };
 
   default = {
-    browser = "zen-beta";
+    browser = "qutebrowser";
     terminal = "kitty";
   };
 }

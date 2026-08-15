@@ -1,6 +1,13 @@
+{ pkgs, ... }:
 {
   programs.qutebrowser = {
     enable = true;
+
+    keyBindings = {
+      normal = {
+        ",1" = "spawn ${pkgs._1password-gui}/bin/1password --quick-access";
+      };
+    };
 
     quickmarks = {
       git = "https://git.fade-lab.com/";
@@ -75,6 +82,8 @@
       "colors.messages.warning.fg" = "#d8a657";
       "colors.messages.error.bg" = "#282828";
       "colors.messages.error.fg" = "#ea6962";
+
+      "tabs.position" = "left";
     };
   };
 }
