@@ -1,8 +1,16 @@
 { pkgs, ... }:
-
 {
   programs.firefox = {
     enable = true;
+    policies = {
+      ExtensionSettings = {
+        # Gruvbox dark theme
+        "{fcf02b85-0a24-412a-a28f-5727fc00e72b}" = {
+          installation_mode = "force_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/gruvbox-dark-theme-firefox/latest.xpi";
+        };
+      };
+    };
 
     profiles.default = {
       isDefault = true;
@@ -66,6 +74,7 @@
 
       extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
         ublock-origin
+        onepassword-password-manager
       ];
     };
   };

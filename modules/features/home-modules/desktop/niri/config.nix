@@ -84,7 +84,7 @@ in
         Mod+8 { focus-workspace 8; }
         Mod+9 { focus-workspace 9; }
         Mod+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia msg session lock"; }
-        Mod+B hotkey-overlay-title="Open zen-beta" { spawn "qutebrowser"; }
+        Mod+B hotkey-overlay-title="Open Firefox" { spawn "${pkgs.firefox}/bin/firefox"; }
         Mod+BracketLeft { consume-or-expel-window-left; }
         Mod+BracketRight { consume-or-expel-window-right; }
         Mod+C { center-column; }
