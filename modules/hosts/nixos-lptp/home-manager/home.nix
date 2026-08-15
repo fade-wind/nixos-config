@@ -28,7 +28,7 @@ in
     # Apps
     kitty
     neovide
-    papirus-icon-theme
+    gruvbox-plus-icons
     qt6Packages.qt6ct
     gimp
   ];
@@ -37,7 +37,7 @@ in
     BROWSER = vars.default.browser;
     QTA_QPA_PLATFORM = "wayland";
     QTA_QPA_PLATFORMTHEME = "qt6ct";
-    QT_ICON_THEME = "Papirus";
+    QT_ICON_THEME = "Gruvbox-Plus-Dark";
     GTK_USE_PORTAL = "1";
   };
 
