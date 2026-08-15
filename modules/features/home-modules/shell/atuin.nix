@@ -18,22 +18,22 @@
         "la"
         "tree"
       ];
-      theme.name = "tokyo-night";
+      theme.name = "gruvbox-material";
     };
 
     themes = {
-      "tokyo-night" = {
-        theme.name = "tokyo-night";
+      "gruvbox-material" = {
+        theme.name = "gruvbox-material";
         theme.parent = "default";
         colors = {
-          AlertInfo = "#73daca";
-          AlertWarn = "#e0af68";
-          AlertError = "#f7768e";
-          Annotation = "#414868";
-          Base = "#a9b1d6";
-          Guidance = "#ff9e64";
-          Important = "#7aa2f7";
-          Title = "#bb9af7";
+          AlertInfo = "#a9b665";
+          AlertWarn = "#d8a657";
+          AlertError = "#ea6962";
+          Annotation = "#665c54";
+          Base = "#d4be98";
+          Guidance = "#e78a4e";
+          Important = "#7daea3";
+          Title = "#d3869b";
         };
       };
     };
