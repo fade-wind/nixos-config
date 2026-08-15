@@ -10,7 +10,7 @@
   };
 
   default = {
-    browser = "qutebrowser";
+    browser = "firefox";
     terminal = "kitty";
   };
 }
