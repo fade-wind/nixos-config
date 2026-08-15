@@ -14,7 +14,7 @@
       gh = "https://github.com/search?q={}";
       yt = "https://www.youtube.com/results?search_query={}";
       nix = "https://search.nixos.org/packages?channel=unstable&query={}";
-      ks = "https://kubesearch.dev#{searchTerms}";
+      ks = "https://kubesearch.dev#{}";
     };
 
     settings = {
