@@ -8,8 +8,18 @@
       grafana = "https://grafana.fade-lab.com";
     };
 
+    searchEngines = {
+      DEFAULT = "https://duckduckgo.com/?q={}";
+      ddg = "https://duckduckgo.com/?q={}";
+      gh = "https://github.com/search?q={}";
+      yt = "https://www.youtube.com/results?search_query={}";
+      nix = "https://search.nixos.org/packages?channel=unstable&query={}";
+      ks = "https://kubesearch.dev#{searchTerms}";
+    };
+
     settings = {
       "colors.webpage.preferred_color_scheme" = "dark";
+      "colors.webpage.darkmode.enabled" = true;
       # Completion menu
       "colors.completion.fg" = "#d4be98";
       "colors.completion.category.fg" = "#d8a657";
