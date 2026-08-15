@@ -27,7 +27,6 @@ in
   home.packages = with pkgs; [
     # Apps
     kitty
-    qutebrowser
     neovide
     papirus-icon-theme
     qt6Packages.qt6ct

@@ -6,6 +6,7 @@
     ./xdg.nix
     ./niri
     ./noctalia
+    ./qutebrowser.nix
     ./zenbrowser.nix
   ];
 }
