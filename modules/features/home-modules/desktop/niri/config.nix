@@ -109,6 +109,7 @@ in
         Mod+Ctrl+Space hotkey-overlay-title="Open Noctalia Settings" { spawn-sh "noctalia msg settings-toggle"; }
         Mod+Ctrl+U { move-column-to-workspace-down; }
         Mod+Ctrl+Up { move-window-up; }
+        Mod+Ctrl+V hotkey-overlay-title="Open VSCodium" { spawn "${pkgs.vscodium}/bin/codium"; }
         Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
         Mod+Ctrl+WheelScrollLeft { move-column-left; }
         Mod+Ctrl+WheelScrollRight { move-column-right; }
@@ -196,6 +197,7 @@ in
     spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
     window-rule {
         match app-id="neovide"
+        match app-id="codium"
         open-maximized true
     }
     window-rule {
