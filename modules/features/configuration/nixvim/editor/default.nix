@@ -42,16 +42,18 @@
       enable = true;
       settings = {
         indent = {
-          char = "▏";
+          char = "│";
+          tab_char = "│";
         };
         scope = {
           show_start = false;
           show_end = false;
-          show_exact_scope = false;
         };
         exclude = {
           filetypes = [
             "dashboard"
+            "neo-tree"
+            "toggleterm"
           ];
         };
       };

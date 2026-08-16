@@ -17,7 +17,7 @@ in
         "git_status"
       ];
       source_selector = {
-        winbar = true;
+        winbar = false;
         tabs_layout = "active";
         content_layout = "center";
         separator = {
@@ -33,6 +33,7 @@ in
         "trouble"
         "qf"
         "Outline"
+        "edgy"
       ];
       filesystem = {
         bind_to_cwd = true;

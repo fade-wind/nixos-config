@@ -6,7 +6,14 @@
         preset = "helix";
       };
     };
-    toggleterm.enable = true;
+    toggleterm = {
+      enable = true;
+      settings = {
+        direction = "horizontal";
+        persist_size = true;
+        persist_mode = true;
+      };
+    };
     lazygit.enable = true;
   };
 
