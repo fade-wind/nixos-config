@@ -28,6 +28,7 @@
     gnome-keyring
 
     kubectl
+    kubernetes-helm
     tmux
     sesh
     television
