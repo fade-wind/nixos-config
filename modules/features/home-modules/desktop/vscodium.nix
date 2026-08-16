@@ -8,10 +8,24 @@ in
 
     profiles.default = {
       extensions = (with pkgs.vscode-extensions; [
-        vscodevim.vim]) ++ 
-        [ 
-          open-vsx.navernoedenis.gruvbox-material-icons
-        ];
+        vscodevim.vim
+        jnoortheen.nix-ide
+        redhat.vscode-yaml
+        ms-kubernetes-tools.vscode-kubernetes-tools
+        ]) ++ 
+        (with open-vsx; [ 
+          navernoedenis.gruvbox-material-icons
+          jeanp413.open-remote-ssh
+          snrico-moonlight.gruvbox-material-community
+        ]);
+      userSettings = {
+        "workbench.colorTheme" = "Gruvbox Material Dark";
+        "workbench.iconTheme" = "gruvbox-material-icons";
+        "workbench.activityBar.location" = "top";
+        "workbench.browser.showInTitleBar" = true;
+        "window.menuBarVisibility" = "compact";
+        "editor.minimap.enabled" = false;
+      };
     };
   };
 }

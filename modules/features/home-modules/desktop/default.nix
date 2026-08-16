@@ -6,6 +6,5 @@
     ./niri
     ./noctalia
     ./firefox.nix
-    ./vscodium.nix
   ];
 }
