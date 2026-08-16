@@ -23,12 +23,27 @@ in
           hverlin.mise-vscode
         ]);
       userSettings = {
+        "editor.fontFamily" = "'JetBrainsMono Nerd Font','Droid Sans Mono', monospace";
+        "editor.wordWrap" = "on";
         "workbench.colorTheme" = "Gruvbox Material Dark";
-        "workbench.iconTheme" = "gruvbox-material-icons";
+        "editor.tabSize" = 2;
+        "editor.fontSize" = 16;
+        "editor.cursorStyle" = "block";
+        "editor.minimap.size" = "fit";
+        "workbench.activityBar.compact" = true;
         "workbench.activityBar.location" = "top";
-        "workbench.browser.showInTitleBar" = true;
-        "window.menuBarVisibility" = "compact";
-        "editor.minimap.enabled" = false;
+        "workbench.iconTheme" = "gruvbox-material-icons";
+        "workbench.preferredDarkColorTheme" = "Gruvbox Material Dark";
+        "workbench.sideBar.location" = "right";
+        "redhat.telemetry.enabled" = false;
+        "vs-kubernetes" = {
+            "vs-kubernetes.crd-code-completion" = "enabled";
+        };
+        "chat.agent.enabled" = false;
+        "editor.lineNumbers" = "relative";
+        "vim.smartRelativeLine" = true;
+        "vscode-kubernetes.helm-path" = "${pkgs.kubernetes-helm}/bin/helm";
+        "vscode-kubernetes.kubectl-path" = "${pkgs.kubectl}/bin/kubectl";
       };
     };
   };

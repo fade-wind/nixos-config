@@ -38,6 +38,7 @@
           ".local/share/atuin"
           ".local/share/zoxide"
           ".local/share/Steam"
+          ".local/share/mise"
           ".local/state/nvim"
           ".local/share/icons"
           ".config/GIMP/3.0"
