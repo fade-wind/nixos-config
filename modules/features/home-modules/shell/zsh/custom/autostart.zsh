@@ -10,11 +10,8 @@ export PATH="$HOME/.config/bin:$HOME/.local/share/bin:$HOME/.local/bin:$HOME/.co
 
 # Tmux autostart logic
 if command -v tmux >/dev/null 2>&1; then
-  # VS Code: attach to a dedicated session
-  if [[ -z "$TMUX" && -n "$VSCODE_IPC_HOOK_CLI" || "$TERM_PROGRAM" = "vscode" ]]; then
-    tmux attach-session -t code || tmux new-session -s code
   # SSH: attach to a dedicated SSH session
-  elif [[ -z "$TMUX" && -n "$SSH_TTY" ]]; then
+  if [[ -z "$TMUX" && -n "$SSH_TTY" ]]; then
     tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
   # Neovide: attach to a dedicated Neovide session
   elif [[ -z "$TMUX" && -n "$NEOVIDE" ]]; then

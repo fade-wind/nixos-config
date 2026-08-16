@@ -33,6 +33,11 @@
     nur.url = "github:nix-community/NUR";
     tmux-nerd-font-window-name.url = "github:joshmedeski/tmux-nerd-font-window-name";
     nixvim.url = "github:nix-community/nixvim";
+
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {

@@ -139,6 +139,26 @@
         "type": "github"
       }
     },
+    "nix-vscode-extensions": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1786844837,
+        "narHash": "sha256-Fkc7WMsiURYo7St54otP2Ple9RdpC2+Huw5XQ6re5J4=",
+        "owner": "nix-community",
+        "repo": "nix-vscode-extensions",
+        "rev": "3b8c4e53baf95976f179564b17ebdf4537182221",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-vscode-extensions",
+        "type": "github"
+      }
+    },
     "nixos-plymouth": {
       "locked": {
         "lastModified": 1758476321,
@@ -343,6 +363,7 @@
         "distro-grub-themes": "distro-grub-themes",
         "home-manager": "home-manager",
         "nix-ld": "nix-ld",
+        "nix-vscode-extensions": "nix-vscode-extensions",
         "nixos-plymouth": "nixos-plymouth",
         "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",
