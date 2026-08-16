@@ -29,12 +29,12 @@ in
         "editor.tabSize" = 2;
         "editor.fontSize" = 16;
         "editor.cursorStyle" = "block";
-        "editor.minimap.size" = "fit";
+        "editor.minimap.enabled" = "false";
         "workbench.activityBar.compact" = true;
         "workbench.activityBar.location" = "top";
         "workbench.iconTheme" = "gruvbox-material-icons";
         "workbench.preferredDarkColorTheme" = "Gruvbox Material Dark";
-        "workbench.sideBar.location" = "right";
+        "workbench.sideBar.location" = "left";
         "redhat.telemetry.enabled" = false;
         "vs-kubernetes" = {
             "vs-kubernetes.crd-code-completion" = "enabled";
@@ -44,6 +44,10 @@ in
         "vim.smartRelativeLine" = true;
         "vscode-kubernetes.helm-path" = "${pkgs.kubernetes-helm}/bin/helm";
         "vscode-kubernetes.kubectl-path" = "${pkgs.kubectl}/bin/kubectl";
+        "workbench.navigationControl.enabled" = false;
+        "window.titleBarStyle" = "custom";
+        "window.controlsStyle" = "hidden";
+        "window.menuBarVisibility" = "compact";
       };
     };
   };
