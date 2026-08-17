@@ -41,6 +41,8 @@
           ".local/share/mise"
           ".local/state/nvim"
           ".local/share/icons"
+          ".config/1Password"
+          ".config/mozilla/firefox"
           ".config/GIMP/3.0"
           ".venv"
           ".kube"
