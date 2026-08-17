@@ -44,6 +44,7 @@
           ".config/1Password"
           ".config/mozilla/firefox"
           ".config/GIMP/3.0"
+          ".config/VSCodiaum/User/globalStorage"
           ".venv"
           ".kube"
           ".talos"
