@@ -201,6 +201,12 @@ in
         open-maximized true
     }
     window-rule {
+        match app-id="kitty" title="filechooser"
+        open-floating true
+        default-column-width { proportion 0.8; }
+        default-window-height { proportion 0.8; }
+    }
+    window-rule {
         match
         draw-border-with-background false
         geometry-corner-radius 9.000000 9.000000 9.000000 9.000000
