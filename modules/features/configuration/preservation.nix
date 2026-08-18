@@ -38,7 +38,6 @@
           ".local/share/atuin"
           ".local/share/zoxide"
           ".local/share/Steam"
-          ".local/share/mise"
           ".local/state/nvim"
           ".local/state/noctalia"
           ".local/share/icons"

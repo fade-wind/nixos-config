@@ -47,6 +47,5 @@
     nodejs
     openssl
     smartmontools
-
   ];
 }

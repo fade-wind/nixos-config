@@ -20,6 +20,7 @@ if command -v tmux >/dev/null 2>&1; then
   elif [[ -z "$TMUX" && \
           -z "$VSCODE_IPC_HOOK_CLI" && \
           -z "$VSCODE_INJECTION" && \
+          "$TERM_PROGRAM" != "vscode" && \
           -z "$INSIDE_EMACS" && \
           -z "$EMACS" && \
           -z "$VIM" && \

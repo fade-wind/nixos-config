@@ -9,6 +9,8 @@ let
 in
 {
   xdg.configFile."niri/config.kdl".source = pkgs.writeText "niri-config.kdl" ''
+    workspace "dev"
+    workspace "chat"
     input {
         keyboard {
             xkb {
@@ -114,6 +116,7 @@ in
         Mod+Ctrl+WheelScrollLeft { move-column-left; }
         Mod+Ctrl+WheelScrollRight { move-column-right; }
         Mod+Ctrl+WheelScrollUp cooldown-ms=150 { move-column-to-workspace-up; }
+        Mod+D { spawn "Discord"; }
         Mod+Down { focus-window-down; }
         Mod+E hotkey-overlay-title="Open Emacs" { spawn-sh "emacsclient -c"; }
         Mod+End { focus-column-last; }
@@ -160,7 +163,7 @@ in
         "Mod+Shift+Page_Up" { move-workspace-up; }
         Mod+Shift+R hotkey-overlay-title="Refresh Noctalia-Shell" { spawn-sh "noctalia msg config-reload"; }
         Mod+Shift+Right { focus-monitor-right; }
-        Mod+Shift+Slash { show-hotkey-overlay; }
+        Mod+Shift+Slash { spawn-sh "noctalia msg panel-toggle kenn/keybind-cheatsheet:cheatsheet"; }
         Mod+Shift+Space hotkey-overlay-title="Open Noctalia Control Center" { spawn-sh "noctalia msg panel-toggle control-center"; }
         Mod+Shift+U { move-workspace-down; }
         Mod+Shift+Up { focus-monitor-up; }
@@ -199,6 +202,13 @@ in
         match app-id="neovide"
         match app-id="codium"
         open-maximized true
+        open-on-workspace "dev"
+    }
+    window-rule {
+        match app-id="Discord"
+        match app-id="vesktop"
+        open-maximized true
+        open-on-workspace "chat"
     }
     window-rule {
         match app-id="kitty" title="filechooser"
