@@ -9,6 +9,7 @@ let
 in
 {
   xdg.configFile."niri/config.kdl".source = pkgs.writeText "niri-config.kdl" ''
+    workspace "main"
     workspace "dev"
     workspace "chat"
     input {
@@ -56,7 +57,6 @@ in
         }
         center-focused-column "on-overflow"
         always-center-single-column
-        empty-workspace-above-first
     }
     cursor {
         xcursor-theme "Bibata-Modern-Ice"

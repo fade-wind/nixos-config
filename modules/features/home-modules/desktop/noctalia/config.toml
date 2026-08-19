@@ -6,7 +6,7 @@ capsule_padding = 8.0
 capsule_thickness = 0.85999999999999999
 center = [ "audio_visualizer", "clock" ]
 color = "primary"
-end = [ "widget_2", "group:g2", "group:g3" ]
+end = [ "group:g4", "group:g2", "group:g3" ]
 margin_edge = 4.0
 margin_ends = 4.0
 padding = 6
@@ -47,6 +47,17 @@ start = [ "group:g1" ]
     opacity = 1.0
     padding = 8.0
 
+    [[bar.default.capsule_group]]
+    accordion = true
+    accordion_direction = "start"
+    border = "secondary"
+    enabled = true
+    fill = "surface_variant"
+    id = "g4"
+    members = [ "widget_2", "summary" ]
+    opacity = 1.0
+    padding = 8.0
+
 [desktop_widgets]
 schema_version = 1
 widget_order = [
@@ -68,6 +79,8 @@ widget_order = [
     cx = 1774.66455078125
     cy = 479.8135986328125
     output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "sysmon"
 
@@ -83,6 +96,8 @@ widget_order = [
     cx = 1775.0196533203125
     cy = 316.0
     output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "sysmon"
 
@@ -96,11 +111,16 @@ widget_order = [
     [desktop_widgets.widget.desktop-widget-0000000000000004]
     box_height = 164.16000366210938
     box_width = 356.39999389648438
-    cx = 191.81394958496097
+    cx = 191.81394958496094
     cy = 142.08000183105469
     output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "weather"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000004.settings]
+        show_forecast = false
 
     [desktop_widgets.widget.desktop-widget-0000000000000005]
     box_height = 256.0
@@ -108,6 +128,8 @@ widget_order = [
     cx = 189.61395263671875
     cy = 362.00640869140625
     output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "media_player"
 
@@ -120,6 +142,8 @@ widget_order = [
     cx = 1775.15478515625
     cy = 152.25250244140625
     output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "sysmon"
 
@@ -133,7 +157,7 @@ widget_order = [
 active_monitor_only = true
 auto_hide = true
 enabled = true
-pinned = [ "Vesktop", "Steam", "Neovide" ]
+pinned = []
 reserve_space = false
 show_dots = true
 
@@ -171,13 +195,26 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
     visible = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
-    box_height = 0.0
-    box_width = 0.0
+    box_height = 196.0
+    box_width = 810.0
     cx = 960.0
     cy = 957.0
     output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        center_password_text = false
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 160.0
@@ -185,6 +222,8 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
     cx = 240.0
     cy = 92.0
     output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "clock"
 
@@ -201,6 +240,8 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
     cx = 240.0
     cy = 284.0
     output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "weather"
 
@@ -211,8 +252,14 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
 [osd]
 position = "top_right"
 
+[plugin_settings."gustav0ar/drive-health"]
+drives_placement = "attached"
+
 [plugin_settings."kenn/keybind-cheatsheet"]
 cheatsheet_placement = "attached"
+
+[plugin_settings."piero-93/battery-power-management"]
+panel_placement = "floating"
 
 [plugin_settings."weinguyen/procmon"]
 panel_placement = "attached"
@@ -222,7 +269,8 @@ enabled = [
     "salemsayed/niri-active-workspace",
     "kenn/keybind-cheatsheet",
     "weinguyen/procmon",
-    "blackbartblues/audio-switcher"
+    "blackbartblues/audio-switcher",
+    "gustav0ar/drive-health"
 ]
 
 [shell]
@@ -240,6 +288,7 @@ time_format = "{:%-I:%M %p}"
 
     [shell.panel]
     clipboard_placement = "attached"
+    floating_layer = "top"
     launcher_placement = "attached"
     open_near_click_clipboard = true
     open_near_click_launcher = true
@@ -295,6 +344,9 @@ hide_when_no_media = true
 
 [widget.network]
 show_label = false
+
+[widget.summary]
+type = "gustav0ar/drive-health:summary"
 
 [widget.widget]
 type = "blackbartblues/audio-switcher:widget"
