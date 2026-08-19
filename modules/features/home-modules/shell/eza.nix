@@ -4,6 +4,17 @@
     enableBashIntegration = true;
     enableZshIntegration = true;
 
+    git = true;
+    icons = "auto";
+    colors = "always";
+    extraOptions = [
+      "--header"
+      "--color-scale=all"
+      "--color-scale-modeg=gradient"
+      "--group-directories-first"
+      "--short-nix"
+    ];
+
     theme = {
       colourful = true;
 

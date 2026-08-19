@@ -1,11 +1,11 @@
 { vars, ... }:
 {
   programs.zsh.shellAliases = {
-    ls = "eza --color=always --color-scale=all --color-scale-mode=gradient --icons=always --group-directories-first";
-    ll = "eza --color=always --color-scale=all --color-scale-mode=gradient --icons=always --group-directories-first -l --git -h";
-    la = "eza --color=always --color-scale=all --color-scale-mode=gradient --icons=always --group-directories-first -a";
-    lla = "eza --color=always --color-scale=all --color-scale-mode=gradient --icons=always --group-directories-first -a -l --git -h";
-    tree = "eza --tree --icons";
+    ls = "eza";
+    ll = "eza -l"; 
+    la = "eza -a"; 
+    lla = "eza -a -l -h";
+    tree = "eza --tree";
     grep = "rg --color=auto";
     diff = "diff --color=auto";
     df = "df -h";
