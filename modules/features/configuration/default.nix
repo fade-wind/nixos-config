@@ -4,6 +4,7 @@
     ./packages
     ./nixvim
     ./locale.nix
+    ./greeter.nix
     ./nix.nix
     ./podman.nix
     ./security.nix

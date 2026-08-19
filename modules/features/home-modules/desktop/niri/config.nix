@@ -56,6 +56,7 @@ in
         }
         center-focused-column "on-overflow"
         always-center-single-column
+        empty-workspace-above-first
     }
     cursor {
         xcursor-theme "Bibata-Modern-Ice"
