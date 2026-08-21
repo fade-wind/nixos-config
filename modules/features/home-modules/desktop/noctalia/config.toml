@@ -1,4 +1,5 @@
 [bar.default]
+background_opacity = 0.0
 border = "surface"
 capsule = true
 capsule_border = "secondary"
@@ -304,7 +305,7 @@ source = "community"
 wallpaper_scheme = "vibrant"
 
     [theme.templates]
-    builtin_ids = [ "btop", "kitty", "niri", "qt" ]
+    builtin_ids = [ "btop", "kitty", "niri", "qt", "umbriel" ]
     community_ids = [ "discord" ]
 
 [wallpaper]

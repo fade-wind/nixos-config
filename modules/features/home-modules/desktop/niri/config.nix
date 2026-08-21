@@ -228,6 +228,13 @@ in
         match namespace="^noctalia-wallpaper"
         place-within-backdrop true
     }
+    layer-rule {
+        match namespace="^noctalia-bar[^\"]+$"
+        background-effect {
+            blur false
+            xray false
+        }
+    }
     include optional=true "noctalia.kdl"
   '';
 }
