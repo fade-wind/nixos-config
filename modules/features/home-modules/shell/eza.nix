@@ -10,7 +10,7 @@
     extraOptions = [
       "--header"
       "--color-scale=all"
-      "--color-scale-modeg=gradient"
+      "--color-scale-mode=gradient"
       "--group-directories-first"
       "--short-nix"
     ];

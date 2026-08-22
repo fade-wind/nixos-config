@@ -5,6 +5,7 @@
     ./xdg.nix
     ./niri
     ./noctalia
+    ./umbriel
     ./firefox.nix
     ./vscodium.nix
   ];
