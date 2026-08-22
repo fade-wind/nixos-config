@@ -1,6 +1,6 @@
 { pkgs, ...}:
 {
-  programs.noctalia-greeter = { 
+  services.displayManager.noctalia-greeter = { 
     enable = true;
     settings = {
       cursor = {
@@ -8,7 +8,6 @@
         size = 24;
         path = "${pkgs.bibata-cursors}/share/icons";
       };
-      session.default = "Niri";
     };
   };
 }

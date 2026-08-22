@@ -9,6 +9,7 @@
     ./podman.nix
     ./security.nix
     ./users.nix
+    inputs.umbriel.nixosModules.default
   ];
   programs.nix-ld.dev.enable = true;
 
@@ -22,6 +23,9 @@
     "/share/xdg-desktop-portal"
   ];
   programs.niri = {
+    enable = true;
+  };
+  programs.umbriel = {
     enable = true;
   };
 }
