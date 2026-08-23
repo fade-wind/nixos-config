@@ -1,10 +1,14 @@
-{ inputs, config, lib, ... }:
+{
+  inputs,
+  config,
+  lib,
+  ...
+}:
 {
   imports = [ inputs.umbriel.homeModules.default ];
   programs.umbriel = {
     enable = true;
   };
-  home.file.".config/umbriel/config.toml".source = 
-    config.lib.file.mkOutOfStoreSymlink
-    "/home/fadewind/nixos-config/modules/features/home-modules/desktop/umbriel/config.toml";
+  home.file.".config/umbriel/config.toml".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/fadewind/Projects/nixos-config/modules/features/home-modules/desktop/umbriel/config.toml";
 }
