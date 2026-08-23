@@ -1,5 +1,6 @@
 export PATH="$HOME/.config/bin:$HOME/.local/share/bin:$HOME/.local/bin:$HOME/.config/zide/bin/:$PATH"
 [[ -f $HOME/.venv/bin/activate ]] && source $HOME/.venv/bin/activate
+export STARSHIP_CONFIG="$HOME/.config/starship.toml";
 
 # Tmux autostart logic
 if command -v tmux >/dev/null 2>&1; then
