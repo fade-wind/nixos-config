@@ -31,12 +31,12 @@
 
     [username]
     show_always = true
-    style_user = "fg:light_grey bg:bright_black"
-    style_root = "fg:light_grey bg:bright_black"
+    style_user = "fg:fg bg:bright_black"
+    style_root = "fg:fg bg:bright_black"
     format = '[ $user]($style)'
 
     [directory]
-    style = "fg:light_grey bg:bright_black"
+    style = "fg:fg bg:bright_black"
     format = "[ $path ]($style)"
     truncation_length = 3
     truncation_symbol = "…/"
@@ -50,68 +50,68 @@
 
     [git_branch]
     symbol = ""
-    style = "fg:light_grey bg:bright_black"
-    format = '[](yellow)[[ $symbol $branch ](fg:light_grey bg:bright_black)]($style)'
+    style = "fg:fg bg:bright_black"
+    format = '[](yellow)[[ $symbol $branch ](fg:fg bg:bright_black)]($style)'
 
     [git_status]
-    style = "fg:light_grey bg:bright_black"
-    format = '[[($all_status$ahead_behind )](fg:light_grey bg:bright_black)]($style)[](bright_black)'
+    style = "fg:fg bg:bright_black"
+    format = '[[($all_status$ahead_behind )](fg:fg bg:bright_black)]($style)[](bright_black)'
 
     [container]
     disabled = false
     symbol = "󰡨"
     style = "bg:bright_black"
-    format = '[](magenta)[[ $symbol \[$name\]](fg:light_grey bg:bright_black)]($style)[](bright_black)'
+    format = '[](magenta)[[ $symbol \[$name\]](fg:fg bg:bright_black)]($style)[](bright_black)'
 
     [nodejs]
     symbol = ""
     style = "bg:bright_black"
-    format = '[](red)[[ $symbol( $version) ](fg:light_grey bg:bright_black)]($style)[](bright_black)'
+    format = '[](red)[[ $symbol( $version) ](fg:fg bg:bright_black)]($style)[](bright_black)'
 
     [c]
     symbol = ""
     style = "bg:bright_black"
-    format = '[](red)[[ $symbol( $version) ](fg:light_grey bg:bright_black)]($style)[](bright_black)'
+    format = '[](red)[[ $symbol( $version) ](fg:fg bg:bright_black)]($style)[](bright_black)'
 
     [rust]
     symbol = ""
     style = "bg:bright_black"
-    format = '[](red)[[ $symbol( $version) ](fg:light_grey bg:bright_black)]($style)[](bright_black)'
+    format = '[](red)[[ $symbol( $version) ](fg:fg bg:bright_black)]($style)[](bright_black)'
 
     [golang]
     symbol = ""
     style = "bg:bright_black"
-    format = '[](red)[[ $symbol( $version) ](fg:light_grey bg:bright_black)]($style)[](bright_black)'
+    format = '[](red)[[ $symbol( $version) ](fg:fg bg:bright_black)]($style)[](bright_black)'
 
     [php]
     symbol = ""
     style = "bg:bright_black"
-    format = '[](red)[[ $symbol( $version) ](fg:light_grey bg:bright_black)]($style)[](bright_black)'
+    format = '[](red)[[ $symbol( $version) ](fg:fg bg:bright_black)]($style)[](bright_black)'
 
     [java]
     symbol = " "
     style = "bg:bright_black"
-    format = '[](red)[[ $symbol( $version) ](fg:light_grey bg:bright_black)]($style)[](bright_black)'
+    format = '[](red)[[ $symbol( $version) ](fg:fg bg:bright_black)]($style)[](bright_black)'
 
     [kotlin]
     symbol = ""
     style = "bg:bright_black"
-    format = '[](red)[[ $symbol( $version) ](fg:light_grey bg:bright_black)]($style)[](bright_black)'
+    format = '[](red)[[ $symbol( $version) ](fg:fg bg:bright_black)]($style)[](bright_black)'
 
     [haskell]
     symbol = ""
     style = "bg:bright_black"
-    format = '[](red)[[ $symbol( $version) ](fg:light_grey bg:bright_black)]($style)[](bright_black)'
+    format = '[](red)[[ $symbol( $version) ](fg:fg bg:bright_black)]($style)[](bright_black)'
 
     [python]
     symbol = ""
     style = "bg:bright_black"
-    format = '[](red)[[ $symbol( $version)(\(#$virtualenv\)) ](fg:light_grey bg:bright_black)]($style)[](bright_black)'
+    format = '[](red)[[ $symbol( $version)(\(#$virtualenv\)) ](fg:fg bg:bright_black)]($style)[](bright_black)'
 
     [nix_shell]
     symbol = " "
     style = "bg:bright_black"
-    format = '[](red)[[ $symbol( $state)(\(#$name\)) ](fg:light_grey bg:bright_black)]($style)[](bright_black)'
+    format = '[](red)[[ $symbol( $state)(\(#$name\)) ](fg:fg bg:bright_black)]($style)[](bright_black)'
 
     [docker_context]
     symbol = ""

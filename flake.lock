@@ -388,23 +388,6 @@
         "umbriel": "umbriel"
       }
     },
-    "scenefx": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1787367884,
-        "narHash": "sha256-CanY5gX81OUvTNpafLc9Bkdk26Xrlq99rkrQQd98EKM=",
-        "ref": "umbriel",
-        "rev": "a7ceecd5336edd3ac7245e65ab2ee1b12dfa97ca",
-        "revCount": 319,
-        "type": "git",
-        "url": "https://github.com/noctalia-dev/scenefx"
-      },
-      "original": {
-        "ref": "umbriel",
-        "type": "git",
-        "url": "https://github.com/noctalia-dev/scenefx"
-      }
-    },
     "systems": {
       "locked": {
         "lastModified": 1681028828,
@@ -457,21 +440,21 @@
     },
     "umbriel": {
       "inputs": {
-        "nixpkgs": "nixpkgs_7",
-        "scenefx": "scenefx"
+        "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1787435104,
-        "narHash": "sha256-TMGHMQfilzVp+0QI4MxpLwbjwOckvuJSpnxhNoOUS38=",
-        "owner": "noctalia-dev",
-        "repo": "umbriel",
-        "rev": "5c1c579b323e8cc5a59bceedbd537677350cbd65",
-        "type": "github"
+        "lastModified": 1787482064,
+        "narHash": "sha256-uXdvHqqktQyLZdqX4TsAYA+BmaS1RmY7klCVktthh6U=",
+        "ref": "refs/heads/main",
+        "rev": "75e9358cf333b2bd5803b2a01cb5f472afc4939f",
+        "revCount": 454,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/noctalia-dev/umbriel"
       },
       "original": {
-        "owner": "noctalia-dev",
-        "repo": "umbriel",
-        "type": "github"
+        "type": "git",
+        "url": "https://github.com/noctalia-dev/umbriel"
       }
     }
   },

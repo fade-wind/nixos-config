@@ -121,6 +121,9 @@ follows_mouse_max_scroll = 0.5
 "XF86AudioStop" = "spawn:playerctl stop"
 "XF86MonBrightnessDown" = "spawn:noctalia msg brightness-down"
 "XF86MonBrightnessUp" = "spawn:noctalia msg brightness-up"
+"Mod+S" = "scratchpad-toggle"
+"Mod+Shift+S" = "window-move-to-scratchpad"
+"Mod+Ctrl+S" = "scratchpad-focus-next"
 
 [[window_rule]]
 blur = true
@@ -138,3 +141,8 @@ default_size = [1200, 800]
 [[window_rule]]
 match.app_id = "^(codium|neovide)$"
 default_width = 0.67
+
+[[window_rule]]
+match.app_id = "^(firefox)$"
+blur = false
+opacity = 1.0
