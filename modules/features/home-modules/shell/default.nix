@@ -17,6 +17,7 @@
     ./xdg.nix
     ./yazi
     ./zsh
+    ./starship
   ];
   home.packages = with pkgs; [
     nodejs
@@ -83,12 +84,6 @@
           }
         ];
       };
-    };
-
-    starship = {
-      enable = true;
-      enableBashIntegration = true;
-      enableZshIntegration = true;
     };
 
     zoxide = {
