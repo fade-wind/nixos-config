@@ -184,6 +184,7 @@
     yubioath-flutter
     yubikey-manager
     pulseaudio
+    obsidian
   ];
 
   systemd.services.systemd-machine-id-commit.enable = false;
