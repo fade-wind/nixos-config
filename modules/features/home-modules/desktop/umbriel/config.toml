@@ -34,6 +34,7 @@ transform = "normal"
 
 [appearance]
 prefer_no_csd = true
+animation_ms = 200
 
 [overview]
 zoom = 0.5
@@ -70,9 +71,11 @@ follows_mouse_max_scroll = 0.5
 [keybinds]
 "Ctrl+Alt+Delete" = "session-quit"
 "Ctrl+Print" = "spawn:noctalia msg screenshot-fullscreen"
+"Alt+Tab" = "spawn:noctalia msg window-switcher"
 "Mod" = "spawn:noctalia msg panel-toggle launcher"
 "Mod+Space" = "spawn:noctalia msg panel-toggle control-center"
-"Mod+Shift+Space" = "spawn:noctalia msg panel-toggle launcher"
+"Mod+Shift+Space" = "spawn:noctalia msg settings-toggle "
+"Mod+Escape" = "spawn:noctalia msg panel-toggle session"
 "Mod+1" = "workspace-switch:1"
 "Mod+2" = "workspace-switch:2"
 "Mod+3" = "workspace-switch:3"
@@ -103,8 +106,10 @@ follows_mouse_max_scroll = 0.5
 "Mod+Ctrl+Right" = "column-move-right"
 "Mod+Up" = "window-focus-up"
 "Mod+Down" = "window-focus-down"
-"Mod+Ctrl+Up" = "window-move-to-workspace-next"
-"Mod+Ctrl+Down" = "window-move-to-workspace-previous"
+"Mod+Shift+Up" = "workspace-previous"
+"Mod+Shift+Down" = "workspace-next"
+"Mod+Ctrl+Up" = "window-move-to-workspace-previous"
+"Mod+Ctrl+Down" = "window-move-to-workspace-next"
 "Mod+O" = "overview-toggle"
 "Mod+Shift+Slash" = "cheatsheet-toggle"
 "Mod+T" = "spawn:kitty"
@@ -124,6 +129,7 @@ follows_mouse_max_scroll = 0.5
 "Mod+S" = "scratchpad-toggle"
 "Mod+Shift+S" = "window-move-to-scratchpad"
 "Mod+Ctrl+S" = "scratchpad-focus-next"
+"Mod+V" = "window-toggle-floating"
 
 [[window_rule]]
 blur = true
@@ -145,4 +151,24 @@ default_width = 0.67
 [[window_rule]]
 match.app_id = "^(firefox)$"
 blur = false
-opacity = 1.0
+default_width = 0.75
+
+[[window_rule]]
+match.app_id = "^dev.noctalia.Noctalia$"
+default_floating = true
+default_size = [1020, 900]
+blur_popups = false
+
+[[window_rule]]
+match.is_focused = false
+opacity = 0.85
+
+[[window_rule]]
+match.is_focused = true 
+opacity = 0.95 
+
+[[layer_rule]]
+match.namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd|desktop-widget-[^\"]*)$"
+blur = true
+blur_ignore_alpha = 0.5
+blur_popups = true

@@ -1,5 +1,5 @@
 [bar.default]
-background_opacity = 0.0
+background_opacity = 0.89999997988343239
 border = "surface"
 capsule = true
 capsule_border = "secondary"
@@ -7,7 +7,7 @@ capsule_padding = 8.0
 capsule_thickness = 0.85999999999999999
 center = [ "audio_visualizer", "clock" ]
 color = "primary"
-end = [ "group:g4", "group:g2", "group:g3" ]
+end = [ "group:g4", "tray", "group:g2", "group:g3" ]
 margin_edge = 4.0
 margin_ends = 4.0
 padding = 6
@@ -19,7 +19,8 @@ start = [ "group:g1" ]
     accordion_direction = "end"
     border = "secondary"
     enabled = true
-    fill = "surface"
+    fill = "surface_variant"
+    foreground = "primary"
     id = "g1"
     members = [ "launcher", "active-workspace", "workspaces", "active_window" ]
     opacity = 1.0
@@ -32,7 +33,7 @@ start = [ "group:g1" ]
     enabled = true
     fill = "surface_variant"
     id = "g2"
-    members = [ "tray", "notifications", "clipboard" ]
+    members = [ "notifications", "clipboard" ]
     opacity = 1.0
     padding = 8.0
 
@@ -41,7 +42,7 @@ start = [ "group:g1" ]
     accordion_direction = "start"
     border = "secondary"
     enabled = true
-    fill = "surface"
+    fill = "surface_variant"
     foreground = "primary"
     id = "g3"
     members = [ "session", "network", "bluetooth", "widget", "battery" ]
@@ -54,6 +55,7 @@ start = [ "group:g1" ]
     border = "secondary"
     enabled = true
     fill = "surface_variant"
+    foreground = "primary"
     id = "g4"
     members = [ "widget_2", "summary" ]
     opacity = 1.0
@@ -289,11 +291,14 @@ time_format = "{:%-I:%M %p}"
 
     [shell.panel]
     clipboard_placement = "attached"
+    control_center_position = "top_right"
     floating_layer = "top"
-    launcher_placement = "attached"
+    launcher_placement = "floating"
     open_near_click_clipboard = true
     open_near_click_launcher = true
     open_near_click_wallpaper = true
+    polkit_placement = "attached"
+    transparency_mode = "glass"
 
     [shell.screenshot]
     freeze_screen = true
@@ -339,6 +344,7 @@ timezone = "America/New_York"
 
 [widget.launcher]
 custom_image = "/run/current-system/sw/share/icons/hicolor/scalable/apps/nix-snowflake.svg"
+enabled = false
 
 [widget.media]
 hide_when_no_media = true
@@ -348,6 +354,9 @@ show_label = false
 
 [widget.summary]
 type = "gustav0ar/drive-health:summary"
+
+[widget.tray]
+drawer = true
 
 [widget.widget]
 type = "blackbartblues/audio-switcher:widget"
@@ -362,4 +371,5 @@ type = "weinguyen/procmon:widget"
 
 [widget.workspaces]
 empty_color = "tertiary"
-enabled = false
+enabled = true
+label_source = "name"
