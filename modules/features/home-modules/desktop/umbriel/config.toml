@@ -55,6 +55,7 @@ middle_click_paste = false
 layout = "us"
 repeat_rate = 25
 repeat_delay = 600
+numlock_toggle = true
 
 [input.cursor]
 theme = "Bibata-Modern-Ice"
