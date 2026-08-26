@@ -1,0 +1,175 @@
+[include]
+files = ["noctalia.toml"]
+
+[general]
+autostart = [
+  "noctalia",
+  "wl-paste --type image --watch cliphist store",
+  "wl-paste --type text --watch cliphist store",
+]
+mod_key = "Super"
+xwayland = true
+show_cheatsheet = false
+focus_on_activate = false
+
+[environment]
+EDITOR = "nvim"
+ELECTRON_OZONE_PLATFORM_HINT = "x11"
+QT_QPA_PLATFORM = "wayland"
+QT_QPA_PLATFORMTHEME = "gtk3"
+QT_WAYLAND_DISABLE_WINDOWDECORATION = "1"
+XCURSOR_SIZE = "24"
+XCURSOR_THEME = "Bibata-Modern-Ice"
+XDG_CURRENT_DESKTOP = "niri"
+XDG_SESSION_TYPE = "wayland"
+
+[workspaces]
+back_and_forth = true
+
+[output.eDP-1]
+mode = "1920x1080@120.030000"
+scale = 1.000000
+position = [0, 0]
+transform = "normal"
+
+[appearance]
+prefer_no_csd = true
+animation_ms = 200
+
+[overview]
+zoom = 0.5
+
+[layout]
+mode = "scrolling"
+gap = 8
+width_presets = [0.33, 0.500000, 0.666670]
+
+[layout.scrolling]
+default_width_fraction = 0.5
+center_underfull_strip = true
+
+[input]
+middle_click_paste = false
+
+[input.keyboard]
+layout = "us"
+repeat_rate = 25
+repeat_delay = 600
+
+[input.cursor]
+theme = "Bibata-Modern-Ice"
+size = 24
+
+[input.touchpad]
+tap = true
+natural_scroll = true
+
+[input.focus]
+follows_mouse = false
+follows_mouse_max_scroll = 0.5
+
+[keybinds]
+"Ctrl+Alt+Delete" = "session-quit"
+"Ctrl+Print" = "spawn:noctalia msg screenshot-fullscreen"
+"Alt+Tab" = "spawn:noctalia msg window-switcher"
+"Mod" = "spawn:noctalia msg panel-toggle launcher"
+"Mod+Space" = "spawn:noctalia msg panel-toggle control-center"
+"Mod+Shift+Space" = "spawn:noctalia msg settings-toggle "
+"Mod+Escape" = "spawn:noctalia msg panel-toggle session"
+"Mod+1" = "workspace-switch:1"
+"Mod+2" = "workspace-switch:2"
+"Mod+3" = "workspace-switch:3"
+"Mod+4" = "workspace-switch:4"
+"Mod+5" = "workspace-switch:5"
+"Mod+6" = "workspace-switch:6"
+"Mod+7" = "workspace-switch:7"
+"Mod+8" = "workspace-switch:8"
+"Mod+9" = "workspace-switch:9"
+"Mod+0" = "workspace-switch:1"
+"Mod+Alt+L" = "spawn:noctalia msg session lock"
+"Mod+B" = "spawn:firefox"
+"Mod+Ctrl+V" = "spawn:codium"
+"Mod+D" = "spawn:vesktop"
+"Mod+F" = "window-toggle-maximize" 
+"Mod+Shift+F" = "window-toggle-fullscreen" 
+"Mod+Comma" = "window-consume-left"
+"Mod+Period" = "window-expel-right"
+"Mod+R" = "window-cycle-width"
+"Mod+Shift+R" = "spawn:noctalia msg config-reload"
+"Mod+Ctrl+R" = "config-reload"
+"Mod+N" = "spawn:app2unit -- neovide"
+"Mod+Left" = "window-focus-left"
+"Mod+Right" = "window-focus-right"
+"Mod+Shift+Left" = "layout-scroll-left"
+"Mod+Shift+Right" = "layout-scroll-right"
+"Mod+Ctrl+Left" = "column-move-left"
+"Mod+Ctrl+Right" = "column-move-right"
+"Mod+Up" = "window-focus-up"
+"Mod+Down" = "window-focus-down"
+"Mod+Shift+Up" = "workspace-previous"
+"Mod+Shift+Down" = "workspace-next"
+"Mod+Ctrl+Up" = "window-move-to-workspace-previous"
+"Mod+Ctrl+Down" = "window-move-to-workspace-next"
+"Mod+O" = "overview-toggle"
+"Mod+Shift+Slash" = "cheatsheet-toggle"
+"Mod+T" = "spawn:kitty"
+"Mod+Q" = "window-close"
+"Mod+Y" = "spawn:kitty -e yazi"
+"Print" = "spawn:noctalia msg screenshot-region"
+"XF86AudioLowerVolume" = "spawn:noctalia msg volume-down"
+"XF86AudioMicMute" = "spawn:noctalia msg mic-mute"
+"XF86AudioMute" = "spawn:noctalia msg volume-mute"
+"XF86AudioNext" = "spawn:playerctl next"
+"XF86AudioPlay" = "spawn:playerctl play-pause"
+"XF86AudioPrev" = "spawn:playerctl previous"
+"XF86AudioRaiseVolume" = "spawn:noctalia msg volume-up"
+"XF86AudioStop" = "spawn:playerctl stop"
+"XF86MonBrightnessDown" = "spawn:noctalia msg brightness-down"
+"XF86MonBrightnessUp" = "spawn:noctalia msg brightness-up"
+"Mod+S" = "scratchpad-toggle"
+"Mod+Shift+S" = "window-move-to-scratchpad"
+"Mod+Ctrl+S" = "window-restore-from-scratchpad"
+"Mod+Tab" = "scratchpad-focus-next"
+"Mod+V" = "window-toggle-floating"
+
+[[window_rule]]
+blur = true
+opacity = 0.9
+
+[[window_rule]]
+match.app_id = "^kitty$"
+default_width = 0.33
+
+[[window_rule]]
+match.title = "^filechooser"
+default_floating = true
+default_size = [1200, 800]
+
+[[window_rule]]
+match.app_id = "^(codium|neovide)$"
+default_width = 0.67
+
+[[window_rule]]
+match.app_id = "^(firefox)$"
+blur = false
+default_width = 0.75
+
+[[window_rule]]
+match.app_id = "^dev.noctalia.Noctalia$"
+default_floating = true
+default_size = [1020, 900]
+blur_popups = false
+
+[[window_rule]]
+match.is_focused = false
+opacity = 0.85
+
+[[window_rule]]
+match.is_focused = true 
+opacity = 0.95 
+
+[[layer_rule]]
+match.namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd|desktop-widget-[^\"]*)$"
+blur = true
+blur_ignore_alpha = 0.5
+blur_popups = true

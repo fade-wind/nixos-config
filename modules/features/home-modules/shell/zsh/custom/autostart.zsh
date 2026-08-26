@@ -1,12 +1,6 @@
 export PATH="$HOME/.config/bin:$HOME/.local/share/bin:$HOME/.local/bin:$HOME/.config/zide/bin/:$PATH"
-# eval "$(ssh-agent -s)"
-#. "$HOME/.atuin/bin/env"
 [[ -f $HOME/.venv/bin/activate ]] && source $HOME/.venv/bin/activate
-
-# (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
-# ZSH_HIGHLIGHT_STYLES[path]=none
-# ZSH_HIGHLIGHT_STYLES[path_prefix]=none
-
+export STARSHIP_CONFIG="$HOME/.config/starship.toml";
 
 # Tmux autostart logic
 if command -v tmux >/dev/null 2>&1; then

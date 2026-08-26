@@ -17,6 +17,7 @@
     ./xdg.nix
     ./yazi
     ./zsh
+    ./starship
   ];
   home.packages = with pkgs; [
     nodejs
@@ -53,10 +54,6 @@
         ll = "ls -l";
         nrs = "sudo nixos-rebuild switch --flake $HOME/Projects/nixos-config#${vars.hostname}";
       };
-      initExtra = ''
-        export STARSHIP_CONFIG="/etc/starship-root.toml"
-        eval "$(starship init bash)"
-      '';
     };
 
     nh = {
@@ -83,12 +80,6 @@
           }
         ];
       };
-    };
-
-    starship = {
-      enable = true;
-      enableBashIntegration = true;
-      enableZshIntegration = true;
     };
 
     zoxide = {

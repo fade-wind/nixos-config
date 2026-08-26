@@ -14,7 +14,6 @@
     ../../features/configuration/packages/steam.nix
     ../../features/configuration/networking.nix
     ../../features/configuration/fonts.nix
-    ../../features/home-modules/shell/starship.nix
     inputs.nixos-plymouth.nixosModules.default
     inputs.nur.modules.nixos.default
     inputs.noctalia-greeter.nixosModules.default
@@ -185,6 +184,7 @@
     yubioath-flutter
     yubikey-manager
     pulseaudio
+    obsidian
   ];
 
   systemd.services.systemd-machine-id-commit.enable = false;

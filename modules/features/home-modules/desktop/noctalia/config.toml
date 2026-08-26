@@ -1,15 +1,15 @@
 [bar.default]
-background_opacity = 0.0
-border = "surface"
+background_opacity = 0.89999997988343239
+border = "on_tertiary"
 capsule = true
 capsule_border = "secondary"
 capsule_padding = 8.0
-capsule_thickness = 0.85999999999999999
+capsule_thickness = 0.74999998696148396
 center = [ "audio_visualizer", "clock" ]
 color = "primary"
-end = [ "group:g4", "group:g2", "group:g3" ]
+end = [ "tray", "group:g4", "group:g2", "group:g3" ]
 margin_edge = 4.0
-margin_ends = 4.0
+margin_ends = 20
 padding = 6
 shadow = false
 start = [ "group:g1" ]
@@ -19,9 +19,10 @@ start = [ "group:g1" ]
     accordion_direction = "end"
     border = "secondary"
     enabled = true
-    fill = "surface"
+    fill = "surface_variant"
+    foreground = "primary"
     id = "g1"
-    members = [ "launcher", "active-workspace", "workspaces", "active_window" ]
+    members = [ "launcher", "workspaces", "active_window" ]
     opacity = 1.0
     padding = 8.0
 
@@ -32,19 +33,7 @@ start = [ "group:g1" ]
     enabled = true
     fill = "surface_variant"
     id = "g2"
-    members = [ "tray", "notifications", "clipboard" ]
-    opacity = 1.0
-    padding = 8.0
-
-    [[bar.default.capsule_group]]
-    accordion = true
-    accordion_direction = "start"
-    border = "secondary"
-    enabled = true
-    fill = "surface"
-    foreground = "primary"
-    id = "g3"
-    members = [ "session", "network", "bluetooth", "widget", "battery" ]
+    members = [ "notifications", "clipboard" ]
     opacity = 1.0
     padding = 8.0
 
@@ -54,19 +43,32 @@ start = [ "group:g1" ]
     border = "secondary"
     enabled = true
     fill = "surface_variant"
+    foreground = "primary"
+    id = "g3"
+    members = [ "session", "network", "bluetooth", "widget", "battery" ]
+    opacity = 1.0
+    padding = 8.0
+
+    [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "start"
+    border = "secondary"
+    enabled = true
+    fill = "surface_variant"
+    foreground = "primary"
     id = "g4"
-    members = [ "widget_2", "summary" ]
+    members = [ "ram", "cpu" ]
     opacity = 1.0
     padding = 8.0
 
 [desktop_widgets]
 schema_version = 1
 widget_order = [
-    "desktop-widget-0000000000000001",
-    "desktop-widget-0000000000000002",
+    "desktop-widget-0000000000000007",
     "desktop-widget-0000000000000004",
-    "desktop-widget-0000000000000005",
-    "desktop-widget-0000000000000006"
+    "desktop-widget-0000000000000006",
+    "desktop-widget-0000000000000002",
+    "desktop-widget-0000000000000001"
 ]
 
     [desktop_widgets.grid]
@@ -77,8 +79,8 @@ widget_order = [
     [desktop_widgets.widget.desktop-widget-0000000000000001]
     box_height = 163.98719787597656
     box_width = 257.11016845703125
-    cx = 1774.66455078125
-    cy = 479.8135986328125
+    cx = 1728.55517578125
+    cy = 572.0
     output = "eDP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -86,6 +88,7 @@ widget_order = [
     type = "sysmon"
 
         [desktop_widgets.widget.desktop-widget-0000000000000001.settings]
+        background = false
         display = "graph"
         gauge_layout = "horizontal"
         stat = "cpu_usage"
@@ -94,8 +97,8 @@ widget_order = [
     [desktop_widgets.widget.desktop-widget-0000000000000002]
     box_height = 163.63998413085938
     box_width = 256.39999389648438
-    cx = 1775.0196533203125
-    cy = 316.0
+    cx = 1728.91015625
+    cy = 408.1864013671875
     output = "eDP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -103,17 +106,19 @@ widget_order = [
     type = "sysmon"
 
         [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
+        background = false
         color = "secondary"
+        color2 = "primary"
         display = "graph"
         gauge_layout = "horizontal"
         stat = "ram_pct"
         stat2 = "swap_pct"
 
     [desktop_widgets.widget.desktop-widget-0000000000000004]
-    box_height = 164.16000366210938
-    box_width = 356.39999389648438
-    cx = 191.81394958496094
-    cy = 142.08000183105469
+    box_height = 96.0
+    box_width = 256.0
+    cx = 1729.1102294921875
+    cy = 114.85858154296875
     output = "eDP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -121,6 +126,9 @@ widget_order = [
     type = "weather"
 
         [desktop_widgets.widget.desktop-widget-0000000000000004.settings]
+        background = false
+        color = "secondary"
+        shadow = true
         show_forecast = false
 
     [desktop_widgets.widget.desktop-widget-0000000000000005]
@@ -140,8 +148,8 @@ widget_order = [
     [desktop_widgets.widget.desktop-widget-0000000000000006]
     box_height = 163.5078125
     box_width = 256.129638671875
-    cx = 1775.15478515625
-    cy = 152.25250244140625
+    cx = 1729.04541015625
+    cy = 244.61248779296875
     output = "eDP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -149,10 +157,29 @@ widget_order = [
     type = "sysmon"
 
         [desktop_widgets.widget.desktop-widget-0000000000000006.settings]
+        background = false
         display = "graph"
         network_speed_compact = false
         stat = "net_rx"
         stat2 = "net_tx"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000007]
+    box_height = 608.0
+    box_width = 288.0
+    cx = 1729.1102294921875
+    cy = 364.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "label"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000007.settings]
+        background = true
+        background_opacity = 0.57000000000000006
+        background_radius = 18
+        opacity = 1.0
+        title = ""
 
 [dock]
 active_monitor_only = true
@@ -188,7 +215,12 @@ auto_locate = true
 [lockscreen_widgets]
 enabled = true
 schema_version = 2
-widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000001", "lockscreen-widget-0000000000000002" ]
+widget_order = [
+    "lockscreen-widget-0000000000000003",
+    "lockscreen-login-box@eDP-1",
+    "lockscreen-widget-0000000000000001",
+    "lockscreen-widget-0000000000000002"
+]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -199,7 +231,7 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
     box_height = 196.0
     box_width = 810.0
     cx = 960.0
-    cy = 957.0
+    cy = 970.0
     output = "eDP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -207,7 +239,12 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
         center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
         layout = "regular"
         show_caps_lock = true
         show_keyboard_layout = true
@@ -215,7 +252,7 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
         show_media = true
         show_session_buttons = true
         show_unlock_hint = true
-        show_weather = true
+        show_weather = false
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 160.0
@@ -231,7 +268,7 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
         background = false
         clock_style = "digital"
-        color = "on_surface"
+        color = "secondary"
         font_family = "JetBrainsMono Nerd Font"
         format = "{:%-I:%M %p}"
 
@@ -248,7 +285,22 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
         background = false
+        color = "secondary"
         shadow = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
+    box_height = 368.0
+    box_width = 464.0
+    cx = 242.0
+    cy = 206.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "label"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
+        title = ""
 
 [osd]
 position = "top_right"
@@ -260,18 +312,21 @@ drives_placement = "attached"
 cheatsheet_placement = "attached"
 
 [plugin_settings."piero-93/battery-power-management"]
-panel_placement = "floating"
+panel_placement = "attached"
 
 [plugin_settings."weinguyen/procmon"]
 panel_placement = "attached"
 
+[plugin_settings."yugaaank/better-clock"]
+show_date = false
+time_format = "{:%I:%M %p}"
+
 [plugins]
 enabled = [
-    "salemsayed/niri-active-workspace",
-    "kenn/keybind-cheatsheet",
     "weinguyen/procmon",
     "blackbartblues/audio-switcher",
-    "gustav0ar/drive-health"
+    "gustav0ar/drive-health",
+    "piero-93/battery-power-management"
 ]
 
 [shell]
@@ -289,11 +344,15 @@ time_format = "{:%-I:%M %p}"
 
     [shell.panel]
     clipboard_placement = "attached"
+    control_center_position = "top_right"
     floating_layer = "top"
-    launcher_placement = "attached"
+    launcher_placement = "floating"
     open_near_click_clipboard = true
+    open_near_click_control_center = true
     open_near_click_launcher = true
     open_near_click_wallpaper = true
+    polkit_placement = "attached"
+    transparency_mode = "solid"
 
     [shell.screenshot]
     freeze_screen = true
@@ -336,9 +395,11 @@ title_scroll = "on_hover"
 anchor = true
 format = "{:%-I:%M %p}"
 timezone = "America/New_York"
+tooltip_format = "{:%-I:%M %p}"
 
 [widget.launcher]
 custom_image = "/run/current-system/sw/share/icons/hicolor/scalable/apps/nix-snowflake.svg"
+enabled = true
 
 [widget.media]
 hide_when_no_media = true
@@ -348,6 +409,9 @@ show_label = false
 
 [widget.summary]
 type = "gustav0ar/drive-health:summary"
+
+[widget.tray]
+drawer = true
 
 [widget.widget]
 type = "blackbartblues/audio-switcher:widget"
@@ -362,4 +426,5 @@ type = "weinguyen/procmon:widget"
 
 [widget.workspaces]
 empty_color = "tertiary"
-enabled = false
+enabled = true
+label_source = "name"

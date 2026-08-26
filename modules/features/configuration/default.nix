@@ -9,6 +9,7 @@
     ./podman.nix
     ./security.nix
     ./users.nix
+    inputs.umbriel.nixosModules.default
   ];
   programs.nix-ld.dev.enable = true;
 
@@ -23,5 +24,9 @@
   ];
   programs.niri = {
     enable = true;
+  };
+  programs.umbriel = {
+    enable = true;
+    portalPackage = inputs.xdg-desktop-portal-umbriel.packages.${pkgs.stdenv.hostPlatform.system}.default;
   };
 }
