@@ -128,7 +128,8 @@ follows_mouse_max_scroll = 0.5
 "XF86MonBrightnessUp" = "spawn:noctalia msg brightness-up"
 "Mod+S" = "scratchpad-toggle"
 "Mod+Shift+S" = "window-move-to-scratchpad"
-"Mod+Ctrl+S" = "scratchpad-focus-next"
+"Mod+Ctrl+S" = "window-restore-from-scratchpad"
+"Mod+Tab" = "scratchpad-focus-next"
 "Mod+V" = "window-toggle-floating"
 
 [[window_rule]]
