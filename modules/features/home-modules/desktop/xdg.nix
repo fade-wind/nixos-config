@@ -20,6 +20,7 @@
         "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
         "org.freedesktop.impl.portal.FileChooser" = [ "termfilechooser" ];
       };
+      config.umbriel.default = "umbriel";
     };
 
     configFile."xdg-desktop-portal-termfilechooser/config" = {
